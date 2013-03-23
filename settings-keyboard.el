@@ -113,4 +113,6 @@
 
 (global-set-key (kbd "s-r s-d") 'rainbow-delimiters-mode)
 
+(global-set-key (kbd "s-x s-f") 'fold-this)
+
 (provide 'settings-keyboard)
