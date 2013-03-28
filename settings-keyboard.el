@@ -115,4 +115,7 @@
 
 (global-set-key (kbd "s-x s-f") 'fold-this)
 
+(global-unset-key (kbd "C-x C-b"))
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (provide 'settings-keyboard)
