@@ -1,8 +1,9 @@
 ;; PATH
 (add-to-list 'load-path user-emacs-directory)
 
-(require 'settings)
+(require 'packages)
 (require 'display)
+(require 'settings)
 
 (require 'keyboard)
 
