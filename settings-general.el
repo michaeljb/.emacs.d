@@ -3,4 +3,6 @@
 
 (setq ring-bell-function 'ignore)
 
+(show-paren-mode t)
+
 (provide 'settings-general)

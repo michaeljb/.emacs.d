@@ -118,4 +118,10 @@
 (global-unset-key (kbd "C-x C-b"))
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key (kbd "C-x s-f s-o") 'filesets-open)
+(global-set-key (kbd "C-x s-f s-e") 'filesets-edit)
+(global-set-key (kbd "C-x s-f s-c") 'filesets-close)
+(global-set-key (kbd "C-x s-f s-s") 'filesets-save)
+(global-set-key (kbd "C-x s-f s-a") 'filesets-add-buffer)
+
 (provide 'settings-keyboard)
