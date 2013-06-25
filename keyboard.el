@@ -124,4 +124,4 @@
 (global-set-key (kbd "C-x s-f s-s") 'filesets-save)
 (global-set-key (kbd "C-x s-f s-a") 'filesets-add-buffer)
 
-(provide 'settings-keyboard)
+(provide 'keyboard)

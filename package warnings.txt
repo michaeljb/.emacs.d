@@ -1,0 +1,10 @@
+Warning (emacs): Unable to activate package `impatient-mode'.
+Required package `htmlize-1.40' is unavailable
+Warning (emacs): Unable to activate package `epc'.
+Required package `concurrent-0.3.1' is unavailable
+Warning (emacs): Unable to activate package `impatient-mode'.
+Required package `htmlize-1.40' is unavailable
+Warning (emacs): Unable to activate package `epc'.
+Required package `concurrent-0.3.1' is unavailable
+
+
