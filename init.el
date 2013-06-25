@@ -13,8 +13,6 @@
 
 (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
 
-(require 'filesets+)
-
 ;; (setq filesets-menu-path ("file"))
 ;; (setq filesets-menu-before "Open File...")
 
