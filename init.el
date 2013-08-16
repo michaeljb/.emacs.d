@@ -241,8 +241,25 @@
 ;; -------------------------------------
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
-(setq-default js2-global-externs (list "_" "$" "define" "document" "window"))
 (setq-default js2-allow-keywords-as-property-names nil)
+
+;; jasmine and specit keywords
+(defvar spec-globals
+  '("afterEach" "after" "assert" "be" "before" "beforeEach" "describe" "eql"
+    "expect" "it" "jasmine" "runs" "should" "sinon" "spyOn" "waitsFor"
+    "xdescribe" "xit"))
+
+;; jQuery, require, underscore
+(defvar library-globals
+  '("$" "_" "define" "jQuery"))
+
+(defvar misc-globals
+  '("console" "document" "JSON" "window"))
+
+(setq-default js2-global-externs (append
+                                  spec-globals
+                                  library-globals
+                                  misc-globals))
 
 ;; -------------------------------------
 ;; Ruby
