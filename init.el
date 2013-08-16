@@ -1,6 +1,7 @@
 ;; -------------------------------------
 ;; Packages
 ;; -------------------------------------
+
 (require 'package)
 
 (add-to-list 'package-archives
@@ -32,6 +33,7 @@
          (unless (package-installed-p package)
            (package-install package)))
       mjb-packages)
+
 
 ;; -------------------------------------
 ;; General stuff
@@ -85,6 +87,7 @@
 
 (load-theme 'solarized-dark)
 
+
 ;; -------------------------------------
 ;; Mac Settings
 ;; -------------------------------------
@@ -128,6 +131,7 @@
 (global-unset-key (kbd "s-y"))
 (global-unset-key (kbd "s-z"))
 (global-unset-key (kbd "s--"))
+
 
 ;; -------------------------------------
 ;; Custom Key Bindings
@@ -191,6 +195,7 @@
 (global-unset-key (kbd "C-x C-b"))
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+
 ;; -------------------------------------
 ;; Dev
 ;; -------------------------------------
@@ -236,9 +241,11 @@
          (add-hook mode-hook 'run-dev-hook))
       dev-mode-hooks)
 
+
 ;; -------------------------------------
 ;; JavaScript
 ;; -------------------------------------
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
@@ -261,9 +268,11 @@
                                   library-globals
                                   misc-globals))
 
+
 ;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
+
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
