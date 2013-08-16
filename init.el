@@ -39,6 +39,11 @@
 ;; General stuff
 ;; -------------------------------------
 
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+(load-theme 'solarized-dark)
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
@@ -61,9 +66,6 @@
 (setq desktop-dirname "~/")
 (desktop-save-mode 1)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
 (require 'ido)
 (ido-mode t)
 
@@ -84,8 +86,6 @@
 (setq ring-bell-function 'ignore)
 
 (show-paren-mode t)
-
-(load-theme 'solarized-dark)
 
 
 ;; -------------------------------------
