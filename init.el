@@ -227,15 +227,20 @@
 
 (yas-global-mode 1)
 
-
 (defvar dev-mode-hooks
   '(emacs-lisp-mode-hook
-    ruby-mode-hook
-    js2-mode-hook))
+    js2-mode-hook
+    ruby-mode-hook))
 
 (mapc #'(lambda (mode-hook)
          (add-hook mode-hook 'run-dev-hook))
       dev-mode-hooks)
+
+;; -------------------------------------
+;; JavaScript
+;; -------------------------------------
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq-default js2-basic-offset 2)
 
 ;; -------------------------------------
 ;; Ruby
@@ -247,9 +252,3 @@
 (add-to-list 'auto-mode-alist '("Gemfile.lock$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-
-;; -------------------------------------
-;; JavaScript
-;; -------------------------------------
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-basic-offset 2)
