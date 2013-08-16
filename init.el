@@ -13,6 +13,7 @@
 
 (defvar mjb-packages
   '(auto-complete
+    dash
     edit-server
     expand-region
     flycheck
@@ -25,6 +26,7 @@
     magit
     man-commands
     markdown-mode
+    multiple-cursors
     rainbow-delimiters
     rubocop
     solarized-theme
@@ -248,6 +250,8 @@
 ;; JavaScript
 ;; -------------------------------------
 
+(require 'js2-refactor)
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
@@ -265,10 +269,8 @@
 (defvar misc-globals
   '("console" "document" "JSON" "window"))
 
-(setq-default js2-global-externs (append
-                                  spec-globals
-                                  library-globals
-                                  misc-globals))
+(setq-default js2-global-externs (append spec-globals library-globals
+                                         misc-globals))
 
 
 ;; -------------------------------------
