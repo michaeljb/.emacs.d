@@ -42,10 +42,10 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(load-theme 'solarized-dark)
-
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
+
+(load-theme 'solarized-dark)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -277,6 +277,6 @@
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile.lock$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile\\.lock$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
