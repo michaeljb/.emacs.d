@@ -1,13 +1,15 @@
-*~
-\#*\#
+\#*
 .\#*
+*~
+.*~
 
-*.elc
-
-auto-save-list/*
+*elc
 
 .DS_Store
-elpa/**/*
-url/
-bookmarks
-floobits/
+ac-comphist.dat
+custom.el
+filesets-cache.el
+
+auto-save-list
+backups/*
+elpa
