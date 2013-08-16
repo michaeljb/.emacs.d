@@ -14,6 +14,7 @@
 (defvar mjb-packages
   '(auto-complete
     edit-server
+    expand-region
     flycheck
     flycheck-color-mode-line
     google-this
@@ -201,6 +202,7 @@
 ;; -------------------------------------
 
 (global-set-key (kbd "C-j") 'reindent-then-newline-and-indent)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; use spaces instead of tabs, obviously
 (setq-default indent-tabs-mode nil)
