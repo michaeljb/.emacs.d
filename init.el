@@ -241,6 +241,8 @@
 ;; -------------------------------------
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
+(setq-default js2-global-externs (list "_" "$" "define" "document" "window"))
+(setq-default js2-allow-keywords-as-property-names nil)
 
 ;; -------------------------------------
 ;; Ruby
