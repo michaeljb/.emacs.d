@@ -1,3 +1,6 @@
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
 ;; -------------------------------------
 ;; Packages
 ;; -------------------------------------
@@ -39,23 +42,28 @@
 
 
 ;; -------------------------------------
-;; General stuff
+;; Display stuff
 ;; -------------------------------------
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
-
 (load-theme 'solarized-dark)
 
-;; Auto refresh buffers
-(global-auto-revert-mode 1)
+(set-fringe-mode 0)
+(setq linum-format "%d ")
+
+
+;; -------------------------------------
+;; General stuff
+;; -------------------------------------
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
 
 ;; Also auto refresh dired, but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
@@ -81,12 +89,9 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
-(set-fringe-mode 0)
-(setq linum-format "%d ")
+(setq ring-bell-function 'ignore)
 
 (global-hl-line-mode 1)
-
-(setq ring-bell-function 'ignore)
 
 (show-paren-mode t)
 
@@ -206,12 +211,12 @@
 (global-set-key (kbd "C-j") 'reindent-then-newline-and-indent)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; use spaces instead of tabs, obviously
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-
 ;; don't let the trailing whitespace hide
 (setq-default show-trailing-whitespace t)
+
+(defun use-spaces ()
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2))
 
 (defun add-line-numbers ()
   (linum-mode 1))
@@ -223,18 +228,21 @@
 (defun dev-before-save-hook ()
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
+(defun enable-yasnippets ()
+  (yas-global-mode 1))
+
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
+(add-hook 'dev-hook 'use-spaces)
 (add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
+(add-hook 'dev-hook 'enable-yasnippets)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
   (interactive)
   (run-hooks 'dev-hook))
-
-(yas-global-mode 1)
 
 (defvar dev-mode-hooks
   '(emacs-lisp-mode-hook
