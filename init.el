@@ -38,10 +38,9 @@
     solarized-theme
     yasnippet))
 
-(mapc #'(lambda (package)
-         (unless (package-installed-p package)
-           (package-install package)))
-      mjb-packages)
+(dolist (p mjb-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 
 ;; -------------------------------------
@@ -284,9 +283,8 @@
     js2-mode-hook
     ruby-mode-hook))
 
-(mapc #'(lambda (mode-hook)
-         (add-hook mode-hook 'run-dev-hook))
-      dev-mode-hooks)
+(dolist (h dev-mode-hooks)
+  (add-hook h 'run-dev-hook))
 
 
 ;; -------------------------------------
