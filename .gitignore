@@ -13,3 +13,4 @@ filesets-cache.el
 auto-save-list
 backups/*
 elpa
+url
