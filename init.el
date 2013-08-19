@@ -305,7 +305,7 @@
 
 ;; jQuery, require, underscore
 (defvar library-globals
-  '("$" "_" "define" "jQuery"))
+  '("$" "_" "Backbone" "define" "jQuery"))
 
 (defvar misc-globals
   '("console" "document" "JSON" "window"))
