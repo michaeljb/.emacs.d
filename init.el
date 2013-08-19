@@ -307,11 +307,7 @@
 (defvar library-globals
   '("$" "_" "Backbone" "define" "jQuery"))
 
-(defvar misc-globals
-  '("console" "document" "JSON" "window"))
-
-(setq-default js2-global-externs (append spec-globals library-globals
-                                         misc-globals))
+(setq-default js2-global-externs (append spec-globals library-globals))
 
 
 ;; -------------------------------------
