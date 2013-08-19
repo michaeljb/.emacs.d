@@ -245,7 +245,6 @@
 ;; Dev
 ;; -------------------------------------
 
-(global-set-key (kbd "C-j") 'reindent-then-newline-and-indent)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (yas-global-mode 1)
