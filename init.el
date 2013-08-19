@@ -18,6 +18,7 @@
 
 (defvar mjb-packages
   '(auto-complete
+    better-defaults
     dash
     edit-server
     expand-region
@@ -47,9 +48,6 @@
 ;; Display stuff
 ;; -------------------------------------
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
 (load-theme 'solarized-dark)
 
 (set-fringe-mode 0)
@@ -59,10 +57,6 @@
 ;; -------------------------------------
 ;; General stuff
 ;; -------------------------------------
-
-;; Add parts of each file's directory to the buffer name if not unique
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -194,7 +188,7 @@
 (global-set-key (kbd "s-r s-c") 'comment-region)
 (global-set-key (kbd "s-r s-u") 'uncomment-region)
 
-;; replace-faster
+;; replace faster
 (global-unset-key (kbd "M-%"))
 (global-set-key (kbd "s-r s-q") 'query-replace)
 (global-set-key (kbd "s-r s-r") 'replace-rectangle)
@@ -221,10 +215,6 @@
 (global-set-key (kbd "s-r s-b") 'revert-buffer)
 
 (global-set-key (kbd "s-r s-d") 'rainbow-delimiters-mode)
-
-;; use ibuffer instead of the normal buffer
-(global-unset-key (kbd "C-x C-b"))
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (global-set-key (kbd "s-j")
                 (lambda ()
@@ -259,11 +249,12 @@
 (global-set-key (kbd "C-j") 'reindent-then-newline-and-indent)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(yas-global-mode 1)
+
 ;; don't let the trailing whitespace hide
 (setq-default show-trailing-whitespace t)
 
-(defun use-spaces ()
-  (setq-default indent-tabs-mode nil)
+(defun set-width ()
   (setq-default tab-width 2))
 
 (defun add-line-numbers ()
@@ -276,16 +267,12 @@
 (defun dev-before-save-hook ()
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
-(defun enable-yasnippets ()
-  (yas-global-mode 1))
-
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
-(add-hook 'dev-hook 'use-spaces)
+(add-hook 'dev-hook 'set-width)
 (add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
-(add-hook 'dev-hook 'enable-yasnippets)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
