@@ -35,6 +35,7 @@
     multiple-cursors
     rainbow-delimiters
     rubocop
+    rvm
     solarized-theme
     yasnippet
     yaml-mode))
@@ -314,6 +315,8 @@
 ;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
+
+(rvm-use-default)
 
 (setq ruby-deep-indent-paren nil)
 
