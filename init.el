@@ -280,6 +280,10 @@
   (paredit-mode)
   (diminish 'paredit-mode))
 
+(defun run-flycheck ()
+  (flycheck-mode)
+  (diminish 'flycheck-mode))
+
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
 (add-hook 'dev-hook 'set-width)
@@ -287,6 +291,7 @@
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
 (add-hook 'dev-hook 'run-paredit)
+(add-hook 'dev-hook 'run-flycheck)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
