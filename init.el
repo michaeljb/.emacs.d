@@ -20,6 +20,7 @@
   '(auto-complete
     better-defaults
     dash
+    diminish
     edit-server
     exec-path-from-shell
     expand-region
@@ -256,6 +257,7 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (yas-global-mode 1)
+(diminish 'yas-minor-mode)
 
 ;; don't let the trailing whitespace hide
 (setq-default show-trailing-whitespace t)
@@ -268,10 +270,15 @@
 
 (require 'auto-complete)
 (defun add-auto-complete ()
-  (auto-complete-mode 1))
+  (auto-complete-mode 1)
+  (diminish 'auto-complete-mode))
 
 (defun dev-before-save-hook ()
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
+
+(defun run-paredit ()
+  (paredit-mode)
+  (diminish 'paredit-mode))
 
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
@@ -279,7 +286,7 @@
 (add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
-(add-hook 'dev-hook 'paredit-mode)
+(add-hook 'dev-hook 'run-paredit)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
