@@ -36,7 +36,8 @@
     rainbow-delimiters
     rubocop
     solarized-theme
-    yasnippet))
+    yasnippet
+    yaml-mode))
 
 (dolist (p mjb-packages)
   (when (not (package-installed-p p))
@@ -280,7 +281,8 @@
 (defvar dev-mode-hooks
   '(emacs-lisp-mode-hook
     js2-mode-hook
-    ruby-mode-hook))
+    ruby-mode-hook
+    yaml-mode-hook))
 
 (dolist (h dev-mode-hooks)
   (add-hook h 'run-dev-hook))
@@ -312,6 +314,8 @@
 ;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
+
+(setq ruby-deep-indent-paren nil)
 
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
