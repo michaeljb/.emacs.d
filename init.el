@@ -34,6 +34,7 @@
     man-commands
     markdown-mode
     multiple-cursors
+    paredit
     rainbow-delimiters
     rubocop
     rvm
@@ -276,6 +277,7 @@
 (add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
+(add-hook 'dev-hook 'paredit-mode)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
