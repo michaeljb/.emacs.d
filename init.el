@@ -327,6 +327,11 @@
 
 (setq ruby-deep-indent-paren nil)
 
+(defun mjb-ruby-mode-hook ()
+  (add-hook 'after-save-hook 'rubocop-run-on-current-file t t))
+
+(add-hook 'ruby-mode-hook 'mjb-ruby-mode-hook)
+
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
