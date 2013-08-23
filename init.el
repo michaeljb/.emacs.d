@@ -299,6 +299,22 @@
   (paredit-mode)
   (diminish 'paredit-mode))
 
+;; magnars flycheck settings
+(defun magnars/adjust-flycheck-automatic-syntax-eagerness ()
+  "Adjust how often we check for errors based on if there are any.
+
+This lets us fix any errors as quickly as possible, but in a
+clean buffer we're an order of magnitude laxer about checking."
+  (setq flycheck-idle-change-delay
+        (if flycheck-current-errors 0.5 5.0)))
+
+;; Each buffer gets its own idle-change-delay because of the
+;; buffer-sensitive adjustment above.
+(make-variable-buffer-local 'flycheck-idle-change-delay)
+
+(add-hook 'flycheck-after-syntax-check-hook
+          'magnars/adjust-flycheck-automatic-syntax-eagerness)
+
 (defun run-flycheck ()
   (flycheck-mode)
   (diminish 'flycheck-mode))
@@ -338,15 +354,22 @@
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
 
+;; Let flycheck handle parse errors
+(setq-default js2-show-parse-errors nil)
+(setq-default js2-strict-missing-semi-warning nil)
+(setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
+
+(setq-default flycheck-jshintrc ".jshintrc.json")
+
 ;; jasmine and specit keywords
 (defvar spec-globals
   '("afterEach" "after" "assert" "be" "before" "beforeEach" "describe" "eql"
     "expect" "it" "jasmine" "runs" "should" "sinon" "spyOn" "waitsFor"
-    "xdescribe" "xit"))
+    "xdescribe" "xit" "requireMock"))
 
 ;; jQuery, require, underscore
 (defvar library-globals
-  '("$" "_" "Backbone" "define" "jQuery"))
+  '("$" "_" "Backbone" "define" "jQuery" "module"))
 
 (setq-default js2-global-externs (append spec-globals library-globals))
 
