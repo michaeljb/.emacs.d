@@ -21,6 +21,7 @@
     better-defaults
     dash
     edit-server
+    exec-path-from-shell
     expand-region
     flycheck
     flycheck-color-mode-line
@@ -58,6 +59,8 @@
 ;; -------------------------------------
 ;; General stuff
 ;; -------------------------------------
+
+(exec-path-from-shell-initialize)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
