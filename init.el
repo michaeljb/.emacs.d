@@ -1,3 +1,14 @@
+;;; init --- michaeljb emacs configuration
+;;; Commentary:
+
+;; In the beginning...
+;;
+;; "Emacs outshines all other editing software in approximately the
+;; same way that the noonday sun does the stars.  It is not just bigger
+;; and brighter; it simply makes everything else vanish."
+;; -Neal Stephenson, "In the Beginning was the Command Line"
+
+;;; Code:
 (setq inhibit-startup-screen t)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -307,6 +318,7 @@
 (defvar dev-mode-hooks
   '(emacs-lisp-mode-hook
     js2-mode-hook
+    python-mode-hook
     ruby-mode-hook
     yaml-mode-hook))
 
@@ -357,3 +369,5 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\.lock$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+
+;;; init.el ends here
