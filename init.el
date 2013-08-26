@@ -120,6 +120,8 @@
 
 (setq-default require-final-newline t)
 
+;; my escape key is broken, getting it back in place results in unwanted closing of windows
+(global-unset-key (kbd "ESC ESC ESC"))
 
 ;; -------------------------------------
 ;; Mac Settings
