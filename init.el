@@ -70,7 +70,7 @@
 
 (exec-path-from-shell-initialize)
 
-(setq-default rainbow-delimiters-mode t)
+(global-rainbow-delimiters-mode)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
