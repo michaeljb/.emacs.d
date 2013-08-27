@@ -89,8 +89,8 @@
 (edit-server-start)
 
 ;; Session Saving
-(setq desktop-dirname "~/")
-(desktop-save-mode 1)
+(setq desktop-dirname user-emacs-directory)
+(desktop-save-mode t)
 
 (require 'ido)
 (ido-mode t)
