@@ -48,7 +48,6 @@
     multiple-cursors
     paredit
     rainbow-delimiters
-    rubocop
     rvm
     solarized-theme
     yasnippet
@@ -381,11 +380,6 @@ clean buffer we're an order of magnitude laxer about checking."
 (rvm-use-default)
 
 (setq ruby-deep-indent-paren nil)
-
-(defun mjb-ruby-mode-hook ()
-  (add-hook 'after-save-hook 'rubocop-run-on-current-file t t))
-
-(add-hook 'ruby-mode-hook 'mjb-ruby-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
