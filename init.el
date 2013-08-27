@@ -1,12 +1,8 @@
 ;;; init --- michaeljb emacs configuration
 ;;; Commentary:
 
-;; In the beginning...
-;;
-;; "Emacs outshines all other editing software in approximately the
-;; same way that the noonday sun does the stars.  It is not just bigger
-;; and brighter; it simply makes everything else vanish."
-;; -Neal Stephenson, "In the Beginning was the Command Line"
+;; "Emacs is undoubtedly the most powerful programmer's editor in existence."
+;; - Eric S. Raymond, "The Art of UNIX Programming"
 
 ;;; Code:
 (setq inhibit-startup-screen t)
@@ -313,6 +309,10 @@ clean buffer we're an order of magnitude laxer about checking."
 
 (add-hook 'flycheck-after-syntax-check-hook
           'magnars/adjust-flycheck-automatic-syntax-eagerness)
+
+(require 'flycheck-color-mode-line)
+(eval-after-load "flycheck"
+  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 (defun run-flycheck ()
   (flycheck-mode)
