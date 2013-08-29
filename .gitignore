@@ -5,7 +5,6 @@
 
 .DS_Store
 ac-comphist.dat
-custom.el
 .emacs.desktop
 .emacs.desktop.lock
 filesets-cache.el
