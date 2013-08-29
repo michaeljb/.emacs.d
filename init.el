@@ -380,6 +380,13 @@ clean buffer we're an order of magnitude laxer about checking."
 
 
 ;; -------------------------------------
+;; JSON
+;; -------------------------------------
+
+(add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
+
+
+;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
 
