@@ -38,6 +38,7 @@
     jade-mode
     js2-mode
     js2-refactor
+    json-mode
     magit
     man-commands
     markdown-mode
@@ -335,6 +336,7 @@ clean buffer we're an order of magnitude laxer about checking."
 (defvar dev-mode-hooks
   '(emacs-lisp-mode-hook
     js2-mode-hook
+    json-mode-hook
     python-mode-hook
     ruby-mode-hook
     yaml-mode-hook))
@@ -363,8 +365,6 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default js2-show-parse-errors nil)
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
-
-(setq-default flycheck-jshintrc ".jshintrc.json")
 
 ;; jasmine and specit keywords
 (defvar spec-globals
