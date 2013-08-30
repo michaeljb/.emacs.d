@@ -36,6 +36,7 @@
     google-this
     hl-line+
     jade-mode
+    jedi
     js2-mode
     js2-refactor
     json-mode
@@ -291,10 +292,6 @@
 (defun dev-before-save-hook ()
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
-(defun run-paredit ()
-  (paredit-mode)
-  (diminish 'paredit-mode))
-
 ;; magnars flycheck settings
 (defun magnars/adjust-flycheck-automatic-syntax-eagerness ()
   "Adjust how often we check for errors based on if there are any.
@@ -316,8 +313,7 @@ clean buffer we're an order of magnitude laxer about checking."
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 (defun run-flycheck ()
-  (flycheck-mode)
-  (diminish 'flycheck-mode))
+  (flycheck-mode))
 
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
@@ -325,7 +321,6 @@ clean buffer we're an order of magnitude laxer about checking."
 (add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
-(add-hook 'dev-hook 'run-paredit)
 (add-hook 'dev-hook 'run-flycheck)
 
 (defun run-dev-hook ()
@@ -385,6 +380,14 @@ clean buffer we're an order of magnitude laxer about checking."
 
 (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
 
+
+;; -------------------------------------
+;; Python
+;; -------------------------------------
+
+(require 'python)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
 
 ;; -------------------------------------
 ;; Ruby
