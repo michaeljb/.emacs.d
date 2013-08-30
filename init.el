@@ -81,6 +81,8 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
+(server-start)
+
 ;; Edit with Emacs for Chrome
 (require 'edit-server)
 (edit-server-start)
