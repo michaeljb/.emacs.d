@@ -331,7 +331,8 @@ clean buffer we're an order of magnitude laxer about checking."
   (run-hooks 'dev-hook))
 
 (defvar dev-mode-hooks
-  '(emacs-lisp-mode-hook
+  '(c-mode-hook
+    emacs-lisp-mode-hook
     js2-mode-hook
     json-mode-hook
     python-mode-hook
@@ -345,6 +346,15 @@ clean buffer we're an order of magnitude laxer about checking."
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
+
+
+;; -------------------------------------
+;; C
+;; -------------------------------------
+
+(setq-default c-default-style "linux"
+              c-basic-offset 2)
+
 
 ;; -------------------------------------
 ;; JavaScript
