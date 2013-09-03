@@ -364,6 +364,7 @@ clean buffer we're an order of magnitude laxer about checking."
 (require 'js2-refactor)
 
 (add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq ac-js2-evaluate-calls t)
 
 (rename-modeline "js2-mode" js2-mode "js2")
 
@@ -394,6 +395,7 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; -------------------------------------
 
 (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
+(setq js-indent-level 2)
 
 
 ;; -------------------------------------
