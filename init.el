@@ -24,7 +24,7 @@
 (package-initialize)
 
 (defvar mjb-packages
-  '(ac-js2-mode
+  '(ac-js2
     auto-complete
     better-defaults
     dash
