@@ -24,7 +24,8 @@
 (package-initialize)
 
 (defvar mjb-packages
-  '(auto-complete
+  '(ac-js2-mode
+    auto-complete
     better-defaults
     dash
     diminish
@@ -361,6 +362,8 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; -------------------------------------
 
 (require 'js2-refactor)
+
+(add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (rename-modeline "js2-mode" js2-mode "js2")
 
