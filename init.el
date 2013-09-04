@@ -243,6 +243,8 @@
 
 (global-set-key (kbd "s-r s-d") 'rainbow-delimiters-mode)
 
+(global-set-key (kbd "s-w s-s") 'whitespace-mode)
+
 (global-set-key (kbd "s-j")
                 (lambda ()
                   (interactive)
