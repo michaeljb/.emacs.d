@@ -358,6 +358,8 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default c-default-style "linux"
               c-basic-offset 2)
 
+(setq-default flycheck-clang-include-path '("."))
+
 
 ;; -------------------------------------
 ;; JavaScript
