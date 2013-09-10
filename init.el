@@ -245,6 +245,8 @@
 
 (global-set-key (kbd "s-w s-s") 'whitespace-mode)
 
+(global-set-key (kbd "s-r s-e") 'eval-region)
+
 (global-set-key (kbd "s-j")
                 (lambda ()
                   (interactive)
