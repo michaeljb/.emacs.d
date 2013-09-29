@@ -141,6 +141,12 @@
 
 
 ;; -------------------------------------
+;; Tramp
+;; -------------------------------------
+
+(setq tramp-default-method "ssh")
+
+;; -------------------------------------
 ;; Mac Settings
 ;; -------------------------------------
 
@@ -247,6 +253,8 @@
 
 (global-set-key (kbd "s-r s-e") 'eval-region)
 
+(global-set-key (kbd "s-m s-f") 'flycheck-mode)
+
 (global-set-key (kbd "s-j")
                 (lambda ()
                   (interactive)
@@ -337,6 +345,7 @@ clean buffer we're an order of magnitude laxer about checking."
 
 (defvar dev-mode-hooks
   '(c-mode-hook
+    csharp-mode-hook
     emacs-lisp-mode-hook
     js2-mode-hook
     json-mode-hook
@@ -360,8 +369,16 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default c-default-style "linux"
               c-basic-offset 2)
 
-(setq-default flycheck-clang-include-path '("."))
+(add-hook 'c-mode-hook (lambda () (
+                                   (setq indent-tabs-mode t)
+                                   ((setq flycheck-clang-include-path '("."))))))
 
+;; -------------------------------------
+;; C#
+;; -------------------------------------
+
+(add-hook 'csharp-mode-hook (lambda () (setq indent-tabs-mode t)))
+(setq-default csharp--flymake-has-been-installed nil)
 
 ;; -------------------------------------
 ;; JavaScript
@@ -409,8 +426,8 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; -------------------------------------
 
 (require 'python)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:setup-keys t)
 
 ;; -------------------------------------
 ;; Ruby
