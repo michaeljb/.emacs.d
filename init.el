@@ -369,9 +369,7 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default c-default-style "linux"
               c-basic-offset 2)
 
-(add-hook 'c-mode-hook (lambda () (
-                                   (setq indent-tabs-mode t)
-                                   ((setq flycheck-clang-include-path '("."))))))
+(add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; -------------------------------------
 ;; C#
