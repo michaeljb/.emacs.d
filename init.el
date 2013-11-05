@@ -296,9 +296,6 @@
 (defun set-width ()
   (setq-default tab-width 2))
 
-(defun add-line-numbers ()
-  (linum-mode 1))
-
 (require 'auto-complete)
 (defun add-auto-complete ()
   (auto-complete-mode 1)
@@ -327,16 +324,15 @@ clean buffer we're an order of magnitude laxer about checking."
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
-(defun run-flycheck ()
-  (flycheck-mode))
+;; (defun run-flycheck ()
+;;   (flycheck-mode))
 
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
 (add-hook 'dev-hook 'set-width)
-(add-hook 'dev-hook 'add-line-numbers)
 (add-hook 'dev-hook 'add-auto-complete)
 (add-hook 'dev-hook 'dev-before-save-hook)
-(add-hook 'dev-hook 'run-flycheck)
+;; (add-hook 'dev-hook 'run-flycheck)
 
 (defun run-dev-hook ()
   "Enable things that are convenient across all dev buffers."
@@ -349,7 +345,7 @@ clean buffer we're an order of magnitude laxer about checking."
     emacs-lisp-mode-hook
     js2-mode-hook
     json-mode-hook
-    python-mode-hook
+    ;; python-mode-hook
     ruby-mode-hook
     yaml-mode-hook))
 
@@ -376,7 +372,13 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; -------------------------------------
 
 (add-hook 'csharp-mode-hook (lambda () (setq indent-tabs-mode t)))
-(setq-default csharp--flymake-has-been-installed nil)
+;; (setq-default csharp--flymake-has-been-installed nil)
+
+;; -------------------------------------
+;; C++
+;; -------------------------------------
+
+;; (setq-default flycheck-clang-include-path '("/Users/michael/local/cxxtest-4.3/"))
 
 ;; -------------------------------------
 ;; JavaScript
@@ -423,7 +425,7 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; Python
 ;; -------------------------------------
 
-(require 'python)
+;; (require 'python)
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; (setq jedi:setup-keys t)
 
