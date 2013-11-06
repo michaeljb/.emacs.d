@@ -52,7 +52,7 @@
     paredit
     rainbow-delimiters
     rvm
-;;    solarized-theme
+    solarized-theme
     yasnippet
     yaml-mode
     zenburn-theme))
@@ -66,7 +66,7 @@
 ;; Display stuff
 ;; -------------------------------------
 
-(load-theme 'zenburn)
+(load-theme 'solarized-dark)
 
 (set-fringe-mode 0)
 (setq linum-format "%d ")
