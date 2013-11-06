@@ -7,6 +7,10 @@
 ;;; Code:
 (setq inhibit-startup-screen t)
 
+(unless (boundp 'user-emacs-directory)
+  (defvar user-emacs-directory "~/.emacs.d/"
+    "See also 'locate-user-emacs-file'."))
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
@@ -48,9 +52,10 @@
     paredit
     rainbow-delimiters
     rvm
-    solarized-theme
+;;    solarized-theme
     yasnippet
-    yaml-mode))
+    yaml-mode
+    zenburn-theme))
 
 (dolist (p mjb-packages)
   (when (not (package-installed-p p))
@@ -61,7 +66,7 @@
 ;; Display stuff
 ;; -------------------------------------
 
-(load-theme 'solarized-dark)
+(load-theme 'zenburn)
 
 (set-fringe-mode 0)
 (setq linum-format "%d ")
