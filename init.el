@@ -386,6 +386,12 @@ clean buffer we're an order of magnitude laxer about checking."
 ;; (setq-default flycheck-clang-include-path '("/Users/michael/local/cxxtest-4.3/"))
 
 ;; -------------------------------------
+;; CSS
+;; -------------------------------------
+
+(setq-default css-indent-offset 2)
+
+;; -------------------------------------
 ;; JavaScript
 ;; -------------------------------------
 
