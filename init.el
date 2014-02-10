@@ -76,6 +76,9 @@
 ;; General stuff
 ;; -------------------------------------
 
+(global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
+(global-unset-key (kbd "C-x C-c"))
+
 (exec-path-from-shell-initialize)
 
 (global-rainbow-delimiters-mode)
@@ -370,7 +373,13 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default c-default-style "linux"
               c-basic-offset 2)
 
+(setq-default indent-tabs-mode t)
+
 (add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode t)))
+
+;; csharp-mode's flymake stuff is ruining things
+(add-to-list 'auto-mode-alist '(".cs$" . c-mode))
+
 
 ;; -------------------------------------
 ;; C#
@@ -430,7 +439,14 @@ clean buffer we're an order of magnitude laxer about checking."
 
 (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
 (setq js-indent-level 2)
+(add-hook 'json-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
+
+;; -------------------------------------
+;; MATLAB
+;; -------------------------------------
+
+(setq default-fill-column nil)
 
 ;; -------------------------------------
 ;; Python
