@@ -373,8 +373,6 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default c-default-style "linux"
               c-basic-offset 2)
 
-(setq-default indent-tabs-mode t)
-
 (add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; csharp-mode's flymake stuff is ruining things
