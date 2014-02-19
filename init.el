@@ -66,7 +66,7 @@
 ;; Display stuff
 ;; -------------------------------------
 
-(load-theme 'solarized-dark)
+(load-theme 'solarized-light)
 
 (set-fringe-mode 0)
 (setq linum-format "%d ")
