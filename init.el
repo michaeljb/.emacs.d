@@ -5,6 +5,7 @@
 ;; - Eric S. Raymond, "The Art of UNIX Programming"
 
 ;;; Code:
+
 (setq inhibit-startup-screen t)
 
 (unless (boundp 'user-emacs-directory)
@@ -27,57 +28,39 @@
 
 (package-initialize)
 
-(defvar mjb-packages
-  '(ac-js2
-    auto-complete
-    better-defaults
-    dash
-    diminish
+(defvar michaeljb-packages
+  '(better-defaults
     edit-server
     exec-path-from-shell
     expand-region
-    flycheck
-    flycheck-color-mode-line
-    google-this
     hl-line+
-    jade-mode
-    jedi
-    js2-mode
-    js2-refactor
-    json-mode
-    magit
     man-commands
-    markdown-mode
-    multiple-cursors
-    paredit
     rainbow-delimiters
     rvm
-    solarized-theme
-    yasnippet
+    markdown-mode
+    jade-mode
+    js2-mode
+    json-mode
+    sass-mode
     yaml-mode
+    solarized-theme
     zenburn-theme))
 
-(dolist (p mjb-packages)
+(dolist (p michaeljb-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
 
 ;; -------------------------------------
 ;; Display stuff
 ;; -------------------------------------
 
 (load-theme 'solarized-light)
-
 (set-fringe-mode 0)
 (setq linum-format "%d ")
-
 
 ;; -------------------------------------
 ;; General stuff
 ;; -------------------------------------
-
-(global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
-(global-unset-key (kbd "C-x C-c"))
 
 (exec-path-from-shell-initialize)
 
@@ -99,9 +82,6 @@
 ;; Session Saving
 (setq desktop-dirname user-emacs-directory)
 (desktop-save-mode t)
-
-(require 'ido)
-(ido-mode t)
 
 ;; echo keystrokes quickly
 (setq echo-keystrokes 0.01)
@@ -131,11 +111,6 @@
                                  (blink-matching-open))))
         (when matching-text (message matching-text))))
 
-;; Write backup files to own directory
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
-
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
@@ -146,7 +121,6 @@
 
 ;; Real emacs knights don't use shift to mark things
 (setq shift-select-mode nil)
-
 
 ;; -------------------------------------
 ;; Tramp
@@ -198,10 +172,12 @@
 (global-unset-key (kbd "s-z"))
 (global-unset-key (kbd "s--"))
 
-
 ;; -------------------------------------
 ;; Custom Key Bindings
 ;; -------------------------------------
+
+(global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
+(global-unset-key (kbd "C-x C-c"))
 
 ;; unset some bindings for SizeUp
 (global-unset-key (kbd "C-M-h")) ;; default - mark-defun
@@ -236,7 +212,9 @@
 (global-set-key (kbd "s-r s-s") 'replace-string)
 (global-set-key (kbd "s-r s-x") 'replace-regexp)
 
-;; yo dawg, I heard you like saving keystrokes with keyboard macros, so I bound your macro commands to shorter keystrokes so you save keystrokes while you're saving keystrokes
+;; yo dawg, I heard you like saving keystrokes with keyboard macros, so I bound
+;; your macro commands to shorter keystrokes so you save keystrokes while you're
+;; saving keystrokes
 (global-set-key (kbd "s-9") 'kmacro-start-macro)
 (global-set-key (kbd "s-0") 'kmacro-end-macro)
 (global-set-key (kbd "s-e") 'kmacro-end-and-call-macro)
@@ -249,19 +227,13 @@
 (global-set-key (kbd "M-p") 'mark-paragraph)
 (global-set-key (kbd "C-?") 'help-command)
 
-;; toggle row highlighting
 (global-set-key (kbd "s-x s-l") 'global-hl-line-mode)
-
-;; quickly reload from disk
 (global-set-key (kbd "s-r s-b") 'revert-buffer)
-
 (global-set-key (kbd "s-r s-d") 'rainbow-delimiters-mode)
-
 (global-set-key (kbd "s-w s-s") 'whitespace-mode)
-
 (global-set-key (kbd "s-r s-e") 'eval-region)
 
-(global-set-key (kbd "s-m s-f") 'flycheck-mode)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (global-set-key (kbd "s-j")
                 (lambda ()
@@ -293,110 +265,16 @@
 ;; Dev
 ;; -------------------------------------
 
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-(yas-global-mode 1)
-(diminish 'yas-minor-mode)
-
-;; don't let the trailing whitespace hide
+;; trailing whitespace is stupid
 (setq-default show-trailing-whitespace t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(defun set-width ()
-  (setq-default tab-width 2))
-
-(require 'auto-complete)
-(defun add-auto-complete ()
-  (auto-complete-mode 1)
-  (diminish 'auto-complete-mode))
-
-(defun dev-before-save-hook ()
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
-
-;; magnars flycheck settings
-(defun magnars/adjust-flycheck-automatic-syntax-eagerness ()
-  "Adjust how often we check for errors based on if there are any.
-
-This lets us fix any errors as quickly as possible, but in a
-clean buffer we're an order of magnitude laxer about checking."
-  (setq flycheck-idle-change-delay
-        (if flycheck-current-errors 0.5 5.0)))
-
-;; Each buffer gets its own idle-change-delay because of the
-;; buffer-sensitive adjustment above.
-(make-variable-buffer-local 'flycheck-idle-change-delay)
-
-(add-hook 'flycheck-after-syntax-check-hook
-          'magnars/adjust-flycheck-automatic-syntax-eagerness)
-
-(require 'flycheck-color-mode-line)
-(eval-after-load "flycheck"
-  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-
-;; (defun run-flycheck ()
-;;   (flycheck-mode))
-
-(defvar dev-hook nil
-  "Hook that gets run on activation of any programming mode.")
-(add-hook 'dev-hook 'set-width)
-(add-hook 'dev-hook 'add-auto-complete)
-(add-hook 'dev-hook 'dev-before-save-hook)
-;; (add-hook 'dev-hook 'run-flycheck)
-
-(defun run-dev-hook ()
-  "Enable things that are convenient across all dev buffers."
-  (interactive)
-  (run-hooks 'dev-hook))
-
-(defvar dev-mode-hooks
-  '(c-mode-hook
-    csharp-mode-hook
-    emacs-lisp-mode-hook
-    js2-mode-hook
-    json-mode-hook
-    ;; python-mode-hook
-    ruby-mode-hook
-    yaml-mode-hook))
-
-(dolist (h dev-mode-hooks)
-  (add-hook h 'run-dev-hook))
+(setq-default tab-width 2)
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
-
-
-;; -------------------------------------
-;; C
-;; -------------------------------------
-
-(setq-default c-default-style "linux"
-              c-basic-offset 2)
-
-(add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode t)))
-
-;; csharp-mode's flymake stuff is ruining things
-(add-to-list 'auto-mode-alist '(".cs$" . c-mode))
-
-
-;; -------------------------------------
-;; C#
-;; -------------------------------------
-
-(add-hook 'csharp-mode-hook (lambda () (setq indent-tabs-mode t)))
-;; (setq-default csharp--flymake-has-been-installed nil)
-
-;; -------------------------------------
-;; C++
-;; -------------------------------------
-
-;; (setq-default flycheck-clang-include-path '("/Users/michael/local/cxxtest-4.3/"))
-
-;; -------------------------------------
-;; CSS
-;; -------------------------------------
-
-(setq-default css-indent-offset 2)
 
 ;; -------------------------------------
 ;; JavaScript
@@ -413,23 +291,7 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
 
-;; Let flycheck handle parse errors
-(setq-default js2-show-parse-errors nil)
-(setq-default js2-strict-missing-semi-warning nil)
-(setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
-
-;; jasmine and specit keywords
-(defvar spec-globals
-  '("afterEach" "after" "assert" "be" "before" "beforeEach" "describe" "eql"
-    "expect" "it" "jasmine" "runs" "should" "sinon" "spyOn" "waitsFor"
-    "xdescribe" "xit" "requireMock"))
-
-;; jQuery, require, underscore
-(defvar library-globals
-  '("$" "_" "Backbone" "define" "jQuery" "module"))
-
-(setq-default js2-global-externs (append spec-globals library-globals))
-
+;; TODO: find globals from .jshintrc
 
 ;; -------------------------------------
 ;; JSON
@@ -439,26 +301,9 @@ clean buffer we're an order of magnitude laxer about checking."
 (setq js-indent-level 2)
 (add-hook 'json-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
-
-;; -------------------------------------
-;; MATLAB
-;; -------------------------------------
-
-(setq default-fill-column nil)
-
-;; -------------------------------------
-;; Python
-;; -------------------------------------
-
-;; (require 'python)
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:setup-keys t)
-
 ;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
-
-(rvm-use-default)
 
 (setq ruby-deep-indent-paren nil)
 
