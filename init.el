@@ -41,7 +41,7 @@
     jade-mode
     js2-mode
     json-mode
-    sass-mode
+    scss-mode
     yaml-mode
     solarized-theme
     zenburn-theme))
