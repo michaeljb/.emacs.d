@@ -37,10 +37,15 @@
     man-commands
     rainbow-delimiters
     rvm
-    markdown-mode
+    smex
+    git-commit-mode
+    git-rebase-mode
     jade-mode
     js2-mode
     json-mode
+    markdown-mode
+    puppet-mode
+    puppetfile-mode
     scss-mode
     yaml-mode
     solarized-theme
@@ -235,6 +240,10 @@
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 (global-set-key (kbd "s-j")
                 (lambda ()
                   (interactive)
@@ -275,6 +284,12 @@
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
+
+;; -------------------------------------
+;; CSS
+;; -------------------------------------
+
+(setq css-indent-offset 2)
 
 ;; -------------------------------------
 ;; JavaScript
