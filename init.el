@@ -287,14 +287,14 @@
 
 (setq-default tab-width 2)
 
+;; auto-indentation
+(auto-indent-global-mode)
+(setq auto-indent-on-visit-file t)
+
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
-
-(setq ac-auto-start 1)
-
-(setq auto-indent-on-visit-file t)
 
 ;; -------------------------------------
 ;; CSS
