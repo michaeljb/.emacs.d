@@ -41,8 +41,6 @@
     rainbow-delimiters
     rvm
     smex
-    tern
-    tern-auto-complete
     auto-indent-mode
     git-commit-mode
     git-rebase-mode
@@ -310,12 +308,16 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; auto-complete with ac-js2
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 (setq ac-js2-evaluate-calls t)
 
+;; normal js2-mode vars
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
+(setq js2-highlight-level 3)
 
+;; js2-refactor
 (js2r-add-keybindings-with-prefix "M-J")
 
 ;; Let flycheck/jshint handle parse errors
@@ -323,15 +325,6 @@
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 (add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
-
-;; (add-hook 'js2-mode-hook (lambda () (auto-complete-mode)))
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(eval-after-load 'tern
-  '(progn
-     (require 'tern-auto-complete)
-     (tern-ac-setup)))
-
-(setq js2-highlight-level 3)
 
 ;; TODO: find globals from .jshintrc
 
