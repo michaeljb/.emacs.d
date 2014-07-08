@@ -181,6 +181,8 @@
 ;; Custom Key Bindings
 ;; -------------------------------------
 
+(global-set-key (kbd "C-j") 'reindent-then-newline-and-indent)
+
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-unset-key (kbd "C-x C-c"))
 
