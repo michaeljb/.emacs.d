@@ -315,6 +315,8 @@
 (setq-default js2-basic-offset 2)
 (setq-default js2-allow-keywords-as-property-names nil)
 
+(js2r-add-keybindings-with-prefix "M-J")
+
 ;; TODO: find globals from .jshintrc
 
 ;; -------------------------------------
