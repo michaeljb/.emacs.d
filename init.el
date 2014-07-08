@@ -306,6 +306,8 @@
 ;; JavaScript
 ;; -------------------------------------
 
+(add-to-list 'ac-modes 'js2-mode)
+
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 (setq ac-js2-evaluate-calls t)
 
@@ -322,12 +324,15 @@
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 
-(add-hook 'js-mode-hook (lambda () (flycheck-mode t)))
+(add-hook 'js2-mode-hook (lambda () (auto-complete-mode t)))
 (add-hook 'js2-mode-hook (lambda () (flycheck-mode t)))
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+  '(progn
+     (require 'tern-auto-complete)
+     (tern-ac-setup)))
 
 (setq js2-highlight-level 3)
-
-(setq-default flycheck-javascript-jshint-executable "node_modules/grunt-contrib-jshint/node_modules/jshint/bin/jshint")
 
 ;; TODO: find globals from .jshintrc
 
