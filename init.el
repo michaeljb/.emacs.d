@@ -29,15 +29,19 @@
 (package-initialize)
 
 (defvar michaeljb-packages
-  '(better-defaults
+  '(ac-js2
+    auto-complete
+    better-defaults
     edit-server
     exec-path-from-shell
     expand-region
     hl-line+
+    js2-refactor
     man-commands
     rainbow-delimiters
     rvm
     smex
+    auto-indent-mode
     git-commit-mode
     git-rebase-mode
     jade-mode
@@ -49,6 +53,7 @@
     scss-mode
     yaml-mode
     solarized-theme
+    web-mode
     zenburn-theme))
 
 (dolist (p michaeljb-packages)
@@ -286,6 +291,10 @@
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
+
+(setq ac-auto-start 1)
+
+(setq auto-indent-on-visit-file t)
 
 ;; -------------------------------------
 ;; CSS
