@@ -35,6 +35,8 @@
     edit-server
     exec-path-from-shell
     expand-region
+    flycheck
+    helm
     hl-line+
     js2-refactor
     man-commands
@@ -52,8 +54,8 @@
     puppetfile-mode
     scss-mode
     yaml-mode
-    solarized-theme
     web-mode
+    solarized-theme
     zenburn-theme))
 
 (dolist (p michaeljb-packages)
@@ -326,7 +328,23 @@
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 (add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
+;; use M-x helm-imenu to quickly jump to functiond definitions
+(add-hook 'js2-mode-hook (lambda () (js2-imenu-extras-mode)))
+
+
+;; define some constants that js2-mode doesn't need to worry about
 ;; TODO: find globals from .jshintrc
+(defconst js2-jshint-node-externs
+  '("__filename" "__dirname" "Buffer" "DataView" "console" "exports"
+    "GLOBAL" "global" "module" "process" "require" "setTimeout"
+    "clearTimeout" "setInterval" "clearInterval"))
+
+(defun js2-jshint-add-additional-globals (globals)
+  (setq js2-additional-externs
+        (append globals js2-additional-externs)))
+
+(add-hook 'js2-mode-hook (lambda ()
+                           (js2-jshint-add-additional-globals js2-jshint-node-externs)))
 
 ;; -------------------------------------
 ;; JSON
