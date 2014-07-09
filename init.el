@@ -331,7 +331,6 @@
 ;; use M-x helm-imenu to quickly jump to functiond definitions
 (add-hook 'js2-mode-hook (lambda () (js2-imenu-extras-mode)))
 
-
 ;; define some constants that js2-mode doesn't need to worry about
 ;; TODO: find globals from .jshintrc
 (defconst js2-jshint-node-externs
