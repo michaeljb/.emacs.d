@@ -439,8 +439,9 @@
     "moment"))
 
 ;; should really read from jshintrc for these ones
-(defconst js2-externs-misc
-  '("requireMock" "debug"))
+(defconst js2-externs-project-misc
+  '("ActiveXObject" "Backbone" "Bloodhound" "L" "OpenLayers" "OpenSearchlight"
+    "XRegExp" "_" "debug" "define" "moment" "nsidc" "requireMock" "sinon"))
 
 (setq-default js2-additional-externs
               (append
@@ -450,7 +451,7 @@
                js2-externs-node
                js2-externs-requirejs
                js2-externs-libraries
-               js2-externs-misc))
+               js2-externs-project-misc))
 
 ;; -------------------------------------
 ;; JSON
