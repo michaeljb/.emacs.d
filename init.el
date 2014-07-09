@@ -419,16 +419,20 @@
   '("jasmine" "describe" "it" "xit" "beforeEach" "afterEach" "setFixtures"
     "loadFixtures" "spyOn" "expect" "runs" "waitsFor" "waits"))
 
+(defconst jshint-externs-jquery
+  '("$" "jQuery"))
+
 (defconst jshint-externs-node
   '("__filename" "__dirname" "GLOBAL" "global" "module" "require" "Buffer"
     "console" "exports" "process" "setTimeout" "clearTimeout" "setInterval"
     "clearInterval" "setImmediate" "clearImmediate"))
 
 ;; this should probably be in another file
-(defconst js2-externs-jshint
+(defconst jshint-externs
   (append
    jshint-externs-browser
    jshint-externs-devel
+   jshint-externs-jasmine
    jshint-externs-jasmine
    jshint-externs-node))
 
@@ -437,14 +441,14 @@
   '("ActiveXObject" "Backbone" "Bloodhound" "L" "OpenLayers" "OpenSearchlight"
     "XRegExp" "_" "debug" "define" "moment" "nsidc" "requireMock" "sinon"))
 
-(defconst js2-externs-projects
+(defconst project-externs
   (append
    project-externs-search-portal))
 
 (setq-default js2-additional-externs
               (append
-               js2-externs-jshint
-               js2-externs-projects))
+               jshint-externs
+               project-externs))
 
 ;; -------------------------------------
 ;; JSON
