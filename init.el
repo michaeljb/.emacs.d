@@ -333,8 +333,7 @@
 
 ;; define some constants that js2-mode doesn't need to worry about
 
-;; matching jshint's browser constants
-(defconst js2-externs-devel
+(defconst jshint-externs-browser
   '("Audio" "Blob" "addEventListener" "applicationCache" "atob" "blur" "btoa"
     "cancelAnimationFrame" "CanvasGradient" "CanvasPattern"
     "CanvasRenderingContext2D" "clearInterval" "clearTimeout" "close" "closed"
@@ -413,45 +412,39 @@
     "XPathEvaluator" "XPathException" "XPathExpression" "XPathNamespace"
     "XPathNSResolver" "XPathResult"))
 
-;; matching jshint's devel constants
-(defconst js2-externs-devel
+(defconst jshint-externs-devel
   '("alert" "confirm" "console" "Debug" "opera" "prompt"))
 
-;; matching jshint's jasmine constants
-(defconst js2-externs-jasmine
+(defconst jshint-externs-jasmine
   '("jasmine" "describe" "it" "xit" "beforeEach" "afterEach" "setFixtures"
     "loadFixtures" "spyOn" "expect" "runs" "waitsFor" "waits"))
 
-;; matching jshint's node constants
-(defconst js2-externs-node
+(defconst jshint-externs-node
   '("__filename" "__dirname" "GLOBAL" "global" "module" "require" "Buffer"
     "console" "exports" "process" "setTimeout" "clearTimeout" "setInterval"
     "clearInterval" "setImmediate" "clearImmediate"))
 
-(defconst js2-externs-requirejs
-  '("requirejs" "require" "define"))
+;; this should probably be in another file
+(defconst js2-externs-jshint
+  (append
+   jshint-externs-browser
+   jshint-externs-devel
+   jshint-externs-jasmine
+   jshint-externs-node))
 
-;; libraries with 2 or fewer globals to define
-(defconst js2-externs-libraries
-  '("Backbone"
-    "$" "jQuery"
-    "L"
-    "moment"))
-
-;; should really read from jshintrc for these ones
-(defconst js2-externs-project-misc
+;; constants from .jshintrc in nsidc-acadis-search-portal
+(defconst project-externs-search-portal
   '("ActiveXObject" "Backbone" "Bloodhound" "L" "OpenLayers" "OpenSearchlight"
     "XRegExp" "_" "debug" "define" "moment" "nsidc" "requireMock" "sinon"))
 
+(defconst js2-externs-projects
+  (append
+   project-externs-search-portal))
+
 (setq-default js2-additional-externs
               (append
-               js2-externs-browser
-               js2-externs-devel
-               js2-externs-jasmine
-               js2-externs-node
-               js2-externs-requirejs
-               js2-externs-libraries
-               js2-externs-project-misc))
+               js2-externs-jshint
+               js2-externs-projects))
 
 ;; -------------------------------------
 ;; JSON
