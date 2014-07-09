@@ -332,18 +332,125 @@
 (add-hook 'js2-mode-hook (lambda () (js2-imenu-extras-mode)))
 
 ;; define some constants that js2-mode doesn't need to worry about
-;; TODO: find globals from .jshintrc
-(defconst js2-jshint-node-externs
-  '("__filename" "__dirname" "Buffer" "DataView" "console" "exports"
-    "GLOBAL" "global" "module" "process" "require" "setTimeout"
-    "clearTimeout" "setInterval" "clearInterval"))
 
-(defun js2-jshint-add-additional-globals (globals)
-  (setq js2-additional-externs
-        (append globals js2-additional-externs)))
+;; matching jshint's browser constants
+(defconst js2-externs-devel
+  '("Audio" "Blob" "addEventListener" "applicationCache" "atob" "blur" "btoa"
+    "cancelAnimationFrame" "CanvasGradient" "CanvasPattern"
+    "CanvasRenderingContext2D" "clearInterval" "clearTimeout" "close" "closed"
+    "CustomEvent" "DOMParser" "defaultStatus" "document" "Element"
+    "ElementTimeControl" "Event" "event" "FileReader" "FormData" "focus"
+    "frames" "getComputedStyle" "HTMLElement" "HTMLAnchorElement"
+    "HTMLBaseElement" "HTMLBlockquoteElement" "HTMLBodyElement" "HTMLBRElement"
+    "HTMLButtonElement" "HTMLCanvasElement" "HTMLDirectoryElement"
+    "HTMLDivElement" "HTMLDListElement" "HTMLFieldSetElement" "HTMLFontElement"
+    "HTMLFormElement" "HTMLFrameElement" "HTMLFrameSetElement" "HTMLHeadElement"
+    "HTMLHeadingElement" "HTMLHRElement" "HTMLHtmlElement" "HTMLIFrameElement"
+    "HTMLImageElement" "HTMLInputElement" "HTMLIsIndexElement" "HTMLLabelElement"
+    "HTMLLayerElement" "HTMLLegendElement" "HTMLLIElement" "HTMLLinkElement"
+    "HTMLMapElement" "HTMLMenuElement" "HTMLMetaElement" "HTMLModElement"
+    "HTMLObjectElement" "HTMLOListElement" "HTMLOptGroupElement" "HTMLOptionElement"
+    "HTMLParagraphElement" "HTMLParamElement" "HTMLPreElement" "HTMLQuoteElement"
+    "HTMLScriptElement" "HTMLSelectElement" "HTMLStyleElement"
+    "HTMLTableCaptionElement" "HTMLTableCellElement" "HTMLTableColElement"
+    "HTMLTableElement" "HTMLTableRowElement" "HTMLTableSectionElement"
+    "HTMLTextAreaElement" "HTMLTitleElement" "HTMLUListElement" "HTMLVideoElement"
+    "history" "Image" "length" "localStorage" "location" "matchMedia"
+    "MessageChannel" "MessageEvent" "MessagePort" "MouseEvent" "moveBy" "moveTo"
+    "MutationObserver" "name" "Node" "NodeFilter" "NodeList" "navigator"
+    "onbeforeunload" "onblur" "onerror" "onfocus" "onload" "onresize" "onunload"
+    "open" "openDatabase" "opener" "Option" "parent" "print" "requestAnimationFrame"
+    "removeEventListener" "resizeBy" "resizeTo" "screen" "scroll" "scrollBy"
+    "scrollTo" "sessionStorage" "setInterval" "setTimeout" "SharedWorker" "status"
+    "SVGAElement" "SVGAltGlyphDefElement" "SVGAltGlyphElement"
+    "SVGAltGlyphItemElement" "SVGAngle" "SVGAnimateColorElement" "SVGAnimateElement"
+    "SVGAnimateMotionElement" "SVGAnimateTransformElement" "SVGAnimatedAngle"
+    "SVGAnimatedBoolean" "SVGAnimatedEnumeration" "SVGAnimatedInteger"
+    "SVGAnimatedLength" "SVGAnimatedLengthList" "SVGAnimatedNumber"
+    "SVGAnimatedNumberList" "SVGAnimatedPathData" "SVGAnimatedPoints"
+    "SVGAnimatedPreserveAspectRatio" "SVGAnimatedRect" "SVGAnimatedString"
+    "SVGAnimatedTransformList" "SVGAnimationElement" "SVGCSSRule" "SVGCircleElement"
+    "SVGClipPathElement" "SVGColor" "SVGColorProfileElement" "SVGColorProfileRule"
+    "SVGComponentTransferFunctionElement" "SVGCursorElement" "SVGDefsElement"
+    "SVGDescElement" "SVGDocument" "SVGElement" "SVGElementInstance"
+    "SVGElementInstanceList" "SVGEllipseElement" "SVGExternalResourcesRequired"
+    "SVGFEBlendElement" "SVGFEColorMatrixElement" "SVGFEComponentTransferElement"
+    "SVGFECompositeElement" "SVGFEConvolveMatrixElement"
+    "SVGFEDiffuseLightingElement" "SVGFEDisplacementMapElement"
+    "SVGFEDistantLightElement" "SVGFEFloodElement" "SVGFEFuncAElement"
+    "SVGFEFuncBElement" "SVGFEFuncGElement" "SVGFEFuncRElement"
+    "SVGFEGaussianBlurElement" "SVGFEImageElement" "SVGFEMergeElement"
+    "SVGFEMergeNodeElement" "SVGFEMorphologyElement" "SVGFEOffsetElement"
+    "SVGFEPointLightElement" "SVGFESpecularLightingElement" "SVGFESpotLightElement"
+    "SVGFETileElement" "SVGFETurbulenceElement" "SVGFilterElement"
+    "SVGFilterPrimitiveStandardAttributes" "SVGFitToViewBox" "SVGFontElement"
+    "SVGFontFaceElement" "SVGFontFaceFormatElement" "SVGFontFaceNameElement"
+    "SVGFontFaceSrcElement" "SVGFontFaceUriElement" "SVGForeignObjectElement"
+    "SVGGElement" "SVGGlyphElement" "SVGGlyphRefElement" "SVGGradientElement"
+    "SVGHKernElement" "SVGICCColor" "SVGImageElement" "SVGLangSpace" "SVGLength"
+    "SVGLengthList" "SVGLineElement" "SVGLinearGradientElement" "SVGLocatable"
+    "SVGMPathElement" "SVGMarkerElement" "SVGMaskElement" "SVGMatrix"
+    "SVGMetadataElement" "SVGMissingGlyphElement" "SVGNumber" "SVGNumberList"
+    "SVGPaint" "SVGPathElement" "SVGPathSeg" "SVGPathSegArcAbs" "SVGPathSegArcRel"
+    "SVGPathSegClosePath" "SVGPathSegCurvetoCubicAbs" "SVGPathSegCurvetoCubicRel"
+    "SVGPathSegCurvetoCubicSmoothAbs" "SVGPathSegCurvetoCubicSmoothRel"
+    "SVGPathSegCurvetoQuadraticAbs" "SVGPathSegCurvetoQuadraticRel"
+    "SVGPathSegCurvetoQuadraticSmoothAbs" "SVGPathSegCurvetoQuadraticSmoothRel"
+    "SVGPathSegLinetoAbs" "SVGPathSegLinetoHorizontalAbs"
+    "SVGPathSegLinetoHorizontalRel" "SVGPathSegLinetoRel"
+    "SVGPathSegLinetoVerticalAbs" "SVGPathSegLinetoVerticalRel" "SVGPathSegList"
+    "SVGPathSegMovetoAbs" "SVGPathSegMovetoRel" "SVGPatternElement" "SVGPoint"
+    "SVGPointList" "SVGPolygonElement" "SVGPolylineElement" "SVGPreserveAspectRatio"
+    "SVGRadialGradientElement" "SVGRect" "SVGRectElement" "SVGRenderingIntent"
+    "SVGSVGElement" "SVGScriptElement" "SVGSetElement" "SVGStopElement"
+    "SVGStringList" "SVGStylable" "SVGStyleElement" "SVGSwitchElement"
+    "SVGSymbolElement" "SVGTRefElement" "SVGTSpanElement" "SVGTests"
+    "SVGTextContentElement" "SVGTextElement" "SVGTextPathElement"
+    "SVGTextPositioningElement" "SVGTitleElement" "SVGTransform" "SVGTransformList"
+    "SVGTransformable" "SVGURIReference" "SVGUnitTypes" "SVGUseElement"
+    "SVGVKernElement" "SVGViewElement" "SVGViewSpec" "SVGZoomAndPan" "TimeEvent"
+    "top" "URL" "WebSocket" "window" "Worker" "XMLHttpRequest" "XMLSerializer"
+    "XPathEvaluator" "XPathException" "XPathExpression" "XPathNamespace"
+    "XPathNSResolver" "XPathResult"))
 
-(add-hook 'js2-mode-hook (lambda ()
-                           (js2-jshint-add-additional-globals js2-jshint-node-externs)))
+;; matching jshint's devel constants
+(defconst js2-externs-devel
+  '("alert" "confirm" "console" "Debug" "opera" "prompt"))
+
+;; matching jshint's jasmine constants
+(defconst js2-externs-jasmine
+  '("jasmine" "describe" "it" "xit" "beforeEach" "afterEach" "setFixtures"
+    "loadFixtures" "spyOn" "expect" "runs" "waitsFor" "waits"))
+
+;; matching jshint's node constants
+(defconst js2-externs-node
+  '("__filename" "__dirname" "GLOBAL" "global" "module" "require" "Buffer"
+    "console" "exports" "process" "setTimeout" "clearTimeout" "setInterval"
+    "clearInterval" "setImmediate" "clearImmediate"))
+
+(defconst js2-externs-requirejs
+  '("requirejs" "require" "define"))
+
+;; libraries with 2 or fewer globals to define
+(defconst js2-externs-libraries
+  '("Backbone"
+    "$" "jQuery"
+    "L"
+    "moment"))
+
+;; should really read from jshintrc for these ones
+(defconst js2-externs-misc
+  '("requireMock" "debug"))
+
+(setq-default js2-additional-externs
+              (append
+               js2-externs-browser
+               js2-externs-devel
+               js2-externs-jasmine
+               js2-externs-node
+               js2-externs-requirejs
+               js2-externs-libraries
+               js2-externs-misc))
 
 ;; -------------------------------------
 ;; JSON
