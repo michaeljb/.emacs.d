@@ -43,7 +43,6 @@
     rainbow-delimiters
     rvm
     smex
-    auto-indent-mode
     git-commit-mode
     git-rebase-mode
     jade-mode
@@ -292,10 +291,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq-default tab-width 2)
-
-;; auto-indentation
-(auto-indent-global-mode)
-(setq auto-indent-on-visit-file t)
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
