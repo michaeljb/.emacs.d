@@ -297,6 +297,8 @@
      '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
 
+(setq-default fill-column 80)
+
 ;; -------------------------------------
 ;; CSS
 ;; -------------------------------------
