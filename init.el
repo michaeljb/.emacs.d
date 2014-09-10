@@ -282,6 +282,8 @@
                   (interactive)
                   (ignore-errors (backward-char 5))))
 
+(global-set-key (kbd "C-c g") 'magit-status)
+
 ;; -------------------------------------
 ;; Dev
 ;; -------------------------------------
