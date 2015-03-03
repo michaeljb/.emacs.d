@@ -7,6 +7,7 @@
 ;;; Code:
 
 (setq inhibit-startup-screen t)
+(set-fringe-mode 0)
 
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"
@@ -41,7 +42,6 @@
     js2-refactor
     man-commands
     rainbow-delimiters
-    rvm
     smex
 
     ;; modes
@@ -70,7 +70,6 @@
 ;; General stuff
 ;; -------------------------------------
 
-(set-fringe-mode 0)
 (setq linum-format "%d ")
 
 (exec-path-from-shell-initialize)
@@ -104,6 +103,11 @@
 (setq ring-bell-function 'ignore)
 
 (global-hl-line-mode 1)
+
+(load-theme 'solarized-dark)
+
+(set-frame-font "Inconsolata-dz 12" nil t)
+
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
@@ -412,11 +416,5 @@
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 
 (setq web-mode-markup-indent-offset 2)
-
-
-;; theme never loads right, maybe if I put it last?
-
-(load-theme 'solarized-dark)
-(set-frame-font "Inconsolata-dz 12" nil t)
 
 ;;; init.el ends here
