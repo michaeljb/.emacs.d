@@ -43,6 +43,8 @@
     rainbow-delimiters
     rvm
     smex
+
+    ;; modes
     git-commit-mode
     git-rebase-mode
     jade-mode
@@ -52,10 +54,11 @@
     puppet-mode
     puppetfile-mode
     scss-mode
-    yaml-mode
     web-mode
-    solarized-theme
-    zenburn-theme))
+    yaml-mode
+
+    ;; themes
+    solarized-theme))
 
 (dolist (p michaeljb-packages)
   (when (not (package-installed-p p))
@@ -63,23 +66,16 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-(require 'js2-jshint)
-
-;; -------------------------------------
-;; Display stuff
-;; -------------------------------------
-
-(load-theme 'solarized-light)
-(set-fringe-mode 0)
-(setq linum-format "%d ")
-
 ;; -------------------------------------
 ;; General stuff
 ;; -------------------------------------
 
+(set-fringe-mode 0)
+(setq linum-format "%d ")
+
 (exec-path-from-shell-initialize)
 
-(global-rainbow-delimiters-mode)
+(setq-default rainbow-delimiters-mode 1)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
@@ -129,13 +125,43 @@
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
-(setq-default require-final-newline t)
-
 ;; my escape key is broken, getting it back in place results in unwanted closing of windows
 (global-unset-key (kbd "ESC ESC ESC"))
 
 ;; Real emacs knights don't use shift to mark things
 (setq shift-select-mode nil)
+
+;; org-mode stuff
+;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;; http://sachachua.com/blog/2007/12/clocking-time-with-emacs-org/
+(eval-after-load 'org
+  '(progn
+     (defun wicked/org-clock-in-if-starting ()
+       "Clock in when the task is marked STARTED."
+       (when (and (string= state "STARTED")
+		  (not (string= last-state state)))
+	 (org-clock-in)))
+     (add-hook 'org-after-todo-state-change-hook
+	       'wicked/org-clock-in-if-starting)
+     (defadvice org-clock-in (after wicked activate)
+      "Set this task's status to 'STARTED'."
+      (org-todo "STARTED"))
+    (defun wicked/org-clock-out-if-waiting ()
+      "Clock out when the task is marked WAITING."
+      (when (and (string= state "WAITING")
+                 (equal (marker-buffer org-clock-marker) (current-buffer))
+                 (< (point) org-clock-marker)
+	         (> (save-excursion (outline-next-heading) (point))
+		    org-clock-marker)
+		 (not (string= last-state state)))
+	(org-clock-out)))
+    (add-hook 'org-after-todo-state-change-hook
+	      'wicked/org-clock-out-if-waiting)))
 
 ;; -------------------------------------
 ;; Tramp
@@ -292,6 +318,8 @@
 (setq-default show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(setq-default require-final-newline t)
+
 (setq-default tab-width 2)
 
 (defmacro rename-modeline (package-name mode new-name)
@@ -302,6 +330,14 @@
 (setq-default fill-column 80)
 
 ;; -------------------------------------
+;; Dired
+;; -------------------------------------
+
+(require 'dired-x)
+(setq-default dired-omit-files-p t)
+(setq dired-omit-files (concat dired-omit-files "\.pyc$"))
+
+;; -------------------------------------
 ;; CSS
 ;; -------------------------------------
 
@@ -310,6 +346,8 @@
 ;; -------------------------------------
 ;; JavaScript
 ;; -------------------------------------
+
+(require 'js2-jshint)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
@@ -346,6 +384,14 @@
 (add-hook 'json-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; -------------------------------------
+;; Python
+;; -------------------------------------
+(elpy-enable)
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
 
@@ -358,5 +404,13 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\.lock$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+
+(setq web-mode-markup-indent-offset 2)
+
+
+;; theme never loads right, maybe if I put it last?
+
+(load-theme 'solarized-dark)
+(set-frame-font "Inconsolata-dz 12" nil t)
 
 ;;; init.el ends here
