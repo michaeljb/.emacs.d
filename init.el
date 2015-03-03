@@ -75,8 +75,6 @@
 
 (exec-path-from-shell-initialize)
 
-(setq-default rainbow-delimiters-mode 1)
-
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
 
@@ -106,21 +104,6 @@
 (setq ring-bell-function 'ignore)
 
 (global-hl-line-mode 1)
-
-(show-paren-mode t)
-(setq show-paren-delay 0)
-
-(defadvice show-paren-function
-      (after show-matching-paren-offscreen activate)
-      "If the matching paren is offscreen, show the matching line in the
-        echo area. Has no effect if the character before point is not of
-        the syntax class ')'."
-      (interactive)
-      (let* ((cb (char-before (point)))
-             (matching-text (and cb
-                                 (char-equal (char-syntax cb) ?\) )
-                                 (blink-matching-open))))
-        (when matching-text (message matching-text))))
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
@@ -309,6 +292,29 @@
                   (ignore-errors (backward-char 5))))
 
 (global-set-key (kbd "C-c g") 'magit-status)
+
+
+
+;; -------------------------------------
+;; Parens
+;; -------------------------------------
+
+(setq-default rainbow-delimiters-mode 1)
+
+(show-paren-mode t)
+(setq show-paren-delay 0)
+
+(defadvice show-paren-function
+      (after show-matching-paren-offscreen activate)
+      "If the matching paren is offscreen, show the matching line in the
+        echo area. Has no effect if the character before point is not of
+        the syntax class ')'."
+      (interactive)
+      (let* ((cb (char-before (point)))
+             (matching-text (and cb
+                                 (char-equal (char-syntax cb) ?\) )
+                                 (blink-matching-open))))
+        (when matching-text (message matching-text))))
 
 ;; -------------------------------------
 ;; Dev
