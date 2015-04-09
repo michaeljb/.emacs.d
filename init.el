@@ -473,9 +473,23 @@
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 
-(setq web-mode-markup-indent-offset 2)
+;; -------------------------------------
+;; Web
+;; -------------------------------------
+
+(setq michaeljb-web-mode-activated nil)
+(add-hook 'web-mode-hook
+  (lambda ()
+    (rainbow-delimiters-mode)
+
+    (unless michaeljb-web-mode-activated
+      (setq web-mode-markup-indent-offset 2)
+
+      (setq michaeljb-web-mode-activated t))))
+
+
+;; weird things are happening when solarized is loaded at the beginning, so load
+;; it at the end
+(load-theme 'solarized-dark t)
 
 ;;; init.el ends here
-
-
-(load-theme 'solarized-dark t)
