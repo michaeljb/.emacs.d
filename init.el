@@ -343,17 +343,20 @@
 ;; CSS
 ;; -------------------------------------
 
-;; rainbow delimiters
-(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+(setq michaeljb-css-mode-activated nil)
+(add-hook 'web-mode-hook
+  (lambda ()
+    (rainbow-delimiters-mode)
 
-(setq css-indent-offset 2)
+    (unless michaeljb-css-mode-activated
+      (setq css-indent-offset 2)
 
+      (setq michaeljb-css-mode-activated t))))
 
 ;; -------------------------------------
 ;; Emacs Lisp
 ;; -------------------------------------
 
-;; rainbow delimiters
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
 ;; -------------------------------------
