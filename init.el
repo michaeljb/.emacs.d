@@ -416,9 +416,10 @@
         (save-excursion
           (py-autopep8-before-save))))
 
+    ;; settings to apply only the first time python-mode is activated
     (unless michaeljb-python-setup
-      ;; pep8 settings
       (setq py-autopep8-options '("--max-line-length=100"))
+
       (setq michaeljb-python-setup t)
       )
     ))
@@ -427,15 +428,22 @@
 ;; Ruby
 ;; -------------------------------------
 
-;; rainbow delimiters
-(add-hook 'ruby-mode-hook 'rainbow-delimiters-mode)
-
-;; autocorrecting linter
+(setq michaeljb-ruby-setup nil)
 (add-hook 'ruby-mode-hook
-  (lambda()
-    (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)))
+  (lambda ()
+    (rainbow-delimiters-mode)
 
-(setq ruby-deep-indent-paren nil)
+    ;; autocorrecting linter
+    (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)
+
+    ;; settings to apply only the first time ruby-mode is activated
+    (unless michaeljb-ruby-setup
+      (setq ruby-deep-indent-paren nil)
+
+      (setq michaeljb-ruby-setup t)
+      )
+    )
+  )
 
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
