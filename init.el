@@ -360,7 +360,7 @@
 ;; JavaScript
 ;; -------------------------------------
 
-(setq michaeljb-js-setup nil)
+(setq michaeljb-js2-mode-activated nil)
 (add-hook 'js2-mode-hook
   (lambda()
     (ac-js2-mode)
@@ -370,7 +370,7 @@
     ;; use M-x helm-imenu to quickly jump to function definitions
     (js2-imenu-extras-mode)
 
-    (unless michaeljb-js-setup
+    (unless michaeljb-js2-mode-activated
       (setq ac-js2-evaluate-calls t)
 
       ;; normal js2-mode vars
@@ -388,7 +388,7 @@
       (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
       ;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
-      (setq michaeljb-js-setup t)
+      (setq michaeljb-js2-mode-activated t)
       )
     ))
 
@@ -402,7 +402,7 @@
 ;; JSON
 ;; -------------------------------------
 
-(setq michaeljb-json-setup nil)
+(setq michaeljb-json-mode-activated nil)
 (add-hook 'json-mode-hook
   (lambda()
     (rainbow-delimiters-mode)
@@ -410,10 +410,10 @@
     (setq indent-tabs-mode nil)
 
     ;; settings to apply only the first time json-mode is activated
-    (unless michaeljb-json-setup
+    (unless michaeljb-json-mode-activated
       (setq js-indent-level 2)
 
-      (setq michaeljb-json-setup t)
+      (setq michaeljb-json-mode-activated t)
       )
     ))
 
@@ -423,7 +423,7 @@
 ;; Python
 ;; -------------------------------------
 
-(setq michaeljb-python-setup nil)
+(setq michaeljb-python-mode-activated nil)
 (add-hook 'python-mode-hook
   (lambda()
     (rainbow-delimiters-mode)
@@ -435,10 +435,10 @@
           (py-autopep8-before-save))))
 
     ;; settings to apply only the first time python-mode is activated
-    (unless michaeljb-python-setup
+    (unless michaeljb-python-mode-activated
       (setq py-autopep8-options '("--max-line-length=100"))
 
-      (setq michaeljb-python-setup t)
+      (setq michaeljb-python-mode-activated t)
       )
     ))
 
@@ -448,7 +448,7 @@
 ;; Ruby
 ;; -------------------------------------
 
-(setq michaeljb-ruby-setup nil)
+(setq michaeljb-ruby-mode-activated nil)
 (add-hook 'ruby-mode-hook
   (lambda ()
     (rainbow-delimiters-mode)
@@ -457,10 +457,10 @@
     (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)
 
     ;; settings to apply only the first time ruby-mode is activated
-    (unless michaeljb-ruby-setup
+    (unless michaeljb-ruby-mode-activated
       (setq ruby-deep-indent-paren nil)
 
-      (setq michaeljb-ruby-setup t)
+      (setq michaeljb-ruby-mode-activated t)
       )
     )
   )
