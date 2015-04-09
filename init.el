@@ -361,36 +361,43 @@
 ;; JavaScript
 ;; -------------------------------------
 
-(require 'js2-jshint)
+(setq michaeljb-js-setup nil)
+(add-hook 'js2-mode-hook
+  (lambda()
+    (ac-js2-mode)
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+    (rainbow-delimiters-mode)
 
-;; auto-complete with ac-js2
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-(setq ac-js2-evaluate-calls t)
+    ;; use M-x helm-imenu to quickly jump to function definitions
+    (js2-imenu-extras-mode)
 
-;; normal js2-mode vars
-(setq-default js2-basic-offset 2)
-(setq-default js2-allow-keywords-as-property-names nil)
-(setq js2-highlight-level 3)
+    (unless michaeljb-js-setup
+      (setq ac-js2-evaluate-calls t)
 
-;; js2-refactor
-(js2r-add-keybindings-with-prefix "M-J")
+      ;; normal js2-mode vars
+      (setq js2-highlight-level 3)
+      (setq-default js2-basic-offset 2)
+      (setq-default js2-allow-keywords-as-property-names nil)
 
-;; Let flycheck/jshint handle parse errors
-(setq-default js2-show-parse-errors nil)
-(setq-default js2-strict-missing-semi-warning nil)
-(setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
-;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+      ;; js2-refactor
+      (js2r-add-keybindings-with-prefix "M-J")
 
-;; use M-x helm-imenu to quickly jump to function definitions
-(add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+
+      ;; Let flycheck/jshint handle parse errors
+      (setq-default js2-show-parse-errors nil)
+      (setq-default js2-strict-missing-semi-warning nil)
+      (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
+      ;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+
+      (setq michaeljb-js-setup t)
+      )
+    ))
 
 ;; apply settings from .jshintrc to js2-mode
+(require 'js2-jshint)
 (add-hook 'js2-init-hook 'js2-jshint-setup)
 
-;; rainbow delimiters
-(add-hook 'js2-mode-hook 'rainbow-delimiters-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; -------------------------------------
 ;; JSON
