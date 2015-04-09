@@ -22,10 +22,10 @@
 
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
 
@@ -36,11 +36,12 @@
     edit-server
     exec-path-from-shell
     expand-region
-    flycheck
+    ;; flycheck
     helm
     hl-line+
     js2-refactor
     man-commands
+    py-autopep8
     rainbow-delimiters
     smex
 
@@ -101,13 +102,6 @@
 (setq column-number-mode t)
 
 (setq ring-bell-function 'ignore)
-
-(global-hl-line-mode 1)
-
-(load-theme 'solarized-dark)
-
-(set-frame-font "Inconsolata-dz 12" nil t)
-
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
@@ -303,8 +297,6 @@
 ;; Parens
 ;; -------------------------------------
 
-(setq-default rainbow-delimiters-mode 1)
-
 (show-paren-mode t)
 (setq show-paren-delay 0)
 
@@ -377,13 +369,16 @@
 (setq-default js2-show-parse-errors nil)
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
-(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
 ;; use M-x helm-imenu to quickly jump to function definitions
 (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
 
 ;; apply settings from .jshintrc to js2-mode
 (add-hook 'js2-init-hook 'js2-jshint-setup)
+
+;; rainbow delimiters
+(add-hook 'js2-mode-hook 'rainbow-delimiters-mode)
 
 ;; -------------------------------------
 ;; JSON
@@ -396,14 +391,32 @@
 ;; -------------------------------------
 ;; Python
 ;; -------------------------------------
-(elpy-enable)
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; rainbow delimiters
+(add-hook 'python-mode-hook 'rainbow-delimiters-mode)
+
+;; autocorrecting linter
+(add-hook 'python-mode-hook
+  (lambda()
+    (add-hook 'write-contents-functions
+      (lambda()
+        (save-excursion
+          (py-autopep8-before-save))))))
+
+;; (add-hook 'before-save-hook 'py-autopep8-before-save)
+(setq py-autopep8-options '("--max-line-length=100"))
+
+;; (elpy-enable)
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; -------------------------------------
 ;; Ruby
 ;; -------------------------------------
+
+;; rainbow delimiters
+(add-hook 'ruby-mode-hook 'rainbow-delimiters-mode)
 
 (setq ruby-deep-indent-paren nil)
 
@@ -418,3 +431,6 @@
 (setq web-mode-markup-indent-offset 2)
 
 ;;; init.el ends here
+
+
+(load-theme 'solarized-dark t)
