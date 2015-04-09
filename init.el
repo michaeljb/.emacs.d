@@ -348,6 +348,7 @@
   (lambda ()
     (rainbow-delimiters-mode)
 
+    ;; settings to apply only the first time css-mode is activated
     (unless michaeljb-css-mode-activated
       (setq css-indent-offset 2)
 
@@ -373,6 +374,7 @@
     ;; use M-x helm-imenu to quickly jump to function definitions
     (js2-imenu-extras-mode)
 
+    ;; settings to apply only the first time js2-mode is activated
     (unless michaeljb-js2-mode-activated
       (setq ac-js2-evaluate-calls t)
 
@@ -476,6 +478,7 @@
   (lambda ()
     (rainbow-delimiters-mode)
 
+    ;; settings to apply only the first time web-mode is activated
     (unless michaeljb-web-mode-activated
       (setq web-mode-markup-indent-offset 2)
 
