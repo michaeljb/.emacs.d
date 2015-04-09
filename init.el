@@ -404,7 +404,6 @@
 ;; Python
 ;; -------------------------------------
 
-
 (setq michaeljb-python-setup nil)
 (add-hook 'python-mode-hook
   (lambda()
