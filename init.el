@@ -396,9 +396,22 @@
 ;; JSON
 ;; -------------------------------------
 
+(setq michaeljb-json-setup nil)
+(add-hook 'json-mode-hook
+  (lambda()
+    (rainbow-delimiters-mode)
+
+    (setq indent-tabs-mode nil)
+
+    ;; settings to apply only the first time json-mode is activated
+    (unless michaeljb-json-setup
+      (setq js-indent-level 2)
+
+      (setq michaeljb-json-setup t)
+      )
+    ))
+
 (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
-(setq js-indent-level 2)
-(add-hook 'json-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; -------------------------------------
 ;; Python
