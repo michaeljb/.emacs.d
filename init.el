@@ -388,9 +388,7 @@
       (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
       ;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
-      (setq michaeljb-js2-mode-activated t)
-      )
-    ))
+      (setq michaeljb-js2-mode-activated t))))
 
 ;; apply settings from .jshintrc to js2-mode
 (require 'js2-jshint)
@@ -413,9 +411,7 @@
     (unless michaeljb-json-mode-activated
       (setq js-indent-level 2)
 
-      (setq michaeljb-json-mode-activated t)
-      )
-    ))
+      (setq michaeljb-json-mode-activated t))))
 
 (add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
 
@@ -438,9 +434,7 @@
     (unless michaeljb-python-mode-activated
       (setq py-autopep8-options '("--max-line-length=100"))
 
-      (setq michaeljb-python-mode-activated t)
-      )
-    ))
+      (setq michaeljb-python-mode-activated t))))
 
 (setq dired-omit-files (concat dired-omit-files "\.pyc$"))
 
@@ -460,10 +454,7 @@
     (unless michaeljb-ruby-mode-activated
       (setq ruby-deep-indent-paren nil)
 
-      (setq michaeljb-ruby-mode-activated t)
-      )
-    )
-  )
+      (setq michaeljb-ruby-mode-activated t))))
 
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
