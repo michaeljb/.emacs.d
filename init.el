@@ -43,6 +43,7 @@
     man-commands
     py-autopep8
     rainbow-delimiters
+    rubocop
     smex
 
     ;; modes
@@ -417,6 +418,11 @@
 
 ;; rainbow delimiters
 (add-hook 'ruby-mode-hook 'rainbow-delimiters-mode)
+
+;; autocorrecting linter
+(add-hook 'ruby-mode-hook
+  (lambda()
+    (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)))
 
 (setq ruby-deep-indent-paren nil)
 
