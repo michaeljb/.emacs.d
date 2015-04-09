@@ -338,7 +338,6 @@
 
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
-(setq dired-omit-files (concat dired-omit-files "\.pyc$"))
 
 ;; -------------------------------------
 ;; CSS
@@ -442,6 +441,8 @@
       (setq michaeljb-python-setup t)
       )
     ))
+
+(setq dired-omit-files (concat dired-omit-files "\.pyc$"))
 
 ;; -------------------------------------
 ;; Ruby
