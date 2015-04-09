@@ -404,24 +404,24 @@
 ;; Python
 ;; -------------------------------------
 
-;; rainbow delimiters
-(add-hook 'python-mode-hook 'rainbow-delimiters-mode)
 
-;; autocorrecting linter
+(setq michaeljb-python-setup nil)
 (add-hook 'python-mode-hook
   (lambda()
+    (rainbow-delimiters-mode)
+
+    ;; autocorrecting linter
     (add-hook 'write-contents-functions
       (lambda()
         (save-excursion
-          (py-autopep8-before-save))))))
+          (py-autopep8-before-save))))
 
-;; (add-hook 'before-save-hook 'py-autopep8-before-save)
-(setq py-autopep8-options '("--max-line-length=100"))
-
-;; (elpy-enable)
-;; (when (require 'flycheck nil t)
-;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
+    (unless michaeljb-python-setup
+      ;; pep8 settings
+      (setq py-autopep8-options '("--max-line-length=100"))
+      (setq michaeljb-python-setup t)
+      )
+    ))
 
 ;; -------------------------------------
 ;; Ruby
