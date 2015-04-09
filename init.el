@@ -344,7 +344,18 @@
 ;; CSS
 ;; -------------------------------------
 
+;; rainbow delimiters
+(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+
 (setq css-indent-offset 2)
+
+
+;; -------------------------------------
+;; Emacs Lisp
+;; -------------------------------------
+
+;; rainbow delimiters
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
 ;; -------------------------------------
 ;; JavaScript
