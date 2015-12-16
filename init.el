@@ -47,8 +47,6 @@
     smex
 
     ;; modes
-    git-commit-mode
-    git-rebase-mode
     jade-mode
     js2-mode
     json-mode
@@ -57,7 +55,7 @@
     puppetfile-mode
     scss-mode
     web-mode
-    yaml-mode
+    ;; yaml-mode
 
     ;; themes
     solarized-theme))
@@ -291,7 +289,7 @@
                   (ignore-errors (backward-char 5))))
 
 (global-set-key (kbd "C-c g") 'magit-status)
-
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 
 ;; -------------------------------------
@@ -319,7 +317,7 @@
 
 ;; trailing whitespace is stupid
 (setq-default show-trailing-whitespace t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq-default require-final-newline t)
 
@@ -433,7 +431,7 @@
     (add-hook 'write-contents-functions
       (lambda()
         (save-excursion
-          (py-autopep8-before-save))))
+          (py-autopep8-buffer))))
 
     ;; settings to apply only the first time python-mode is activated
     (unless michaeljb-python-mode-activated
@@ -453,7 +451,7 @@
     (rainbow-delimiters-mode)
 
     ;; autocorrecting linter
-    (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)
+    ;; (add-hook 'before-save-hook 'rubocop-autocorrect-current-file nil t)
 
     ;; settings to apply only the first time ruby-mode is activated
     (unless michaeljb-ruby-mode-activated
@@ -484,9 +482,40 @@
 
       (setq michaeljb-web-mode-activated t))))
 
+;; -------------------------------------
+;; XML
+;; -------------------------------------
+(add-hook 'xml-mode-hook
+  (lambda ()
+    (rainbow-delimiters-mode)))
+
+
+;; https://sinewalker.wordpress.com/2008/06/26/pretty-printing-xml-with-emacs-nxml-mode/
+(defun bf-pretty-print-xml-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this.  The function inserts linebreaks to separate tags that have
+nothing but whitespace between them.  It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+      (nxml-mode)
+      (goto-char begin)
+      (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+        (backward-char) (insert "\n"))
+      (indent-region begin end))
+    (message "Ah, much better!"))
+
+
+;; -------------------------------------
+;; Theme
+;; -------------------------------------
 
 ;; weird things are happening when solarized is loaded at the beginning, so load
 ;; it at the end
 (load-theme 'solarized-dark t)
 
 ;;; init.el ends here
+(put 'downcase-region 'disabled nil)
+
+(setq create-lockfiles nil)
