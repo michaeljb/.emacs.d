@@ -12,3 +12,11 @@ http://emacs.stackexchange.com/questions/271/what-is-the-difference-between-aqua
 * Under "Keys", set option keys to command, set command keys to option.
 * Under "Profiles -> Keys", set option keys to act as "+Esc".
 * Under "Preferences", check "Allow clipboard access to terminal apps"
+
+### Dependencies for Emacs Packages
+
+#### Elpy
+
+```
+pip install rope jedi flake8 importmagic autopep8 yapf
+```

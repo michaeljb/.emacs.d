@@ -5,12 +5,6 @@
 (require 'pyvenv)
 (elpy-enable)
 
-;; don't use flymake (elpy default), use flycheck
-;; from: https://github.com/jorgenschaefer/elpy/issues/137
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
 ;; track virtual environments if they are set dir locally
 (setq pyvenv-tracking-mode 't)
 

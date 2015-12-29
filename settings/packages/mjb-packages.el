@@ -13,9 +13,9 @@
 			 dash
 			 elpy
 			 expand-region
-			 flycheck
 			 magit
 			 nose
+			 py-autopep8
 			 pyvenv
 			 rainbow-delimiters
 			 smex
