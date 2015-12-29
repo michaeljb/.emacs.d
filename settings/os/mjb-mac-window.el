@@ -2,4 +2,4 @@
 (global-unset-key (kbd "C-x C-z"))
 (global-unset-key (kbd "C-z"))
 
-(provide 'mac-window)
+(provide 'mjb-mac-window)

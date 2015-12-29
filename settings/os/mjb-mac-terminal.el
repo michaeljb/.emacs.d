@@ -10,4 +10,4 @@
 (setq interprogram-cut-function 'copy-to-clipboard)
 (setq interprogram-paste-function 'paste-from-clipboard)
 
-(provide 'mac-terminal)
+(provide 'mjb-mac-terminal)

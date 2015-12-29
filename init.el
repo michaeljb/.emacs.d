@@ -1,26 +1,25 @@
-(setq settings-dir
-      (expand-file-name "settings" user-emacs-directory))
-(add-to-list 'load-path settings-dir)
+;; (package-initialize) ;; added aggressively by package.el, commented here and
+                        ;; handled in mjb-packages-emacs25.el
 
-(setq os-dir
-      (expand-file-name "os" settings-dir))
+(setq settings-dir (expand-file-name "settings" user-emacs-directory))
+(setq os-dir (expand-file-name "os" settings-dir))
+(setq packages-dir (expand-file-name "packages" settings-dir))
+(add-to-list 'load-path settings-dir)
 (add-to-list 'load-path os-dir)
+(add-to-list 'load-path packages-dir)
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-screen t)
 
-;; Write backup files to own directory, even when they're in version control
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
-(setq vc-make-backup-files t)
+(require 'mjb-packages)
 
-(require 'keybindings)
+(require 'mjb-backups)
+(require 'mjb-keybindings)
+(require 'mjb-os)
 
-(when (or (equal 'darwin system-type) (memq (window-system) '(mac ns)))
-  (require 'mac))
+(require 'mjb-magit)
 
 ;; buffer
 
@@ -28,28 +27,6 @@
 (setq linum-format "%d ")
 
 (setq shift-select-mode nil)
-
-(global-set-key (kbd "C-S-n")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (next-line 5))))
-
-(global-set-key (kbd "C-S-p")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (previous-line 5))))
-
-(global-set-key (kbd "C-S-f")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (forward-char 5))))
-
-(global-set-key (kbd "C-S-b")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (backward-char 5))))
-
-
 
 ;; modeline
 
@@ -67,4 +44,3 @@
 (setq echo-keystrokes 0.01)
 
 (setq ring-bell-function (lambda () (message "*woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* ")(sleep-for .15)))
-
