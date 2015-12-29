@@ -42,6 +42,10 @@
                                  (char-equal (char-syntax cb) ?\) )
                                  (blink-matching-open))))
         (when matching-text (message matching-text))))
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+
 ;; modeline
 
 (setq line-number-mode t)

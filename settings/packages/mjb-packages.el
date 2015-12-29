@@ -4,6 +4,7 @@
 (setq mjb-package-list '(
 			 expand-region
 			 magit
+			 rainbow-delimiters
 			 smex
 			 ))
 
