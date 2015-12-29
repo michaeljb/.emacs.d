@@ -16,9 +16,6 @@
 
 (global-set-key (kbd "A-l") 'linum-mode)
 
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
 (global-set-key (kbd "C-S-n")
                 (lambda ()
                   (interactive)
@@ -47,6 +44,8 @@
 
 (global-set-key (kbd "C-c g") 'magit-status)
 
+(global-set-key "\C-x\C-m" 'smex)
+(global-set-key "\C-c\C-m" 'smex)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
