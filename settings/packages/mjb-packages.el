@@ -7,6 +7,6 @@
 			 smex
 			 ))
 
-(cond (t (require 'mjb-packages-emacs25)))
+(cond ((string-match "^25." emacs-version) (require 'mjb-packages-emacs25)))
 
 (provide 'mjb-packages)
