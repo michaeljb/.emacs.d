@@ -46,6 +46,8 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 
+(global-hl-line-mode)
+
 ;; modeline
 
 (setq line-number-mode t)
