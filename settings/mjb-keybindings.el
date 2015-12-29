@@ -14,8 +14,6 @@
 (global-set-key (kbd "M-p") 'mark-paragraph)
 (global-set-key (kbd "C-?") 'help-command)
 
-(global-set-key (kbd "A-l") 'linum-mode)
-
 (global-set-key (kbd "C-S-n")
                 (lambda ()
                   (interactive)
@@ -36,6 +34,7 @@
                   (interactive)
                   (ignore-errors (backward-char 5))))
 
+
 ;; --------------------------------------------------
 ;; Key Bindings for Installed Packages
 ;; --------------------------------------------------
@@ -49,5 +48,28 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
+;; --------------------------------------------------
+;; Key Bindings with my own prefix
+;; --------------------------------------------------
+
+(defvar mjb-prefix (make-keymap))
+(define-prefix-command 'mjb-prefix)
+(global-set-key (kbd "C-M-m") 'mjb-prefix)
+(defvar mjb-prefix-r (make-keymap))
+(define-prefix-command 'mjb-prefix-r)
+(define-key mjb-prefix "r" 'mjb-prefix-r)
+
+
+(define-key mjb-prefix "l"	'linum-mode)
+
+(define-key mjb-prefix-r "r"	'replace-rectangle)
+(define-key mjb-prefix-r "x"	'query-replace-regexp)
+
+(define-key mjb-prefix-r "c"	'comment-region)
+(define-key mjb-prefix-r "u"	'uncomment-region)
+
+(define-key mjb-prefix-r "b"	'revert-buffer)
 
 (provide 'mjb-keybindings)
