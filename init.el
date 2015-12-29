@@ -22,8 +22,6 @@
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
-(require 'mjb-magit)
-
 ;; buffer
 
 (set-fringe-mode 0)
