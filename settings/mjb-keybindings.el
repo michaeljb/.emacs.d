@@ -14,25 +14,25 @@
 (global-set-key (kbd "M-p") 'mark-paragraph)
 (global-set-key (kbd "C-?") 'help-command)
 
-(global-set-key (kbd "C-S-n")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (next-line 5))))
+(defun forward-five-lines ()
+  (interactive)
+  (ignore-errors (next-line 5)))
+(global-set-key (kbd "C-S-n") 'forward-five-lines)
 
-(global-set-key (kbd "C-S-p")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (previous-line 5))))
+(defun backward-five-lines ()
+  (interactive)
+  (ignore-errors (previous-line 5)))
+(global-set-key (kbd "C-S-p") 'backward-five-lines)
 
-(global-set-key (kbd "C-S-f")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (forward-char 5))))
+(defun forward-five-chars ()
+  (interactive)
+  (ignore-errors (forward-char 5)))
+(global-set-key (kbd "C-S-f") 'forward-five-chars)
 
-(global-set-key (kbd "C-S-b")
-                (lambda ()
-                  (interactive)
-                  (ignore-errors (backward-char 5))))
+(defun backward-five-chars ()
+  (interactive)
+  (ignore-errors (backward-char 5)))
+(global-set-key (kbd "C-S-b") 'backward-five-chars)
 
 
 ;; --------------------------------------------------
@@ -64,6 +64,11 @@
 
 (define-key mjb-prefix "l"	'linum-mode)
 
+(define-key mjb-prefix "n"	'forward-five-lines)
+(define-key mjb-prefix "p"	'backward-five-lines)
+(define-key mjb-prefix "f"	'forward-five-chars)
+(define-key mjb-prefix "b"	'backward-five-chars)
+
 (define-key mjb-prefix-r "r"	'replace-rectangle)
 (define-key mjb-prefix-r "x"	'query-replace-regexp)
 
@@ -71,5 +76,10 @@
 (define-key mjb-prefix-r "u"	'uncomment-region)
 
 (define-key mjb-prefix-r "b"	'revert-buffer)
+
+(define-key mjb-prefix "j"
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
 
 (provide 'mjb-keybindings)
