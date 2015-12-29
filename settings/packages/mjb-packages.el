@@ -6,6 +6,7 @@
 			 magit
 			 rainbow-delimiters
 			 smex
+			 solarized-theme
 			 ))
 
 (cond ((string-match "^25." emacs-version) (require 'mjb-packages-emacs25)))
