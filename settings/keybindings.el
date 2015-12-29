@@ -14,4 +14,6 @@
 (global-set-key (kbd "M-p") 'mark-paragraph)
 (global-set-key (kbd "C-?") 'help-command)
 
+(global-set-key (kbd "A-l") 'linum-mode)
+
 (provide 'keybindings)
