@@ -4,6 +4,11 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+(when (not (package-installed-p 'dash))
+  (package-refresh-contents)
+  (package-install 'dash))
+(require 'dash)
+
 (setq mjb-package-list '(
 			 dash
 			 expand-region
