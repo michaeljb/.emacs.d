@@ -39,5 +39,16 @@
                   (interactive)
                   (ignore-errors (backward-char 5))))
 
+;; --------------------------------------------------
+;; Key Bindings for Installed Packages
+;; --------------------------------------------------
+
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (global-set-key (kbd "C-c g") 'magit-status)
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 (provide 'mjb-keybindings)

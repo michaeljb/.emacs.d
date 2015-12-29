@@ -2,7 +2,9 @@
 			 ("melpa" . "https://melpa.org/packages/")))
 
 (setq mjb-package-list '(
+			 expand-region
 			 magit
+			 smex
 			 ))
 
 (cond (t (require 'mjb-packages-emacs25)))
