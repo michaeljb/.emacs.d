@@ -11,8 +11,12 @@
 
 (setq mjb-package-list '(
 			 dash
+			 elpy
 			 expand-region
+			 flycheck
 			 magit
+			 nose
+			 pyvenv
 			 rainbow-delimiters
 			 smex
 			 solarized-theme

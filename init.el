@@ -22,6 +22,9 @@
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
+(require 'mjb-dev)
+(require 'mjb-python)
+
 ;; buffer
 
 (set-fringe-mode 0)
