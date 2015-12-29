@@ -1,6 +1,9 @@
 ;; (package-initialize) ;; added aggressively by package.el, commented here and
                         ;; handled in mjb-packages-emacs25.el
 
+(setq custom-file (locate-user-emacs-file ".custom.el"))
+(load custom-file t t)
+
 (setq settings-dir (expand-file-name "settings" user-emacs-directory))
 (setq os-dir (expand-file-name "os" settings-dir))
 (setq packages-dir (expand-file-name "packages" settings-dir))
