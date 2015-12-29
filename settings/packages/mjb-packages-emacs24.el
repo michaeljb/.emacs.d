@@ -1,4 +1,6 @@
-(package-install 'dash)
+(when (not (package-installed-p 'dash))
+  (package-refresh-contents)
+  (package-install 'dash))
 (require 'dash)
 
 (defun packages-install (packages)
