@@ -24,15 +24,6 @@
   (ignore-errors (previous-line 5)))
 (global-set-key (kbd "C-S-p") 'backward-five-lines)
 
-(defun forward-five-chars ()
-  (interactive)
-  (ignore-errors (forward-char 5)))
-(global-set-key (kbd "C-S-f") 'forward-five-chars)
-
-(defun backward-five-chars ()
-  (interactive)
-  (ignore-errors (backward-char 5)))
-(global-set-key (kbd "C-S-b") 'backward-five-chars)
 
 
 ;; --------------------------------------------------
@@ -66,8 +57,6 @@
 
 (define-key mjb-prefix "n"	'forward-five-lines)
 (define-key mjb-prefix "p"	'backward-five-lines)
-(define-key mjb-prefix "f"	'forward-five-chars)
-(define-key mjb-prefix "b"	'backward-five-chars)
 
 (define-key mjb-prefix-r "r"	'replace-rectangle)
 (define-key mjb-prefix-r "x"	'query-replace-regexp)
