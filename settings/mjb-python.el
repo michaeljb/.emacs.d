@@ -24,4 +24,12 @@
             (local-set-key "\C-cpm" 'nosetests-pdb-module)
             (local-set-key "\C-cp." 'nosetests-pdb-one)))
 
+;; when entering python-mode, setup a hook to autopep8 the buffer
+(add-hook 'python-mode-hook
+	  (lambda()
+	    (add-hook 'write-contents-functions
+		      (lambda()
+			(save-excursion
+			  (py-autopep8-buffer))))))
+
 (provide 'mjb-python)
