@@ -21,6 +21,8 @@
 
 (require 'mjb-packages)
 
+(load-theme 'zenburn t)
+
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
@@ -28,9 +30,9 @@
 (require 'mjb-modeline)
 (require 'mjb-minibuffer)
 
-(require 'mjb-backups)
+(require 'mjb-filesystem)
 
 (require 'mjb-dev)
 (require 'mjb-python)
 
-(load-theme 'zenburn t)
+
