@@ -17,6 +17,7 @@
 			 expand-region
 			 magit
 			 nose
+			 puppet-mode
 			 py-autopep8
 			 pyvenv
 			 rainbow-delimiters
