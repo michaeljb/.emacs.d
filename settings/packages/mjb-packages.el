@@ -13,17 +13,23 @@
 
 (setq mjb-package-list '(
 			 dash
-			 elpy
 			 expand-region
 			 magit
-			 nose
-			 puppet-mode
-			 py-autopep8
-			 pyvenv
 			 rainbow-delimiters
 			 smex
-			 yaml-mode
 			 zenburn-theme
+
+			 ;; python
+			 elpy
+			 nose
+			 py-autopep8
+			 pyvenv
+
+			 ;; puppet
+			 puppet-mode
+
+			 ;; yaml
+			 yaml-mode
 			 ))
 
 (cond ((string-match "^24." emacs-version) (require 'mjb-packages-emacs24))
