@@ -19,7 +19,7 @@
 			 pyvenv
 			 rainbow-delimiters
 			 smex
-			 solarized-theme
+			 zenburn-theme
 			 ))
 
 (cond ((string-match "^24." emacs-version) (require 'mjb-packages-emacs24))
