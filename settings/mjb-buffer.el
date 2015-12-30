@@ -21,4 +21,8 @@
 
 (global-hl-line-mode)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(setq-default show-trailing-whitespace t)
+
 (provide 'mjb-buffer)
