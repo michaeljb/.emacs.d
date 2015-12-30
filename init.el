@@ -34,5 +34,3 @@
 
 (require 'mjb-dev)
 (require 'mjb-python)
-
-
