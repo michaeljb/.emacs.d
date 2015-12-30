@@ -18,54 +18,15 @@
 
 (require 'mjb-packages)
 
-(require 'mjb-backups)
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
 (require 'mjb-dev)
 (require 'mjb-python)
 
-;; buffer
+(require 'mjb-buffer)
+(require 'mjb-modeline)
+(require 'mjb-minibuffer)
 
-(set-fringe-mode 0)
-(setq linum-format "%d ")
-
-(setq shift-select-mode nil)
-
-(show-paren-mode t)
-(setq show-paren-delay 0)
-(defadvice show-paren-function
-      (after show-matching-paren-offscreen activate)
-      "If the matching paren is offscreen, show the matching line in the
-        echo area. Has no effect if the character before point is not of
-        the syntax class ')'."
-      (interactive)
-      (let* ((cb (char-before (point)))
-             (matching-text (and cb
-                                 (char-equal (char-syntax cb) ?\) )
-                                 (blink-matching-open))))
-        (when matching-text (message matching-text))))
-
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-
-(global-hl-line-mode)
-
-;; modeline
-
-(setq line-number-mode t)
-(setq column-number-mode t)
-
-
-
-;; mini-buffer
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(ido-mode)
-
-(setq echo-keystrokes 0.01)
-
-(setq ring-bell-function (lambda () (message "*woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* ")(sleep-for .15)))
-
+(require 'mjb-backups)
 (load-theme 'zenburn t)

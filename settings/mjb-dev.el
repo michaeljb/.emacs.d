@@ -1,3 +1,5 @@
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;; stolen from KWB-emacs
 ;;----------------------
 ;; show me the line numbers in source
