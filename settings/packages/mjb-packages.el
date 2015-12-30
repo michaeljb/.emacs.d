@@ -11,26 +11,25 @@
   (package-install 'dash))
 (require 'dash)
 
-(setq mjb-package-list '(
-			 dash
-			 expand-region
-			 magit
-			 rainbow-delimiters
-			 smex
-			 zenburn-theme
+(defvar mjb-package-list
+  '(dash
+    expand-region
+    magit
+    rainbow-delimiters
+    smex
+    zenburn-theme
 
-			 ;; python
-			 elpy
-			 nose
-			 py-autopep8
-			 pyvenv
+    ;; python
+    elpy
+    nose
+    py-autopep8
+    pyvenv
 
-			 ;; puppet
-			 puppet-mode
+    ;; puppet
+    puppet-mode
 
-			 ;; yaml
-			 yaml-mode
-			 ))
+    ;; yaml
+    yaml-mode))
 
 (cond ((string-match "^24." emacs-version) (require 'mjb-packages-emacs24))
       ((string-match "^25." emacs-version) (require 'mjb-packages-emacs25)))
