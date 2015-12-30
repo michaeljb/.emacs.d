@@ -20,6 +20,7 @@
         (when matching-text (message matching-text))))
 
 (global-hl-line-mode)
+(set-face-background hl-line-face "gray20")
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
