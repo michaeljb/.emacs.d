@@ -24,12 +24,13 @@
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
-(require 'mjb-dev)
-(require 'mjb-python)
-
 (require 'mjb-buffer)
 (require 'mjb-modeline)
 (require 'mjb-minibuffer)
 
 (require 'mjb-backups)
+
+(require 'mjb-dev)
+(require 'mjb-python)
+
 (load-theme 'zenburn t)
