@@ -21,6 +21,7 @@
 			 pyvenv
 			 rainbow-delimiters
 			 smex
+			 yaml-mode
 			 zenburn-theme
 			 ))
 
