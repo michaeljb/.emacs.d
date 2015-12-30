@@ -10,7 +10,7 @@
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-unset-key (kbd "C-x C-c"))
 
-;; define keyboard macros faster 
+;; define keyboard macros faster
 (global-set-key (kbd "M-9") 'kmacro-start-macro)
 (global-set-key (kbd "M-0") 'kmacro-end-macro)
 
@@ -67,6 +67,8 @@
 (define-key mjb-prefix "p"	'backward-five-lines)
 
 (define-key mjb-prefix "w"	'delete-trailing-whitespace)
+
+(define-key mjb-prefix "="	'er/expand-region)
 
 (define-key mjb-prefix-r "r"	'replace-rectangle)
 (define-key mjb-prefix-r "x"	'query-replace-regexp)
