@@ -6,4 +6,6 @@
 
 (setq ring-bell-function (lambda () (message "*woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* *woop* ")(sleep-for .15)))
 
+(setq smex-save-file "~/.smex-items")
+
 (provide 'mjb-minibuffer)
