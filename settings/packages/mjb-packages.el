@@ -19,6 +19,9 @@
     smex
     zenburn-theme
 
+    ;; markdown
+    markdown-mode
+
     ;; python
     elpy
     nose
