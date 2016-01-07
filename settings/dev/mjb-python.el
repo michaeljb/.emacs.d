@@ -25,9 +25,12 @@
             (local-set-key "\C-cpm" 'nosetests-pdb-module)
             (local-set-key "\C-cp." 'nosetests-pdb-one)
 
+	    ;; run autopep8 if it's available
 	    (add-hook 'write-contents-functions
 		      (lambda()
 			(save-excursion
-			  (py-autopep8-buffer))))))
+			  (condition-case nil
+			      (py-autopep8-buffer)
+			    (error nil)))))))
 
 (provide 'mjb-python)
