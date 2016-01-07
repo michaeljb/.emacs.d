@@ -13,6 +13,15 @@ http://emacs.stackexchange.com/questions/271/what-is-the-difference-between-aqua
 * Under "Profiles -> Keys", set option keys to act as "+Esc".
 * Under "Preferences", check "Allow clipboard access to terminal apps"
 
+### Use Windows "menu" key as a modifier key
+
+In Mac OS X Emacs, the Menu key seems to defaul to `C-p`. To use it as `Hyper`:
+
+* Install [Karabiner](https://pqrs.org/osx/karabiner/)
+* Configure: Change Key > For PC Users > Change PC Application Key
+  (Menu Key) > Application Key to Fn (check this checkbox)
+* `(setq ns-function-modifier 'hyper)`
+
 ### Dependencies for Emacs Packages
 
 #### Elpy
