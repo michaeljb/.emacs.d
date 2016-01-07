@@ -1,3 +1,8 @@
+My personalized Emacs config, largely stolen from various people.
+
+This README contains my own notes for settings/configurations that
+can't be put into Emacs Lisp.
+
 ### Installing Emacs on Mac OS X
 
 ```
