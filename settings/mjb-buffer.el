@@ -26,4 +26,6 @@
 
 (setq-default show-trailing-whitespace t)
 
+(put 'narrow-to-region 'disabled nil)
+
 (provide 'mjb-buffer)
