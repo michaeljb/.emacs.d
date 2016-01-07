@@ -18,6 +18,10 @@ http://emacs.stackexchange.com/questions/271/what-is-the-difference-between-aqua
 * Under "Profiles -> Keys", set option keys to act as "+Esc".
 * Under "Preferences", check "Allow clipboard access to terminal apps"
 
+Note: this change makes the option key work as command for iTerm,
+i.e., quitting is ⌥Q and opening a new tab is ⌥T, but the the keyboard
+shortcuts in the menu bar will still show ⌘.
+
 ### Use Windows "menu" key as a modifier key
 
 In Mac OS X Emacs, the Menu key seems to defaul to `C-p`. To use it as `Hyper`:
