@@ -22,14 +22,14 @@
     ;; markdown
     markdown-mode
 
+    ;; puppet
+    puppet-mode
+
     ;; python
     elpy
     nose
     py-autopep8
     pyvenv
-
-    ;; puppet
-    puppet-mode
 
     ;; yaml
     yaml-mode))
