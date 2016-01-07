@@ -15,6 +15,7 @@
   '(dash
     expand-region
     magit
+    projectile
     rainbow-delimiters
     smex
     zenburn-theme
