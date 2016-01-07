@@ -36,5 +36,5 @@ In Mac OS X Emacs, the Menu key seems to defaul to `C-p`. To use it as `Hyper`:
 #### Elpy
 
 ```
-pip install rope jedi flake8 importmagic autopep8 yapf
+pip install rope jedi flake8 importmagic autopep8 yapf nose
 ```
