@@ -27,7 +27,6 @@
 (require 'mjb-os)
 
 (require 'mjb-buffer)
-(require 'mjb-modeline)
 (require 'mjb-minibuffer)
 
 (require 'mjb-filesystem)
