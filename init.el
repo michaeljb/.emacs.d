@@ -34,3 +34,5 @@
 
 (require 'mjb-dev)
 (require 'mjb-python)
+
+(desktop-save-mode 1)
