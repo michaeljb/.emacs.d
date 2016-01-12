@@ -4,6 +4,6 @@
       (package-install it)))
     (delete-other-windows))
 
-(packages-install package-selected-packages)
+(packages-install mjb-package-list)
 
 (provide 'mjb-packages-emacs24)
