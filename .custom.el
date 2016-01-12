@@ -7,6 +7,9 @@
  '(fill-column 80)
  '(line-number-mode t)
  '(magit-fetch-arguments (quote ("--prune")))
+ '(package-selected-packages
+   (quote
+    (dash expand-region magit projectile rainbow-delimiters smex zenburn-theme markdown-mode puppet-mode elpy nose py-autopep8 pyvenv yaml-mode)))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

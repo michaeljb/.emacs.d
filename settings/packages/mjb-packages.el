@@ -11,30 +11,6 @@
   (package-install 'dash))
 (require 'dash)
 
-(defvar mjb-package-list
-  '(dash
-    expand-region
-    magit
-    projectile
-    rainbow-delimiters
-    smex
-    zenburn-theme
-
-    ;; markdown
-    markdown-mode
-
-    ;; puppet
-    puppet-mode
-
-    ;; python
-    elpy
-    nose
-    py-autopep8
-    pyvenv
-
-    ;; yaml
-    yaml-mode))
-
 (cond ((string-match "^24." emacs-version) (require 'mjb-packages-emacs24))
       ((string-match "^25." emacs-version) (require 'mjb-packages-emacs25)))
 
