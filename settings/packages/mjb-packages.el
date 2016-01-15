@@ -15,6 +15,7 @@
   '(dash
     expand-region
     magit
+    multiple-cursors
     projectile
     rainbow-delimiters
     smex

@@ -83,4 +83,16 @@
                   (interactive)
                   (join-line -1)))
 
+;; multiple cursors
+(defvar mjb-prefix-c (make-keymap))
+(define-prefix-command 'mjb-prefix-c)
+(define-key mjb-prefix "c" 'mjb-prefix-c)
+
+(define-key mjb-prefix-c "c" 'mc/edit-lines)
+(define-key mjb-prefix-c ">" 'mc/mark-next-like-this)
+(define-key mjb-prefix-c "<" 'mc/mark-previous-like-this)
+
+(global-set-key (kbd "C-c ,") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c r") 'set-rectangular-region-anchor)
+
 (provide 'mjb-keybindings)
