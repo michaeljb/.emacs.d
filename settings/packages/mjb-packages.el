@@ -21,6 +21,9 @@
     smex
     zenburn-theme
 
+    ;; gherkin
+    feature-mode
+
     ;; markdown
     markdown-mode
 
