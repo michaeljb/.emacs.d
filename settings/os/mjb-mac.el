@@ -8,4 +8,6 @@
 (cond ((equal 'ns window-system) (require 'mjb-mac-window))
       ((equal nil window-system) (require 'mjb-mac-terminal)))
 
+(setq dired-use-ls-dired nil)
+
 (provide 'mjb-mac)
