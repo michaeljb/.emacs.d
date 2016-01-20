@@ -5,6 +5,7 @@
 (setq mc/cmds-to-run-for-all
       '(
 	backward-sexp
+	eval-expression
 	forward-sexp
 	))
 
