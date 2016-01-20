@@ -8,6 +8,7 @@
  '(line-number-mode t)
  '(magit-fetch-arguments (quote ("--prune")))
  '(projectile-global-mode t)
+ '(projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
  '(projectile-use-git-grep t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
