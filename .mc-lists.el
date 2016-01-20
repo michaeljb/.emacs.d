@@ -6,6 +6,7 @@
       '(
 	backward-sexp
 	eval-expression
+	eval-print-last-sexp
 	forward-sexp
 	))
 
