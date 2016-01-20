@@ -8,8 +8,10 @@
 	eval-expression
 	eval-print-last-sexp
 	forward-sexp
+	transpose-words
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	repeat
 	))
