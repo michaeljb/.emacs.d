@@ -13,5 +13,19 @@
 
 (setq mc/cmds-to-run-once
       '(
+	kill-sentence
+	mjb-mc-map
+	mjb/mc/insert-numbers
+	mjb/mc/mark-all-like-this
+	mjb/mc/mark-next-like-this-word
+	mjb/mc/mark-previous-like-this
+	mjb/mc/reverse-regions
+	mjb/mc/skip-to-next-like-this
+	mjb/mc/skip-to-previous-like-this
+	mjb/mc/sort-regions
+	mjb/mc/unmark-next-like-this
+	mjb/mc/unmark-previous-like-this
 	repeat
+	smex
+	xref-find-definitions
 	))
