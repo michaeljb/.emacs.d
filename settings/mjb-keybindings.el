@@ -25,13 +25,22 @@
 (defun forward-five-lines ()
   (interactive)
   (ignore-errors (next-line 5)))
-(global-set-key (kbd "C-S-n") 'forward-five-lines)
+(global-set-key (kbd "M-N") 'forward-five-lines)
 
 (defun backward-five-lines ()
   (interactive)
   (ignore-errors (previous-line 5)))
-(global-set-key (kbd "C-S-p") 'backward-five-lines)
+(global-set-key (kbd "M-P") 'forward-five-lines)
 
+(defun forward-five-chars ()
+  (interactive)
+  (ignore-errors (forward-char 5)))
+(global-set-key (kbd "M-F") 'forward-five-chars)
+
+(defun backward-five-chars ()
+  (interactive)
+  (ignore-errors (backward-char 5)))
+(global-set-key (kbd "M-B") 'backward-five-chars)
 
 
 ;; --------------------------------------------------
