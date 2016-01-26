@@ -4,9 +4,13 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	backward-five-chars
+	backward-five-lines
 	backward-sexp
 	eval-expression
 	eval-print-last-sexp
+	forward-five-chars
+	forward-five-lines
 	forward-sexp
 	transpose-words
 	))
