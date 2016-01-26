@@ -18,6 +18,7 @@
 	mjb/mc/insert-numbers
 	mjb/mc/mark-all-like-this
 	mjb/mc/mark-next-like-this-word
+	mjb/mc/mark-pop
 	mjb/mc/mark-previous-like-this
 	mjb/mc/reverse-regions
 	mjb/mc/skip-to-next-like-this

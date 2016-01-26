@@ -153,6 +153,16 @@
   (er/expand-region arg)
   (mjb-mc-map))
 
+(defun mjb/mc/mark-pop ()
+  (interactive)
+  (mc/mark-pop)
+  (mjb-mc-map))
+
+(defun mjb/mc/mark-all-in-region (beg end &optional search)
+  (interactive "r")
+  (mc/mark-all-in-region beg end search)
+  (mjb-mc-map))
+
 (defun mjb-mc-map ()
   (interactive)
   (set-transient-map
@@ -171,6 +181,10 @@
 
      (define-key map "s" 'mjb/mc/sort-regions)
      (define-key map "f" 'mjb/mc/reverse-regions)
+
+     (define-key map " " 'mjb/mc/mark-pop)
+
+     (define-key map "p" 'mjb/mc/mark-all-in-region)
 
      (define-key map "(" 'mc/mark-sgml-tag-pair)
      (define-key map ")" 'mc/mark-sgml-tag-pair)
