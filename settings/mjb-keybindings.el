@@ -30,7 +30,7 @@
 (defun backward-five-lines ()
   (interactive)
   (ignore-errors (previous-line 5)))
-(global-set-key (kbd "M-P") 'forward-five-lines)
+(global-set-key (kbd "M-P") 'backward-five-lines)
 
 (defun forward-five-chars ()
   (interactive)
