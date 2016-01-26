@@ -158,9 +158,9 @@
   (mc/mark-pop)
   (mjb-mc-map))
 
-(defun mjb/mc/mark-all-in-region (beg end &optional search)
+(defun mjb/mc/mark-all-in-region-regexp (beg end)
   (interactive "r")
-  (mc/mark-all-in-region beg end search)
+  (mc/mark-all-in-region-regexp beg end)
   (mjb-mc-map))
 
 (defun mjb/mc/mark-next-lines (arg)
@@ -194,7 +194,7 @@
 
      (define-key map " " 'mjb/mc/mark-pop)
 
-     (define-key map "r" 'mjb/mc/mark-all-in-region)
+     (define-key map "r" 'mjb/mc/mark-all-in-region-regexp)
 
      (define-key map "n" 'mjb/mc/mark-next-lines)
      (define-key map "p" 'mjb/mc/mark-previous-lines)
