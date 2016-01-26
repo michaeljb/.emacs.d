@@ -163,6 +163,16 @@
   (mc/mark-all-in-region beg end search)
   (mjb-mc-map))
 
+(defun mjb/mc/mark-next-lines (arg)
+  (interactive "p")
+  (mc/mark-next-lines arg)
+  (mjb-mc-map))
+
+(defun mjb/mc/mark-previous-lines (arg)
+  (interactive "p")
+  (mc/mark-previous-lines arg)
+  (mjb-mc-map))
+
 (defun mjb-mc-map ()
   (interactive)
   (set-transient-map
@@ -177,14 +187,17 @@
 
      (define-key map "a" 'mjb/mc/mark-all-like-this)
 
-     (define-key map "n" 'mjb/mc/insert-numbers)
+     (define-key map "1" 'mjb/mc/insert-numbers)
 
      (define-key map "s" 'mjb/mc/sort-regions)
      (define-key map "f" 'mjb/mc/reverse-regions)
 
      (define-key map " " 'mjb/mc/mark-pop)
 
-     (define-key map "p" 'mjb/mc/mark-all-in-region)
+     (define-key map "r" 'mjb/mc/mark-all-in-region)
+
+     (define-key map "n" 'mjb/mc/mark-next-lines)
+     (define-key map "p" 'mjb/mc/mark-previous-lines)
 
      (define-key map "(" 'mc/mark-sgml-tag-pair)
      (define-key map ")" 'mc/mark-sgml-tag-pair)
@@ -192,11 +205,6 @@
      (define-key map "C" 'mc/edit-lines)
 
      (define-key map "=" 'mjb/er/expand-region)
-
-     (define-key map "r"
-       `(lambda ()
-	  (interactive)
-	  (set-rectangular-region-anchor)))
 
      map)))
 
