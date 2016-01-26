@@ -24,7 +24,7 @@ shortcuts in the menu bar will still show ⌘.
 
 ### Use Windows "menu" key as a modifier key
 
-In Mac OS X Emacs, the Menu key seems to defaul to `C-p`. To use it as `Hyper`:
+In Mac OS X Emacs, the Menu key seems to default to `C-p`. To use it as `Hyper`:
 
 * Install [Karabiner](https://pqrs.org/osx/karabiner/)
 * Configure: Change Key > For PC Users > Change PC Application Key
