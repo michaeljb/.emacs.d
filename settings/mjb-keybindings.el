@@ -206,6 +206,7 @@
 
      (define-key map "=" 'mjb/er/expand-region)
 
+     (define-key map "R" 'set-rectangular-region-anchor)
      map)))
 
 (global-set-key (kbd "M-C") 'mjb-mc-map)

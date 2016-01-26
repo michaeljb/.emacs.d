@@ -12,12 +12,12 @@
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
+	kill-sentence
 	transpose-words
 	))
 
 (setq mc/cmds-to-run-once
       '(
-	kill-sentence
 	mjb-mc-map
 	mjb/mc/insert-numbers
 	mjb/mc/mark-all-like-this
