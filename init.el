@@ -35,3 +35,6 @@
 (require 'mjb-python)
 
 (desktop-save-mode 1)
+
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
