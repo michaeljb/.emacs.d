@@ -13,6 +13,7 @@
 	forward-five-lines
 	forward-sexp
 	kill-sentence
+	mjb/er/expand-region
 	transpose-words
 	))
 
