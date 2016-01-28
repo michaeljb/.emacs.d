@@ -7,6 +7,9 @@
 	backward-five-chars
 	backward-five-lines
 	backward-sexp
+	beginning-of-defun
+	delete-horizontal-space
+	end-of-defun
 	eval-expression
 	eval-print-last-sexp
 	forward-five-chars
@@ -19,6 +22,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	ido-switch-buffer
 	mjb-mc-map
 	mjb/mc/insert-numbers
 	mjb/mc/mark-all-like-this
