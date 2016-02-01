@@ -14,11 +14,13 @@
 (defvar mjb-package-list
   '(dash
     expand-region
+    flx-ido
     magit
     multiple-cursors
     projectile
     rainbow-delimiters
     smex
+    wgrep
     zenburn-theme
 
     ;; gherkin
