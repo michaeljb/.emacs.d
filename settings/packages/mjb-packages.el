@@ -12,7 +12,8 @@
 (require 'dash)
 
 (defvar mjb-package-list
-  '(dash
+  '(csv-mode
+    dash
     expand-region
     flx-ido
     magit
