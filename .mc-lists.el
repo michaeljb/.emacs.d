@@ -15,6 +15,7 @@
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
+	kill-region
 	kill-sentence
 	mjb/er/expand-region
 	transpose-words
@@ -25,6 +26,7 @@
 	ido-switch-buffer
 	mjb-mc-map
 	mjb/mc/insert-numbers
+	mjb/mc/mark-all-in-region-regexp
 	mjb/mc/mark-all-like-this
 	mjb/mc/mark-next-like-this-word
 	mjb/mc/mark-next-lines
