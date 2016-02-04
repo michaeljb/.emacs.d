@@ -19,6 +19,7 @@
 	kill-sentence
 	mjb/er/expand-region
 	transpose-words
+	wgrep-finish-edit
 	))
 
 (setq mc/cmds-to-run-once

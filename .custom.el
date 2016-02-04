@@ -11,7 +11,8 @@
  '(projectile-global-mode t)
  '(projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
  '(projectile-use-git-grep t)
- '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(wgrep-auto-save-buffer t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
