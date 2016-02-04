@@ -1,8 +1,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; regex searching is best searching
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-s") 'phi-search)
+(global-set-key (kbd "C-r") ''phi-search-backward)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 

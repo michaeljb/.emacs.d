@@ -18,6 +18,7 @@
     flx-ido
     magit
     multiple-cursors
+    phi-search
     projectile
     rainbow-delimiters
     smex
