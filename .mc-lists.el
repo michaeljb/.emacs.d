@@ -19,7 +19,6 @@
 	kill-sentence
 	mjb/er/expand-region
 	transpose-words
-	wgrep-finish-edit
 	))
 
 (setq mc/cmds-to-run-once
@@ -42,5 +41,6 @@
 	mjb/mc/unmark-previous-like-this
 	repeat
 	smex
+	wgrep-finish-edit
 	xref-find-definitions
 	))
