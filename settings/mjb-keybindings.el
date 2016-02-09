@@ -1,10 +1,14 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; regex searching is best searching
-(global-set-key (kbd "C-s") 'phi-search)
-(global-set-key (kbd "C-r") ''phi-search-backward)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;; search compatible with multiple cursors
+(global-set-key (kbd "M-s M-s") 'phi-search)
+(global-set-key (kbd "M-s s") 'phi-search)
 
 ;; less accidental quitting
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
