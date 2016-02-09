@@ -42,5 +42,6 @@
 	repeat
 	smex
 	wgrep-finish-edit
+	wgrep-change-to-wgrep-mode
 	xref-find-definitions
 	))
