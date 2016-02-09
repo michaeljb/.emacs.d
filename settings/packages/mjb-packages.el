@@ -15,7 +15,6 @@
   '(csv-mode
     dash
     expand-region
-    flx-ido
     magit
     multiple-cursors
     phi-search
