@@ -19,6 +19,8 @@
 	kill-sentence
 	mjb/er/expand-region
 	transpose-words
+	yaml-electric-bar-and-angle
+	yaml-electric-dash-and-dot
 	))
 
 (setq mc/cmds-to-run-once
@@ -40,6 +42,7 @@
 	mjb/mc/unmark-next-like-this
 	mjb/mc/unmark-previous-like-this
 	repeat
+	set-rectangular-region-anchor
 	smex
 	wgrep-finish-edit
 	wgrep-change-to-wgrep-mode
