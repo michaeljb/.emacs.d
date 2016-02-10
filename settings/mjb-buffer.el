@@ -28,4 +28,6 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+(add-hook 'ag-search-finished-hook 'wgrep-change-to-wgrep-mode)
+
 (provide 'mjb-buffer)

@@ -33,6 +33,24 @@ In Mac OS X Emacs, the Menu key seems to default to `C-p`. To use it as `Hyper`:
 
 ### Dependencies for Emacs Packages
 
+#### ag.el
+
+If not already installed, Ag is installed on automatically startup on Mac OS X
+(provided `brew` is available) or on Ubuntu/Debian (provided `apt-get` is
+available), using these commands:
+
+Mac OS X:
+
+```
+brew install the_silver_searcher
+```
+
+Ubuntu/Debian:
+
+```
+apt-get install -y silversearcher-ag
+```
+
 #### Elpy
 
 ```

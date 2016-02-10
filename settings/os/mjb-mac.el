@@ -10,4 +10,10 @@
 
 (setq dired-use-ls-dired nil)
 
+(defun mjb-env/install-ag ()
+  (when (not (eq 0 (shell-command "which ag")))
+    (when (eq 0 (shell-command "which brew"))
+      (shell-command "brew install the_silver_searcher"))))
+(mjb-env/install-ag)
+
 (provide 'mjb-mac)

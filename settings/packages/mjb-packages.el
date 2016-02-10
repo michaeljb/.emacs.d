@@ -12,7 +12,8 @@
 (require 'dash)
 
 (defvar mjb-package-list
-  '(csv-mode
+  '(ag
+    csv-mode
     dash
     expand-region
     magit
@@ -22,6 +23,7 @@
     rainbow-delimiters
     smex
     wgrep
+    wgrep-ag
     zenburn-theme
 
     ;; gherkin
