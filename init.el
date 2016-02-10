@@ -4,15 +4,19 @@
 (setq custom-file (locate-user-emacs-file ".custom.el"))
 (load custom-file t t)
 
+;; load path for emacs major version-specific settings
+(defvar mjb-emacs-version-name (cond ((string-match "^24\\." emacs-version) "settings-emacs24")
+                                     ((string-match "^25\\." emacs-version) "settings-emacs25")))
+(defvar mjb-emacs-version-dir (expand-file-name mjb-emacs-version-name user-emacs-directory))
+(add-to-list 'load-path mjb-emacs-version-dir)
+
+;; load path for all other settings
 (defvar settings-dir (expand-file-name "settings" user-emacs-directory))
 (defvar dev-dir (expand-file-name "dev" settings-dir))
 (defvar os-dir (expand-file-name "os" settings-dir))
-(defvar packages-dir (expand-file-name "packages" settings-dir))
-
 (add-to-list 'load-path settings-dir)
 (add-to-list 'load-path dev-dir)
 (add-to-list 'load-path os-dir)
-(add-to-list 'load-path packages-dir)
 
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
