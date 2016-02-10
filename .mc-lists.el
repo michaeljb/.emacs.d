@@ -7,6 +7,7 @@
 	backward-five-chars
 	backward-five-lines
 	backward-sexp
+	beginning-of-buffer
 	beginning-of-defun
 	delete-horizontal-space
 	end-of-defun
@@ -21,6 +22,7 @@
 	transpose-words
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
+	yas-expand
 	))
 
 (setq mc/cmds-to-run-once
@@ -44,7 +46,7 @@
 	repeat
 	set-rectangular-region-anchor
 	smex
-	wgrep-finish-edit
 	wgrep-change-to-wgrep-mode
+	wgrep-finish-edit
 	xref-find-definitions
 	))
