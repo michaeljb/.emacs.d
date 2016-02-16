@@ -16,6 +16,7 @@
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
+	ibuffer-mark-for-delete
 	kill-region
 	kill-sentence
 	mjb/er/expand-region
@@ -27,6 +28,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
 	mjb-mc-map
 	mjb/mc/insert-numbers
