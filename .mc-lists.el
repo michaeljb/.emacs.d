@@ -10,6 +10,7 @@
 	beginning-of-buffer
 	beginning-of-defun
 	delete-horizontal-space
+	dired-mark
 	end-of-defun
 	eval-expression
 	eval-print-last-sexp
@@ -29,6 +30,7 @@
 (setq mc/cmds-to-run-once
       '(
 	ibuffer-do-kill-on-deletion-marks
+	ein:worksheet-execute-cell-and-goto-next
 	ido-switch-buffer
 	mjb-mc-map
 	mjb/mc/insert-numbers
