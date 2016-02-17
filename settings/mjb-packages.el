@@ -7,9 +7,11 @@
 (package-initialize)
 
 (defvar mjb-package-list
-  '(ag
+  '(
+    ag
     csv-mode
     dash
+    ein
     expand-region
     magit
     multiple-cursors
