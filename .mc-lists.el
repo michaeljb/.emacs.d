@@ -20,6 +20,7 @@
 	ibuffer-mark-for-delete
 	kill-region
 	kill-sentence
+	mark-paragraph
 	mjb/er/expand-region
 	transpose-words
 	yaml-electric-bar-and-angle
@@ -29,8 +30,8 @@
 
 (setq mc/cmds-to-run-once
       '(
-	ibuffer-do-kill-on-deletion-marks
 	ein:worksheet-execute-cell-and-goto-next
+	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
 	mjb-mc-map
 	mjb/mc/insert-numbers
