@@ -17,4 +17,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ein:cell-input-area ((t (:background "color-239"))))
  '(region ((t (:background "#949494" :distant-foreground "black")))))
