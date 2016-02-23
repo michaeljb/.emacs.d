@@ -101,6 +101,8 @@
 ;; Multiple Cursors
 ;; --------------------------------------------------
 
+(require 'mc-cycle-cursors)
+
 (defun mjb/mc/mark-next-like-this-word (arg)
   (interactive "p")
   (mc/mark-next-like-this-word arg)
@@ -177,6 +179,16 @@
   (mc/mark-previous-lines arg)
   (mjb-mc-map))
 
+(defun mjb/mc/cycle-forward ()
+  (interactive)
+  (mc/cycle-forward)
+  (mjb-mc-map))
+
+(defun mjb/mc/cycle-backward ()
+  (interactive)
+  (mc/cycle-backward)
+  (mjb-mc-map))
+
 (defun mjb-mc-map ()
   (interactive)
   (set-transient-map
@@ -209,6 +221,9 @@
      (define-key map "C" 'mc/edit-lines)
 
      (define-key map "=" 'mjb/er/expand-region)
+
+     (define-key map "v" 'mjb/mc/cycle-forward)
+     (define-key map "V" 'mjb/mc/cycle-backward)
 
      (define-key map "R" 'set-rectangular-region-anchor)
      map)))

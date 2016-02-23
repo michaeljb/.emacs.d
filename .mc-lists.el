@@ -34,6 +34,8 @@
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
 	mjb-mc-map
+	mjb/mc/cycle-backward
+	mjb/mc/cycle-forward
 	mjb/mc/insert-numbers
 	mjb/mc/mark-all-in-region-regexp
 	mjb/mc/mark-all-like-this
