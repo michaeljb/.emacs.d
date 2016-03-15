@@ -19,6 +19,7 @@
     projectile
     rainbow-delimiters
     smex
+    wc-mode
     wgrep
     wgrep-ag
     zenburn-theme
