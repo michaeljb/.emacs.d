@@ -6,11 +6,13 @@
       '(
 	backward-five-chars
 	backward-five-lines
+	backward-sentence
 	backward-sexp
 	beginning-of-buffer
 	beginning-of-defun
 	delete-horizontal-space
 	dired-mark
+	electric-newline-and-maybe-indent
 	end-of-defun
 	eval-expression
 	eval-print-last-sexp
@@ -18,10 +20,12 @@
 	forward-five-lines
 	forward-sexp
 	ibuffer-mark-for-delete
+	indent-for-tab-command
 	kill-region
 	kill-sentence
 	mark-paragraph
 	mjb/er/expand-region
+	org-self-insert-command
 	transpose-words
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
@@ -33,6 +37,7 @@
 	ein:worksheet-execute-cell-and-goto-next
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
+	mark-whole-buffer
 	mjb-mc-map
 	mjb/mc/cycle-backward
 	mjb/mc/cycle-forward
@@ -50,10 +55,12 @@
 	mjb/mc/sort-regions
 	mjb/mc/unmark-next-like-this
 	mjb/mc/unmark-previous-like-this
+	org-delete-char
 	repeat
 	set-rectangular-region-anchor
 	smex
 	wgrep-change-to-wgrep-mode
 	wgrep-finish-edit
 	xref-find-definitions
+	yaml-electric-backspace
 	))
