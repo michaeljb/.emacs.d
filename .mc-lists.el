@@ -11,7 +11,10 @@
 	beginning-of-buffer
 	beginning-of-defun
 	delete-horizontal-space
+	dired-flag-file-deletion
 	dired-mark
+	dired-next-line
+	dired-previous-line
 	electric-newline-and-maybe-indent
 	end-of-defun
 	eval-expression
@@ -26,6 +29,7 @@
 	mark-paragraph
 	mjb/er/expand-region
 	org-self-insert-command
+	python-nav-forward-block
 	transpose-words
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
@@ -57,8 +61,10 @@
 	mjb/mc/unmark-previous-like-this
 	org-delete-char
 	repeat
+	revert-buffer
 	set-rectangular-region-anchor
 	smex
+	smex-major-mode-commands
 	wgrep-change-to-wgrep-mode
 	wgrep-finish-edit
 	xref-find-definitions
