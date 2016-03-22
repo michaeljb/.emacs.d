@@ -13,6 +13,7 @@
     dash
     ein
     expand-region
+    hide-comnt
     magit
     multiple-cursors
     phi-search
