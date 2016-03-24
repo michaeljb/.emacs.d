@@ -18,6 +18,7 @@
 	forward-five-lines
 	forward-sexp
 	ibuffer-mark-for-delete
+	indent-for-tab-command
 	kill-region
 	kill-sentence
 	mark-paragraph
@@ -33,6 +34,7 @@
 	ein:worksheet-execute-cell-and-goto-next
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
+	magit-status
 	mjb-mc-map
 	mjb/mc/cycle-backward
 	mjb/mc/cycle-forward
