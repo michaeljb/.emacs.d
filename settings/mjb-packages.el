@@ -18,6 +18,7 @@
     phi-search
     projectile
     rainbow-delimiters
+    smartrep
     smex
     wgrep
     wgrep-ag

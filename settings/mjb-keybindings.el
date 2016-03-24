@@ -102,133 +102,32 @@
 ;; --------------------------------------------------
 
 (require 'mc-cycle-cursors)
+(require 'smartrep)
 
-(defun mjb/mc/mark-next-like-this-word (arg)
-  (interactive "p")
-  (mc/mark-next-like-this-word arg)
-  (mjb-mc-map))
-
-(defun mjb/mc/unmark-next-like-this ()
-  (interactive)
-  (mc/unmark-next-like-this)
-  (mjb-mc-map))
-
-(defun mjb/mc/skip-to-next-like-this ()
-  (interactive)
-  (mc/skip-to-next-like-this)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-previous-like-this (arg)
-  (interactive "p")
-  (mc/mark-previous-like-this arg)
-  (mjb-mc-map))
-
-(defun mjb/mc/unmark-previous-like-this ()
-  (interactive)
-  (mc/unmark-previous-like-this)
-  (mjb-mc-map))
-
-(defun mjb/mc/skip-to-previous-like-this ()
-  (interactive)
-  (mc/skip-to-previous-like-this)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-all-like-this ()
-  (interactive)
-  (mc/mark-all-like-this)
-  (mjb-mc-map))
-
-(defun mjb/mc/insert-numbers (arg num)
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-		     (read-number "Starting number: " 0)))
-  (mc/insert-numbers num)
-  (mjb-mc-map))
-
-(defun mjb/mc/sort-regions ()
-  (interactive)
-  (mc/sort-regions)
-  (mjb-mc-map))
-
-(defun mjb/mc/reverse-regions ()
-  (interactive)
-  (mc/reverse-regions)
-  (mjb-mc-map))
-
-(defun mjb/er/expand-region (arg)
-  (interactive "p")
-  (er/expand-region arg)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-pop ()
-  (interactive)
-  (mc/mark-pop)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-all-in-region-regexp (beg end)
-  (interactive "r")
-  (mc/mark-all-in-region-regexp beg end)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-next-lines (arg)
-  (interactive "p")
-  (mc/mark-next-lines arg)
-  (mjb-mc-map))
-
-(defun mjb/mc/mark-previous-lines (arg)
-  (interactive "p")
-  (mc/mark-previous-lines arg)
-  (mjb-mc-map))
-
-(defun mjb/mc/cycle-forward ()
-  (interactive)
-  (mc/cycle-forward)
-  (mjb-mc-map))
-
-(defun mjb/mc/cycle-backward ()
-  (interactive)
-  (mc/cycle-backward)
-  (mjb-mc-map))
-
-(defun mjb-mc-map ()
-  (interactive)
-  (set-transient-map
-   (let ((map (make-sparse-keymap)))
-     (define-key map ">" 'mjb/mc/mark-next-like-this-word)
-     (define-key map "." 'mjb/mc/unmark-next-like-this)
-     (define-key map "l" 'mjb/mc/skip-to-next-like-this)
-
-     (define-key map "<" 'mjb/mc/mark-previous-like-this)
-     (define-key map "," 'mjb/mc/unmark-previous-like-this)
-     (define-key map "k" 'mjb/mc/skip-to-previous-like-this)
-
-     (define-key map "a" 'mjb/mc/mark-all-like-this)
-
-     (define-key map "1" 'mjb/mc/insert-numbers)
-
-     (define-key map "s" 'mjb/mc/sort-regions)
-     (define-key map "f" 'mjb/mc/reverse-regions)
-
-     (define-key map " " 'mjb/mc/mark-pop)
-
-     (define-key map "r" 'mjb/mc/mark-all-in-region-regexp)
-
-     (define-key map "n" 'mjb/mc/mark-next-lines)
-     (define-key map "p" 'mjb/mc/mark-previous-lines)
-
-     (define-key map "(" 'mc/mark-sgml-tag-pair)
-     (define-key map ")" 'mc/mark-sgml-tag-pair)
-
-     (define-key map "C" 'mc/edit-lines)
-
-     (define-key map "=" 'mjb/er/expand-region)
-
-     (define-key map "v" 'mjb/mc/cycle-forward)
-     (define-key map "V" 'mjb/mc/cycle-backward)
-
-     (define-key map "R" 'set-rectangular-region-anchor)
-     map)))
-
-(global-set-key (kbd "M-C") 'mjb-mc-map)
-
+;; (smartrep-define-key
+;;     global-map "M-C"
+;;   '(
+;;     (">" . 'mc/mark-next-like-this-word)
+;;     ("." . 'mc/unmark-next-like-this)
+;;     ("l" . 'mc/skip-to-next-like-this)
+;;     ("<" . 'mc/mark-previous-like-this)
+;;     ("," . 'mc/unmark-previous-like-this)
+;;     ("k" . 'mc/skip-to-previous-like-this)
+;;     ("a" . 'mc/mark-all-like-this)
+;;     ("1" . 'mc/insert-numbers)
+;;     ("s" . 'mc/sort-regions)
+;;     ("f" . 'mc/reverse-regions)
+;;     (" " . 'mc/mark-pop)
+;;     ("r" . 'mc/mark-all-in-region-regexp)
+;;     ("n" . 'mc/mark-next-lines)
+;;     ("p" . 'mc/mark-previous-lines)
+;;     ("(" . 'mc/mark-sgml-tag-pair)
+;;     (")" . 'mc/mark-sgml-tag-pair)
+;;     ("C" . 'mc/edit-lines)
+;;     ("=" . 'er/expand-region)
+;;     ("v" . 'mc/cycle-forward)
+;;     ("V" . 'mc/cycle-backward)
+;;     ("R" . 'set-rectangular-region-anchor)
+;;     ))
 
 (provide 'mjb-keybindings)
