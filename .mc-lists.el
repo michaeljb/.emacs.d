@@ -41,6 +41,7 @@
 	ein:worksheet-execute-cell-and-goto-next
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
+	magit-status
 	mark-whole-buffer
 	mjb-mc-map
 	mjb/mc/cycle-backward
