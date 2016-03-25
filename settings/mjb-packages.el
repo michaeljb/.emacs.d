@@ -25,6 +25,9 @@
     wgrep-ag
     zenburn-theme
 
+    ;; docker
+    dockerfile-mode
+
     ;; gherkin
     feature-mode
 
