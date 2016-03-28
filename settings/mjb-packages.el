@@ -31,6 +31,9 @@
     ;; gherkin
     feature-mode
 
+    ;; javascript
+    js2-mode
+
     ;; markdown
     markdown-mode
 
