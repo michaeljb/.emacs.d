@@ -19,11 +19,13 @@
 	end-of-defun
 	eval-expression
 	eval-print-last-sexp
+	fill-paragraph
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
 	ibuffer-mark-for-delete
 	indent-for-tab-command
+	insert-register
 	kill-region
 	kill-sentence
 	mark-paragraph
