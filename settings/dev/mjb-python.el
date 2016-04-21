@@ -5,6 +5,12 @@
 (require 'pyvenv)
 (elpy-enable)
 
+(defvar mjb-python-run-autopep8)
+(setq mjb-python-run-autopep8 nil)
+(defun toggle-mjb-python-run-autopep8 ()
+  (interactive)
+  (setq mjb-python-run-autopep8 (not mjb-python-run-autopep8)))
+
 ;; track virtual environments if they are set dir locally
 (setq pyvenv-tracking-mode 't)
 
@@ -30,7 +36,8 @@
 		      (lambda()
 			(save-excursion
 			  (condition-case nil
-			      (py-autopep8-buffer)
+			      (when mjb-python-run-autopep8
+				(py-autopep8-buffer))
 			    (error nil)))))))
 
 (provide 'mjb-python)
