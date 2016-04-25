@@ -26,6 +26,7 @@
 	ibuffer-mark-for-delete
 	indent-for-tab-command
 	insert-register
+	js2-indent-bounce
 	kill-region
 	kill-sentence
 	mark-paragraph
