@@ -32,6 +32,7 @@
 	mark-paragraph
 	mjb/er/expand-region
 	org-self-insert-command
+	prog-indent-sexp
 	python-nav-forward-block
 	transpose-words
 	yaml-electric-bar-and-angle
@@ -41,6 +42,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	dired-do-copy
 	ein:worksheet-execute-cell-and-goto-next
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
@@ -69,6 +71,7 @@
 	set-rectangular-region-anchor
 	smex
 	smex-major-mode-commands
+	undefined
 	wgrep-change-to-wgrep-mode
 	wgrep-finish-edit
 	xref-find-definitions
