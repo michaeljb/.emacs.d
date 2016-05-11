@@ -6,6 +6,7 @@
  '(column-number-mode t)
  '(css-indent-offset 2)
  '(fill-column 80)
+ '(ido-case-fold t)
  '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
