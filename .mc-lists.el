@@ -20,6 +20,7 @@
 	eval-expression
 	eval-print-last-sexp
 	fill-paragraph
+	fortran-split-line
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
@@ -59,6 +60,7 @@
 	mjb/mc/mark-pop
 	mjb/mc/mark-previous-like-this
 	mjb/mc/mark-previous-lines
+	mjb/mc/quit
 	mjb/mc/reverse-regions
 	mjb/mc/skip-to-next-like-this
 	mjb/mc/skip-to-previous-like-this
