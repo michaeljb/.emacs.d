@@ -191,6 +191,10 @@
   (mc/cycle-backward)
   (mjb-mc-map))
 
+(defun mjb/mc/quit ()
+  (interactive)
+  (message "Done setting up cursors"))
+
 (defun mjb-mc-map ()
   (interactive)
   (set-transient-map
@@ -228,6 +232,8 @@
      (define-key map "V" 'mjb/mc/cycle-backward)
 
      (define-key map "R" 'set-rectangular-region-anchor)
+
+     (define-key map "g" 'mjb/mc/quit)
      map)))
 
 (global-set-key (kbd "M-C") 'mjb-mc-map)
