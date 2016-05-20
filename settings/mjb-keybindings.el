@@ -166,11 +166,6 @@
   (mc/mark-pop)
   (mjb-mc-map))
 
-(defun mjb/mc/mark-all-in-region-regexp (beg end)
-  (interactive "r")
-  (mc/mark-all-in-region-regexp beg end)
-  (mjb-mc-map))
-
 (defun mjb/mc/mark-next-lines (arg)
   (interactive "p")
   (mc/mark-next-lines arg)
@@ -193,10 +188,11 @@
 
 (defun mjb/mc/quit ()
   (interactive)
-  (message "Done setting up cursors"))
+  (message "mjb-mc-map: done setting up cursors"))
 
 (defun mjb-mc-map ()
   (interactive)
+  (message "mjb-mc-map active ('g' to finish)")
   (set-transient-map
    (let ((map (make-sparse-keymap)))
      (define-key map ">" 'mjb/mc/mark-next-like-this-word)
@@ -209,20 +205,15 @@
 
      (define-key map "a" 'mjb/mc/mark-all-like-this)
 
-     (define-key map "1" 'mjb/mc/insert-numbers)
+     (define-key map "#" 'mjb/mc/insert-numbers)
 
      (define-key map "s" 'mjb/mc/sort-regions)
      (define-key map "f" 'mjb/mc/reverse-regions)
 
      (define-key map " " 'mjb/mc/mark-pop)
 
-     (define-key map "r" 'mjb/mc/mark-all-in-region-regexp)
-
      (define-key map "n" 'mjb/mc/mark-next-lines)
      (define-key map "p" 'mjb/mc/mark-previous-lines)
-
-     (define-key map "(" 'mc/mark-sgml-tag-pair)
-     (define-key map ")" 'mc/mark-sgml-tag-pair)
 
      (define-key map "C" 'mc/edit-lines)
 
