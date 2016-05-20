@@ -195,6 +195,11 @@
   (message "mjb-mc-map active ('g' to finish)")
   (set-transient-map
    (let ((map (make-sparse-keymap)))
+     (define-key map "C" 'mc/edit-lines)
+     (define-key map "R" 'set-rectangular-region-anchor)
+
+     (define-key map "=" 'mjb/er/expand-region)
+
      (define-key map ">" 'mjb/mc/mark-next-like-this-word)
      (define-key map "." 'mjb/mc/unmark-next-like-this)
      (define-key map "l" 'mjb/mc/skip-to-next-like-this)
@@ -215,14 +220,8 @@
      (define-key map "n" 'mjb/mc/mark-next-lines)
      (define-key map "p" 'mjb/mc/mark-previous-lines)
 
-     (define-key map "C" 'mc/edit-lines)
-
-     (define-key map "=" 'mjb/er/expand-region)
-
      (define-key map "v" 'mjb/mc/cycle-forward)
      (define-key map "V" 'mjb/mc/cycle-backward)
-
-     (define-key map "R" 'set-rectangular-region-anchor)
 
      (define-key map "g" 'mjb/mc/quit)
      map)))
