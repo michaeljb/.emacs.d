@@ -34,6 +34,11 @@
     ;; javascript
     js2-mode
 
+    ;; json
+    json-mode
+    json-reformat
+    json-snatcher
+
     ;; markdown
     markdown-mode
 
