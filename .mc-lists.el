@@ -24,6 +24,7 @@
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
+	hydra-mjb-mc/er/expand-region
 	ibuffer-mark-for-delete
 	indent-for-tab-command
 	insert-register
@@ -31,7 +32,6 @@
 	kill-region
 	kill-sentence
 	mark-paragraph
-	mjb/er/expand-region
 	org-self-insert-command
 	prog-indent-sexp
 	python-nav-forward-block
@@ -45,28 +45,28 @@
       '(
 	dired-do-copy
 	ein:worksheet-execute-cell-and-goto-next
+	hydra-mjb-mc/body
+	hydra-mjb-mc/lambda-\#
+	hydra-mjb-mc/mc/cycle-backward
+	hydra-mjb-mc/mc/cycle-forward
+	hydra-mjb-mc/mc/edit-lines-and-exit
+	hydra-mjb-mc/mc/mark-all-like-this
+	hydra-mjb-mc/mc/mark-next-like-this-word
+	hydra-mjb-mc/mc/mark-next-lines
+	hydra-mjb-mc/mc/mark-pop
+	hydra-mjb-mc/mc/mark-previous-like-this
+	hydra-mjb-mc/mc/mark-previous-lines
+	hydra-mjb-mc/mc/reverse-regions
+	hydra-mjb-mc/mc/skip-to-next-like-this
+	hydra-mjb-mc/mc/skip-to-previous-like-this
+	hydra-mjb-mc/mc/sort-regions
+	hydra-mjb-mc/mc/unmark-next-like-this
+	hydra-mjb-mc/mc/unmark-previous-like-this
+	hydra-mjb-mc/nil
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
 	magit-status
 	mark-whole-buffer
-	mjb-mc-map
-	mjb/mc/cycle-backward
-	mjb/mc/cycle-forward
-	mjb/mc/insert-numbers
-	mjb/mc/mark-all-in-region-regexp
-	mjb/mc/mark-all-like-this
-	mjb/mc/mark-next-like-this-word
-	mjb/mc/mark-next-lines
-	mjb/mc/mark-pop
-	mjb/mc/mark-previous-like-this
-	mjb/mc/mark-previous-lines
-	mjb/mc/quit
-	mjb/mc/reverse-regions
-	mjb/mc/skip-to-next-like-this
-	mjb/mc/skip-to-previous-like-this
-	mjb/mc/sort-regions
-	mjb/mc/unmark-next-like-this
-	mjb/mc/unmark-previous-like-this
 	org-delete-char
 	repeat
 	revert-buffer

@@ -14,6 +14,7 @@
     ein
     expand-region
     hide-comnt
+    hydra
     magit
     multiple-cursors
     phi-search
