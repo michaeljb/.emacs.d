@@ -9,14 +9,15 @@
 (defvar mjb-package-list
   '(
     ag
-    csv-mode
     counsel
+    csv-mode
     dash
     ein
     expand-region
     hide-comnt
     hydra
     ivy
+    ivy-hydra
     magit
     multiple-cursors
     phi-search
