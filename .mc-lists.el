@@ -65,6 +65,7 @@
 	hydra-mjb-mc/nil
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
+	kmacro-end-macro
 	magit-status
 	mark-whole-buffer
 	org-delete-char
