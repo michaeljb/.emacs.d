@@ -10,17 +10,20 @@
   '(
     ag
     csv-mode
+    counsel
     dash
     ein
     expand-region
     hide-comnt
     hydra
+    ivy
     magit
     multiple-cursors
     phi-search
     projectile
     rainbow-delimiters
     smex
+    swiper
     wc-mode
     wgrep
     wgrep-ag
