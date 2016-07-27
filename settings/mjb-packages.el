@@ -13,7 +13,10 @@
 
 (eval-when-compile
   (require 'use-package))
+(require 'bind-key)
+
 (setq use-package-always-ensure t)
+
 
 (use-package ag)
 
