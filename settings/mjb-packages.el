@@ -63,7 +63,14 @@
 
 (use-package rainbow-delimiters)
 
-(use-package smex)
+(use-package smex
+  :bind (("C-x C-m" . smex)
+	 ("C-c C-m" . smex)
+	 ("M-x" . smex)
+	 ("M-X" . smex-major-mode-commands)
+	 ("C-c C-c M-x" . execute-extended-command))
+  :init
+  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package swiper)
 
