@@ -43,7 +43,14 @@
   :ensure t)
 (use-package projectile
   :disabled t
-  :ensure t)
+  :ensure t
+  :ensure ivy
+  :init
+  (projectile-global-mode)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
+  (setq projectile-use-git-grep t))
+
 (use-package rainbow-delimiters
   :ensure t)
 (use-package smex

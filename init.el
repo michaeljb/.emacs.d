@@ -46,7 +46,5 @@
 (org-clock-persistence-insinuate)
 
 (hide/show-comments)
-;;(projectile-global-mode)
 
 (setq magit-completing-read-function 'ivy-completing-read)
-;;(setq projectile-completion-system 'ivy)
