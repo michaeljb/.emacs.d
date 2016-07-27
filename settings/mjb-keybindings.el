@@ -70,45 +70,4 @@
                   (join-line -1)))
 
 
-;; --------------------------------------------------
-;; Multiple Cursors
-;; --------------------------------------------------
-
-(defhydra hydra-mjb-mc (:hint nil)
-
-  ("C" mc/edit-lines :exit t)
-  ("R" set-rectangular-region-anchor)
-
-  ("=" er/expand-region)
-
-  (">" mc/mark-next-like-this-word)
-  ("." mc/unmark-next-like-this)
-  ("l" mc/skip-to-next-like-this)
-
-  ("<" mc/mark-previous-like-this)
-  ("," mc/unmark-previous-like-this)
-  ("k" mc/skip-to-previous-like-this)
-
-  ("a" mc/mark-all-like-this)
-
-  ("#" (lambda (arg num)
-	 (interactive (list (prefix-numeric-value current-prefix-arg)
-			    (read-number "Starting number: " 0)))
-	 (mc/insert-numbers num)))
-
-  ("s" mc/sort-regions)
-  ("f" mc/reverse-regions)
-
-  ("m" mc/mark-pop)
-
-  ("n" mc/mark-next-lines)
-  ("p" mc/mark-previous-lines)
-
-  ("v" mc/cycle-forward)
-  ("V" mc/cycle-backward)
-
-  ("q" nil))
-
-(global-set-key (kbd "M-C") 'hydra-mjb-mc/body)
-
 (provide 'mjb-keybindings)
