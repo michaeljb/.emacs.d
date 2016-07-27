@@ -28,7 +28,8 @@
 
 (use-package ein)
 
-(use-package expand-region)
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)))
 
 (use-package hide-comnt)
 
