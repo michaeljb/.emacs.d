@@ -62,7 +62,9 @@
 
 (use-package wgrep-ag)
 
-(use-package zenburn-theme)
+(use-package zenburn-theme
+  :init
+  (load-theme 'zenburn t))
 
 ;; docker
 (use-package dockerfile-mode)

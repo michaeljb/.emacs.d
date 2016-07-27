@@ -25,8 +25,6 @@
 
 (require 'mjb-packages)
 
-(load-theme 'zenburn t)
-
 (require 'mjb-keybindings)
 (require 'mjb-os)
 
