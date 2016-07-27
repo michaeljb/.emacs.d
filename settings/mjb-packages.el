@@ -45,7 +45,10 @@
 
 (use-package multiple-cursors)
 
-(use-package phi-search)
+;; search compatible with multiple cursors
+(use-package phi-search
+  :bind (("M-s M-s" . phi-search)
+	 ("M-s s" . phi-search)))
 
 (use-package projectile
   :disabled t

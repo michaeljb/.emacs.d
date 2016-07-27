@@ -6,10 +6,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; search compatible with multiple cursors
-(global-set-key (kbd "M-s M-s") 'phi-search)
-(global-set-key (kbd "M-s s") 'phi-search)
-
 ;; less accidental quitting
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-unset-key (kbd "C-x C-c"))
