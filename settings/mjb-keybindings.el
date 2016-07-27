@@ -69,13 +69,7 @@
 (define-prefix-command 'mjb-prefix-r)
 (define-key mjb-prefix "r" 'mjb-prefix-r)
 
-
 (define-key mjb-prefix "l"	'linum-mode)
-
-(define-key mjb-prefix "n"	'forward-five-lines)
-(define-key mjb-prefix "p"	'backward-five-lines)
-
-(define-key mjb-prefix "w"	'delete-trailing-whitespace)
 
 (define-key mjb-prefix-r "r"	'replace-rectangle)
 (define-key mjb-prefix-r "x"	'query-replace-regexp)
