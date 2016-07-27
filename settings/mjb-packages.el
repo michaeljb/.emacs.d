@@ -38,7 +38,7 @@
   :ensure expand-region
   :ensure multiple-cursors
   :bind (("M-C" . hydra-mjb-mc/body))
-  :init
+  :config
   (defhydra hydra-mjb-mc (:hint nil)
 
     ("C" mc/edit-lines :exit t)
@@ -81,11 +81,11 @@
 (use-package magit
   :ensure ivy
   :bind (("C-c g" . magit-status))
-  :init
+  :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package multiple-cursors
-  :init
+  :config
   (require 'mc-cycle-cursors))
 
 ;; search compatible with multiple cursors
@@ -96,7 +96,7 @@
 (use-package projectile
   :disabled t
   :ensure ivy
-  :init
+  :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
   (setq projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
@@ -110,7 +110,7 @@
 	 ("M-x" . smex)
 	 ("M-X" . smex-major-mode-commands)
 	 ("C-c C-c M-x" . execute-extended-command))
-  :init
+  :config
   (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package swiper)
@@ -122,7 +122,7 @@
 (use-package wgrep-ag)
 
 (use-package zenburn-theme
-  :init
+  :config
   (load-theme 'zenburn t))
 
 ;; docker
@@ -133,14 +133,14 @@
 
 ;; javascript
 (use-package js2-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
   (setq js2-mode-show-strict-warnings nil))
 
 ;; json
 (use-package json-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.babelrc\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.eslintrc\\'" . json-mode)))
 
