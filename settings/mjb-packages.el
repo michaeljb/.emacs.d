@@ -132,7 +132,11 @@
 (use-package feature-mode)
 
 ;; javascript
-(use-package js2-mode)
+(use-package js2-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+  (setq js2-mode-show-strict-warnings nil))
 
 ;; json
 (use-package json-mode)
