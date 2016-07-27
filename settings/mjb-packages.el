@@ -42,6 +42,7 @@
 (use-package phi-search
   :ensure t)
 (use-package projectile
+  :disabled t
   :ensure t)
 (use-package rainbow-delimiters
   :ensure t)

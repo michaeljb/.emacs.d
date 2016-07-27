@@ -13,8 +13,8 @@
  '(line-number-mode t)
  '(magit-fetch-arguments (quote ("--prune")))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
- '(projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
- '(projectile-use-git-grep t)
+;; '(projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
+;; '(projectile-use-git-grep t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(wgrep-auto-save-buffer t))
 (custom-set-faces
