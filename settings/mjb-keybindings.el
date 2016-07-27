@@ -74,8 +74,6 @@
 ;; Multiple Cursors
 ;; --------------------------------------------------
 
-(require 'mc-cycle-cursors)
-
 (defhydra hydra-mjb-mc (:hint nil)
 
   ("C" mc/edit-lines :exit t)

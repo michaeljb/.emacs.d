@@ -46,7 +46,9 @@
   :init
   (setq magit-completing-read-function 'ivy-completing-read))
 
-(use-package multiple-cursors)
+(use-package multiple-cursors
+  :init
+  (require 'mc-cycle-cursors))
 
 ;; search compatible with multiple cursors
 (use-package phi-search
