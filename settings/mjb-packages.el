@@ -35,7 +35,10 @@
 
 (use-package ivy-hydra)
 
-(use-package magit)
+(use-package magit
+  :ensure ivy
+  :init
+  (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package multiple-cursors)
 

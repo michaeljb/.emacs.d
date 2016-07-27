@@ -44,5 +44,3 @@
 (org-clock-persistence-insinuate)
 
 (hide/show-comments)
-
-(setq magit-completing-read-function 'ivy-completing-read)
