@@ -11,4 +11,4 @@
 
 (packages-install mjb-package-list)
 
-(provide 'mjb-install-packages)
+(provide 'mjb-package-init)

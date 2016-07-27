@@ -9,7 +9,7 @@
 ;; install use-package before we install the other packages
 (defvar mjb-package-list
   '(use-package))
-(require 'mjb-install-packages)
+(require 'mjb-package-init)
 
 (eval-when-compile
   (require 'use-package))
