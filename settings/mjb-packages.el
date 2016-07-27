@@ -13,50 +13,36 @@
 
 (eval-when-compile
   (require 'use-package))
+(setq use-package-always-ensure t)
 
+(use-package ag)
 
-(use-package ag
-  :ensure t)
+(use-package counsel)
 
-(use-package counsel
-  :ensure t)
+(use-package csv-mode)
 
-(use-package csv-mode
-  :ensure t)
+(use-package dash)
 
-(use-package dash
-  :ensure t)
+(use-package ein)
 
-(use-package ein
-  :ensure t)
+(use-package expand-region)
 
-(use-package expand-region
-  :ensure t)
+(use-package hide-comnt)
 
-(use-package hide-comnt
-  :ensure t)
+(use-package hydra)
 
-(use-package hydra
-  :ensure t)
+(use-package ivy)
 
-(use-package ivy
-  :ensure t)
+(use-package ivy-hydra)
 
-(use-package ivy-hydra
-  :ensure t)
+(use-package magit)
 
-(use-package magit
-  :ensure t)
+(use-package multiple-cursors)
 
-(use-package multiple-cursors
-  :ensure t)
-
-(use-package phi-search
-  :ensure t)
+(use-package phi-search)
 
 (use-package projectile
   :disabled t
-  :ensure t
   :ensure ivy
   :init
   (projectile-global-mode)
@@ -64,72 +50,52 @@
   (setq projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
   (setq projectile-use-git-grep t))
 
-(use-package rainbow-delimiters
-  :ensure t)
+(use-package rainbow-delimiters)
 
-(use-package smex
-  :ensure t)
+(use-package smex)
 
-(use-package swiper
-  :ensure t)
+(use-package swiper)
 
-(use-package wc-mode
-  :ensure t)
+(use-package wc-mode)
 
-(use-package wgrep
-  :ensure t)
+(use-package wgrep)
 
-(use-package wgrep-ag
-  :ensure t)
+(use-package wgrep-ag)
 
-(use-package zenburn-theme
-  :ensure t)
+(use-package zenburn-theme)
 
 ;; docker
-(use-package dockerfile-mode
-  :ensure t)
+(use-package dockerfile-mode)
 
 ;; gherkin
-(use-package feature-mode
-  :ensure t)
+(use-package feature-mode)
 
 ;; javascript
-(use-package js2-mode
-  :ensure t)
+(use-package js2-mode)
 
 ;; json
-(use-package json-mode
-  :ensure t)
+(use-package json-mode)
 
-(use-package json-reformat
-  :ensure t)
+(use-package json-reformat)
 
-(use-package json-snatcher
-  :ensure t)
+(use-package json-snatcher)
 
 ;; markdown
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
 ;; puppet
-(use-package puppet-mode
-  :ensure t)
+(use-package puppet-mode)
 
 ;; python
-(use-package elpy
-  :ensure t)
+(use-package elpy)
 
-(use-package nose
-  :ensure t)
+(use-package nose)
 
-(use-package py-autopep8
-  :ensure t)
+(use-package py-autopep8)
 
-(use-package pyvenv
-  :ensure t)
+(use-package pyvenv)
 
 ;; yaml
-(use-package yaml-mode
-  :ensure t)
+(use-package yaml-mode)
 
 (provide 'mjb-packages)
