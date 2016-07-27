@@ -35,7 +35,6 @@
 
 (require 'mjb-dev)
 (require 'mjb-python)
-(require 'mjb-json)
 
 (desktop-save-mode 1)
 

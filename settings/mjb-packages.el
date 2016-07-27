@@ -139,7 +139,10 @@
   (setq js2-mode-show-strict-warnings nil))
 
 ;; json
-(use-package json-mode)
+(use-package json-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.babelrc\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.eslintrc\\'" . json-mode)))
 
 (use-package json-reformat)
 
