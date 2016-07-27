@@ -41,6 +41,7 @@
 
 (use-package magit
   :ensure ivy
+  :bind (("C-c g" . magit-status))
   :init
   (setq magit-completing-read-function 'ivy-completing-read))
 

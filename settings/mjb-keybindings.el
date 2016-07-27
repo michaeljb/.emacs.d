@@ -47,9 +47,6 @@
 ;; Key Bindings for Installed Packages
 ;; --------------------------------------------------
 
-(global-set-key (kbd "C-c g") 'magit-status)
-
-(global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-c\C-m" 'smex)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
