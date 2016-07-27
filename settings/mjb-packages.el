@@ -6,10 +6,9 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; install use-package before we install the other packages
 (defvar mjb-package-list
   '(use-package))
-
-;; install use-package
 (require 'mjb-install-packages)
 
 (eval-when-compile
