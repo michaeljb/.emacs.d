@@ -37,6 +37,7 @@
 (use-package hydra
   :ensure expand-region
   :ensure multiple-cursors
+  :ensure t
   :bind (("M-C" . hydra-mjb-mc/body))
   :config
   (defhydra hydra-mjb-mc (:hint nil)
@@ -80,6 +81,7 @@
 
 (use-package magit
   :ensure ivy
+  :ensure t
   :bind (("C-c g" . magit-status))
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
@@ -94,8 +96,8 @@
 	 ("M-s s" . phi-search)))
 
 (use-package projectile
-  :disabled t
   :ensure ivy
+  :ensure t
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
