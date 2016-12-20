@@ -10,6 +10,8 @@
 	backward-sexp
 	beginning-of-buffer
 	beginning-of-defun
+	comint-delchar-or-maybe-eof
+	comment-region
 	delete-horizontal-space
 	dired-flag-file-deletion
 	dired-mark
@@ -32,10 +34,12 @@
 	kill-region
 	kill-sentence
 	mark-paragraph
+	markdown-exdent-or-delete
 	org-self-insert-command
 	prog-indent-sexp
 	python-nav-forward-block
 	transpose-words
+	yaml-electric-backspace
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
 	yas-expand
@@ -66,6 +70,7 @@
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
 	kmacro-end-macro
+	linum-mode
 	magit-status
 	mark-whole-buffer
 	org-delete-char
@@ -78,5 +83,4 @@
 	wgrep-change-to-wgrep-mode
 	wgrep-finish-edit
 	xref-find-definitions
-	yaml-electric-backspace
 	))
