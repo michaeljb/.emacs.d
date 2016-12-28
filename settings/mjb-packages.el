@@ -97,6 +97,7 @@
   :ensure t
   :bind (("C-c g" . magit-status))
   :config
+  (setq magit-refresh-status-buffer nil)
   (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package multiple-cursors
