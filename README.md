@@ -6,10 +6,8 @@ can't be put into Emacs Lisp.
 ### Installing Emacs on Mac OS X
 
 ```
-brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-d-bus --with-mailutils
+./install_emacs_macos.sh
 ```
-
-http://emacs.stackexchange.com/questions/271/what-is-the-difference-between-aquamacs-and-other-mac-versions-of-emacs
 
 ### Using Command as Meta in iTerm Emacs
 
