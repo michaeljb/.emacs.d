@@ -85,7 +85,8 @@
          ("C-c C-c M-x" . execute-extended-command)
 	 ("C-x C-f" . counsel-find-file)
 	 ("C-c f" . counsel-git)
-	 ("C-c j" . counsel-git-grep)))
+	 ("C-c j" . counsel-git-grep)
+	 ("C-c k" . counsel-ag)))
 (use-package swiper
   :bind (("\C-s" . swiper)))
 
