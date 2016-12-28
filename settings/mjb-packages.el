@@ -23,10 +23,6 @@
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
 
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-c C-c M-x" . execute-extended-command)))
-
 (use-package csv-mode)
 
 (use-package dash)
@@ -80,7 +76,18 @@
 
     ("q" nil)))
 
-(use-package ivy)
+
+(use-package ivy
+  :bind (("C-x b" . ivy-switch-buffer)))
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-c C-c M-x" . execute-extended-command)
+	 ("C-x C-f" . counsel-find-file)
+	 ("C-c f" . counsel-git)
+	 ("C-c j" . counsel-git-grep)))
+(use-package swiper
+  :bind (("\C-s" . swiper)))
+
 
 (use-package ivy-hydra)
 
@@ -100,18 +107,14 @@
   :bind (("M-s M-s" . phi-search)
 	 ("M-s s" . phi-search)))
 
-(use-package projectile
-  :ensure ivy
-  :ensure t
-  :config
-  (projectile-global-mode)
-  (setq projectile-completion-system 'ivy)
-  (setq projectile-known-projects-file "~/.emacs.d/.projectile-bookmarks.eld")
-  (setq projectile-use-git-grep t))
-
 (use-package rainbow-delimiters)
 
-(use-package swiper)
+(use-package smex
+  :bind (("C-c M-x" . smex)
+	 ("C-c M-X" . smex-major-mode-commands)
+	 ("C-c C-c M-x" . execute-extended-command))
+  :config
+  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package wc-mode)
 

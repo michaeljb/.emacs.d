@@ -3,6 +3,7 @@
 .emacs.desktop.lock
 .org-clock-save.el
 .projectile-bookmarks.eld
+.smex-items
 projectile.cache
 srecode-map.el
 /request/
