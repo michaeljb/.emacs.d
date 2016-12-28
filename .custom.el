@@ -14,6 +14,7 @@
  '(magit-fetch-arguments (quote ("--prune")))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
  '(package-selected-packages (quote (use-package)))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(wgrep-auto-save-buffer t))
 (custom-set-faces
