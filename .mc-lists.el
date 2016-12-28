@@ -82,8 +82,6 @@
 	repeat
 	revert-buffer
 	set-rectangular-region-anchor
-	smex
-	smex-major-mode-commands
 	undefined
 	wgrep-change-to-wgrep-mode
 	wgrep-finish-edit

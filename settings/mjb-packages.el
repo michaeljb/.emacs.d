@@ -23,7 +23,9 @@
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
 
-(use-package counsel)
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-c C-c M-x" . execute-extended-command)))
 
 (use-package csv-mode)
 
@@ -108,15 +110,6 @@
   (setq projectile-use-git-grep t))
 
 (use-package rainbow-delimiters)
-
-(use-package smex
-  :bind (("C-x C-m" . smex)
-	 ("C-c C-m" . smex)
-	 ("M-x" . smex)
-	 ("M-X" . smex-major-mode-commands)
-	 ("C-c C-c M-x" . execute-extended-command))
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package swiper)
 
