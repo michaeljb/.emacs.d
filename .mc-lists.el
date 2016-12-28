@@ -10,6 +10,7 @@
 	backward-sexp
 	beginning-of-buffer
 	beginning-of-defun
+	bool-flip-do-flip
 	comint-delchar-or-maybe-eof
 	comment-region
 	delete-horizontal-space

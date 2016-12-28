@@ -20,6 +20,9 @@
 
 (use-package ag)
 
+(use-package bool-flip
+  :bind (("C-c b" . bool-flip-do-flip)))
+
 (use-package counsel)
 
 (use-package csv-mode)
