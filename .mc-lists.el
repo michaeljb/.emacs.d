@@ -17,6 +17,7 @@
 	dired-mark
 	dired-next-line
 	dired-previous-line
+	ein:worksheet-split-cell-at-point
 	electric-newline-and-maybe-indent
 	end-of-defun
 	eval-expression
@@ -26,9 +27,12 @@
 	forward-five-chars
 	forward-five-lines
 	forward-sexp
+	hydra--digit-argument
+	hydra--universal-argument
 	hydra-mjb-mc/er/expand-region
 	ibuffer-mark-for-delete
 	indent-for-tab-command
+	indent-new-comment-line
 	insert-register
 	js2-indent-bounce
 	kill-region
