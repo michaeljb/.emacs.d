@@ -79,6 +79,7 @@
 
 (use-package ivy
   :bind (("C-x b" . ivy-switch-buffer)))
+(use-package smex) ;; used for sorting commands for  counsel-M-x
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-c C-c M-x" . execute-extended-command)
@@ -87,7 +88,6 @@
 	 ("C-c j" . counsel-git-grep)))
 (use-package swiper
   :bind (("\C-s" . swiper)))
-
 
 (use-package ivy-hydra)
 
@@ -108,13 +108,6 @@
 	 ("M-s s" . phi-search)))
 
 (use-package rainbow-delimiters)
-
-(use-package smex
-  :bind (("C-c M-x" . smex)
-	 ("C-c M-X" . smex-major-mode-commands)
-	 ("C-c C-c M-x" . execute-extended-command))
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package wc-mode)
 
