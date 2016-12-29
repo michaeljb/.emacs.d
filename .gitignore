@@ -2,10 +2,8 @@
 .emacs.desktop.lock
 .ido.last
 .org-clock-save.el
-.projectile-bookmarks.eld
 .smex-items
 /elpa/
 /request/
-projectile.cache
 recentf
 srecode-map.el
