@@ -113,7 +113,9 @@
 (use-package rainbow-delimiters)
 
 ;; used for sorting commands for  counsel-M-x
-(use-package smex)
+(use-package smex
+  :config
+  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package swiper
   :bind (("C-M-s" . swiper)))

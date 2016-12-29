@@ -3,8 +3,8 @@
 .ido.last
 .org-clock-save.el
 .projectile-bookmarks.eld
+.smex-items
 /elpa/
 /request/
 projectile.cache
-smex-items
 srecode-map.el
