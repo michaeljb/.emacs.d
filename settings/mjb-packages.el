@@ -24,13 +24,14 @@
   :bind (("C-c b" . bool-flip-do-flip)))
 
 (use-package counsel
+  :ensure ivy
   :ensure smex
-  :bind (("M-x" . counsel-M-x)
-         ("C-c C-c M-x" . execute-extended-command)
-	 ("C-x C-f" . counsel-find-file)
-	 ("C-c f" . counsel-git)
-	 ("C-c s g" . counsel-git-grep)
-	 ("C-c s s" . counsel-ag)))
+  :bind (("C-x C-f" . counsel-find-file)
+         ("C-c f" . counsel-git)
+         ("C-c s g" . counsel-git-grep)
+         ("C-c s s" . counsel-ag))
+  :config
+  (add-to-list 'ivy-initial-inputs-alist '(counsel-M-x . "")))
 
 (use-package csv-mode)
 
@@ -86,7 +87,10 @@
     ("q" nil)))
 
 (use-package ivy
-  :bind (("C-x b" . ivy-switch-buffer)))
+  :bind (("C-x b" . ivy-switch-buffer))
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t))
 
 (use-package ivy-hydra
   :ensure hydra
@@ -118,7 +122,8 @@
   (setq smex-save-file (concat user-emacs-directory ".smex-items")))
 
 (use-package swiper
-  :bind (("C-M-s" . swiper)))
+  :bind (("C-M-r" . swiper)
+	 ("C-M-s" . swiper)))
 
 (use-package wc-mode)
 
