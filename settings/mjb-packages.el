@@ -112,7 +112,7 @@
 
 (use-package rainbow-delimiters)
 
-;; used for sorting commands for  counsel-M-x
+;; used for sorting commands for counsel-M-x
 (use-package smex
   :config
   (setq smex-save-file (concat user-emacs-directory ".smex-items")))
