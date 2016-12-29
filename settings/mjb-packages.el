@@ -98,7 +98,8 @@
   :bind (("C-c g" . magit-status))
   :config
   (setq magit-refresh-status-buffer nil)
-  (setq magit-completing-read-function 'ivy-completing-read))
+  (setq magit-completing-read-function 'ivy-completing-read)
+  (setq vc-handled-backends (delq 'Git vc-handled-backends)))
 
 (use-package multiple-cursors
   :config
