@@ -7,9 +7,9 @@
 (package-initialize)
 
 ;; install use-package before we install the other packages
-(defvar mjb-package-list
-  '(use-package))
-(require 'mjb-package-init)
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 (eval-when-compile
   (require 'use-package))
@@ -24,8 +24,6 @@
   :bind (("C-c b" . bool-flip-do-flip)))
 
 (use-package counsel
-  :ensure ivy
-  :ensure smex
   :bind (("C-x C-f" . counsel-find-file)
          ("C-c f" . counsel-git)
          ("C-c s g" . counsel-git-grep)
@@ -92,9 +90,7 @@
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t))
 
-(use-package ivy-hydra
-  :ensure hydra
-  :ensure ivy)
+(use-package ivy-hydra)
 
 (use-package magit
   :ensure ivy
