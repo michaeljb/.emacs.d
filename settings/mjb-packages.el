@@ -88,7 +88,7 @@
 	 ("C-c j" . counsel-git-grep)
 	 ("C-c k" . counsel-ag)))
 (use-package swiper
-  :bind (("\C-s" . swiper)))
+  :bind (("C-M-s" . swiper)))
 
 (use-package ivy-hydra)
 
