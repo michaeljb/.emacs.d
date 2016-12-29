@@ -48,7 +48,7 @@
   :ensure expand-region
   :ensure multiple-cursors
   :ensure t
-  :bind (("C-c C" . hydra-mjb-mc/body))
+  :bind (("M-C" . hydra-mjb-mc/body))
   :config
   (defhydra hydra-mjb-mc (:hint nil)
 

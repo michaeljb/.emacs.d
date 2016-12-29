@@ -43,7 +43,7 @@
 
 (defvar mjb-prefix (make-keymap))
 (define-prefix-command 'mjb-prefix)
-(global-set-key (kbd "C-M-m") 'mjb-prefix)
+(global-set-key (kbd "C-c C") 'mjb-prefix)
 (defvar mjb-prefix-r (make-keymap))
 (define-prefix-command 'mjb-prefix-r)
 (define-key mjb-prefix "r" 'mjb-prefix-r)
