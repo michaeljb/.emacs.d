@@ -23,6 +23,15 @@
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
 
+(use-package counsel
+  :ensure smex
+  :bind (("M-x" . counsel-M-x)
+         ("C-c C-c M-x" . execute-extended-command)
+	 ("C-x C-f" . counsel-find-file)
+	 ("C-c f" . counsel-git)
+	 ("C-c j" . counsel-git-grep)
+	 ("C-c k" . counsel-ag)))
+
 (use-package csv-mode)
 
 (use-package dash)
@@ -76,20 +85,8 @@
 
     ("q" nil)))
 
-
 (use-package ivy
   :bind (("C-x b" . ivy-switch-buffer)))
-(use-package smex) ;; used for sorting commands for  counsel-M-x
-(use-package counsel
-  :ensure smex
-  :bind (("M-x" . counsel-M-x)
-         ("C-c C-c M-x" . execute-extended-command)
-	 ("C-x C-f" . counsel-find-file)
-	 ("C-c f" . counsel-git)
-	 ("C-c j" . counsel-git-grep)
-	 ("C-c k" . counsel-ag)))
-(use-package swiper
-  :bind (("C-M-s" . swiper)))
 
 (use-package ivy-hydra
   :ensure hydra
@@ -114,6 +111,12 @@
 	 ("M-s s" . phi-search)))
 
 (use-package rainbow-delimiters)
+
+;; used for sorting commands for  counsel-M-x
+(use-package smex)
+
+(use-package swiper
+  :bind (("C-M-s" . swiper)))
 
 (use-package wc-mode)
 
