@@ -34,3 +34,5 @@
 
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+(setq dired-dwim-target t)
