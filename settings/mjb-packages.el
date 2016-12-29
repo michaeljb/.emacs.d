@@ -24,7 +24,8 @@
   :bind (("C-c b" . bool-flip-do-flip)))
 
 (use-package counsel
-  :bind (("C-x C-f" . counsel-find-file)
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file)
          ("C-c f" . counsel-git)
          ("C-c s g" . counsel-git-grep)
          ("C-c s s" . counsel-ag))
