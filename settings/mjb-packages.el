@@ -81,6 +81,7 @@
   :bind (("C-x b" . ivy-switch-buffer)))
 (use-package smex) ;; used for sorting commands for  counsel-M-x
 (use-package counsel
+  :ensure smex
   :bind (("M-x" . counsel-M-x)
          ("C-c C-c M-x" . execute-extended-command)
 	 ("C-x C-f" . counsel-find-file)
@@ -90,7 +91,9 @@
 (use-package swiper
   :bind (("C-M-s" . swiper)))
 
-(use-package ivy-hydra)
+(use-package ivy-hydra
+  :ensure hydra
+  :ensure ivy)
 
 (use-package magit
   :ensure ivy
