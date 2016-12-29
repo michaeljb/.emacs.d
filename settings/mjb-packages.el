@@ -29,8 +29,8 @@
          ("C-c C-c M-x" . execute-extended-command)
 	 ("C-x C-f" . counsel-find-file)
 	 ("C-c f" . counsel-git)
-	 ("C-c j" . counsel-git-grep)
-	 ("C-c k" . counsel-ag)))
+	 ("C-c s g" . counsel-git-grep)
+	 ("C-c s s" . counsel-ag)))
 
 (use-package csv-mode)
 
