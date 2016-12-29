@@ -120,10 +120,6 @@
 
 (use-package wc-mode)
 
-(use-package wgrep)
-
-(use-package wgrep-ag)
-
 (use-package zenburn-theme
   :config
   (load-theme 'zenburn t))

@@ -83,7 +83,5 @@
 	revert-buffer
 	set-rectangular-region-anchor
 	undefined
-	wgrep-change-to-wgrep-mode
-	wgrep-finish-edit
 	xref-find-definitions
 	))

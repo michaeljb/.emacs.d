@@ -15,8 +15,7 @@
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
  '(package-selected-packages (quote (use-package)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
- '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(wgrep-auto-save-buffer t))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
