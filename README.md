@@ -52,5 +52,5 @@ apt-get install -y silversearcher-ag
 #### Elpy
 
 ```
-pip install rope jedi flake8 importmagic autopep8 yapf nose
+./install_deps_elpy.sh
 ```

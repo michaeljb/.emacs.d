@@ -158,13 +158,39 @@
 (use-package puppet-mode)
 
 ;; python
-(use-package elpy)
+(use-package python)
 
-(use-package nose)
+(use-package pyvenv
+  :init
+  (setenv "WORKON_HOME" "/Users/mbrandt/anaconda3/envs")
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  :config
+  (setq pyvenv-tracking-mode t))
+
+(use-package elpy
+  :config
+  (elpy-enable))
+
+(use-package flycheck
+  :config
+  (remove-hook 'elpy-modules 'elpy-module-flymake)
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+(use-package nose
+  :config
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (local-set-key "\C-c a" 'nosetests-all)
+              (local-set-key "\C-c m" 'nosetests-module)
+              (local-set-key "\C-c ." 'nosetests-one)
+              (local-set-key "\C-c p a" 'nosetests-pdb-all)
+              (local-set-key "\C-c p m" 'nosetests-pdb-module)
+              (local-set-key "\C-c p ." 'nosetests-pdb-one))))
 
 (use-package py-autopep8)
 
-(use-package pyvenv)
+(use-package auto-complete)
 
 ;; yaml
 (use-package yaml-mode)
