@@ -122,6 +122,8 @@
   :bind (("C-M-r" . swiper)
 	 ("C-M-s" . swiper)))
 
+(use-package wgrep)
+
 (use-package wc-mode)
 
 (use-package zenburn-theme
