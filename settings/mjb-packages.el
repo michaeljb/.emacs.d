@@ -181,12 +181,12 @@
   :config
   (add-hook 'python-mode-hook
             (lambda ()
-              (local-set-key "\C-c a" 'nosetests-all)
-              (local-set-key "\C-c m" 'nosetests-module)
-              (local-set-key "\C-c ." 'nosetests-one)
-              (local-set-key "\C-c p a" 'nosetests-pdb-all)
-              (local-set-key "\C-c p m" 'nosetests-pdb-module)
-              (local-set-key "\C-c p ." 'nosetests-pdb-one))))
+              (local-set-key "\C-ca" 'nosetests-all)
+              (local-set-key "\C-cm" 'nosetests-module)
+              (local-set-key "\C-c." 'nosetests-one)
+              (local-set-key "\C-cpa" 'nosetests-pdb-all)
+              (local-set-key "\C-cpm" 'nosetests-pdb-module)
+              (local-set-key "\C-cp." 'nosetests-pdb-one))))
 
 (use-package py-autopep8)
 
