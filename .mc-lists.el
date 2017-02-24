@@ -44,6 +44,7 @@
 	prog-indent-sexp
 	python-nav-forward-block
 	transpose-words
+	typescript-insert-and-indent
 	yaml-electric-backspace
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
