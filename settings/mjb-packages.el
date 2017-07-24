@@ -17,6 +17,8 @@
 
 (setq use-package-always-ensure t)
 
+(use-package ace-window
+  :bind (("C-x o" . ace-window)))
 
 (use-package ag)
 
