@@ -45,6 +45,7 @@
 	python-nav-forward-block
 	transpose-words
 	typescript-insert-and-indent
+	wgrep-finish-edit
 	yaml-electric-backspace
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
@@ -75,6 +76,7 @@
 	hydra-mjb-mc/nil
 	ibuffer-do-kill-on-deletion-marks
 	ido-switch-buffer
+	ivy-wgrep-change-to-wgrep-mode
 	kmacro-end-macro
 	linum-mode
 	magit-status
@@ -82,6 +84,7 @@
 	org-delete-char
 	repeat
 	revert-buffer
+	save-some-buffers
 	set-rectangular-region-anchor
 	undefined
 	xref-find-definitions
