@@ -18,6 +18,7 @@
 	dired-mark
 	dired-next-line
 	dired-previous-line
+	dired-toggle-read-only
 	ein:worksheet-split-cell-at-point
 	electric-newline-and-maybe-indent
 	end-of-defun
@@ -46,6 +47,7 @@
 	transpose-words
 	typescript-insert-and-indent
 	wgrep-finish-edit
+	xterm-paste
 	yaml-electric-backspace
 	yaml-electric-bar-and-angle
 	yaml-electric-dash-and-dot
