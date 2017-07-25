@@ -20,7 +20,8 @@
 (use-package ace-window
   :bind (("C-x o" . ace-window))
   :config
-  (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h)))
+  (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h))
+  (setq aw-scope 'frame))
 
 (use-package ag)
 
