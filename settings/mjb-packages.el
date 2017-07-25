@@ -18,7 +18,7 @@
 (setq use-package-always-ensure t)
 
 (use-package ace-window
-  :bind (("C-x o" . ace-window))
+  :bind (("M-o" . ace-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h))
   (setq aw-scope 'frame))
