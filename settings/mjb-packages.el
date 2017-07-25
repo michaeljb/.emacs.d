@@ -21,7 +21,8 @@
   :bind (("M-o" . ace-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h ?q ?w ?e ?r ?u ?i ?o ?p ?z ?x ?c ?v ?m ?t ?y ?b ?n))
-  (setq aw-scope 'frame))
+  (setq aw-scope 'frame)
+  (global-unset-key (kbd "C-x o")))
 
 (use-package ag)
 
