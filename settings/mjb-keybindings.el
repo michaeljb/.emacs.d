@@ -1,5 +1,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key (kbd "C-c l") 'linum-mode)
+
 ;; less accidental quitting
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-unset-key (kbd "C-x C-c"))
@@ -47,8 +49,6 @@
 (defvar mjb-prefix-r (make-keymap))
 (define-prefix-command 'mjb-prefix-r)
 (define-key mjb-prefix "r" 'mjb-prefix-r)
-
-(define-key mjb-prefix "l"	'linum-mode)
 
 (define-key mjb-prefix-r "r"	'replace-rectangle)
 (define-key mjb-prefix-r "x"	'query-replace-regexp)
