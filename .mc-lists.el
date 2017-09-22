@@ -44,6 +44,7 @@
 	org-self-insert-command
 	prog-indent-sexp
 	python-nav-forward-block
+	rjsx-delete-creates-full-tag
 	transpose-words
 	typescript-insert-and-indent
 	wgrep-finish-edit
