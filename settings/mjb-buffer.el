@@ -28,4 +28,6 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+(setq-default indent-tabs-mode nil)
+
 (provide 'mjb-buffer)

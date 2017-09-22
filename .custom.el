@@ -8,8 +8,6 @@
  '(fill-column 80)
  '(ido-case-fold t)
  '(js-indent-level 2)
- '(js2-basic-offset 2)
- '(js2-bounce-indent-p t)
  '(line-number-mode t)
  '(magit-fetch-arguments (quote ("--prune")))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")

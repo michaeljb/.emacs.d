@@ -146,8 +146,14 @@
 (use-package js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+  (setq js2-bounce-indent-p t)
+  (setq js2-basic-offset 2)
   (setq js2-mode-show-strict-warnings nil))
+
+;; jsx
+(use-package rjsx-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode)))
 
 ;; json
 (use-package json-mode
