@@ -28,6 +28,7 @@
 	fortran-split-line
 	forward-five-chars
 	forward-five-lines
+	forward-sentence
 	forward-sexp
 	hydra--digit-argument
 	hydra--universal-argument
@@ -43,6 +44,7 @@
 	markdown-exdent-or-delete
 	org-self-insert-command
 	prog-indent-sexp
+	python-indent-shift-right
 	python-nav-forward-block
 	rjsx-delete-creates-full-tag
 	transpose-words
@@ -84,6 +86,7 @@
 	linum-mode
 	magit-status
 	mark-whole-buffer
+	markdown-outdent-or-delete
 	org-delete-char
 	repeat
 	revert-buffer
