@@ -9,6 +9,7 @@
  '(ido-case-fold t)
  '(js-indent-level 2)
  '(line-number-mode t)
+ '(magit-diff-refine-hunk (quote all))
  '(magit-fetch-arguments (quote ("--prune")))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
  '(safe-local-variable-values (quote ((encoding . utf-8))))
