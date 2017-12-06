@@ -21,6 +21,7 @@
 	dired-toggle-read-only
 	ein:worksheet-split-cell-at-point
 	electric-newline-and-maybe-indent
+	end-of-buffer
 	end-of-defun
 	eval-expression
 	eval-print-last-sexp
@@ -80,7 +81,9 @@
 	hydra-mjb-mc/mc/unmark-previous-like-this
 	hydra-mjb-mc/nil
 	ibuffer-do-kill-on-deletion-marks
+	ibuffer-mark-for-delete-backwards
 	ido-switch-buffer
+	ivy-occur-revert-buffer
 	ivy-wgrep-change-to-wgrep-mode
 	kmacro-end-macro
 	linum-mode
