@@ -210,6 +210,9 @@
 
 (use-package auto-complete)
 
+;; typescript
+(use-package tide)
+
 ;; yaml
 (use-package yaml-mode)
 
