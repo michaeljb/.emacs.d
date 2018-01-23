@@ -24,8 +24,13 @@
   (setq aw-scope 'frame)
   (global-unset-key (kbd "C-x o")))
 
-(use-package ag)
-(use-package winnow)
+(use-package winnow
+  :config
+  (add-hook 'compilation-mode-hook 'winnow-mode))
+(use-package ag
+  :ensure winnow
+  :config
+  (add-hook 'ag-mode-hook 'winnow-mode))
 
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
