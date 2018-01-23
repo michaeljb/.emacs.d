@@ -25,6 +25,7 @@
   (global-unset-key (kbd "C-x o")))
 
 (use-package ag)
+(use-package winnow)
 
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
