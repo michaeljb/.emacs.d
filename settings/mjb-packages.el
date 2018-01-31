@@ -18,7 +18,8 @@
 (setq use-package-always-ensure t)
 
 (use-package ace-window
-  :bind (("M-o" . ace-window))
+  :bind (("M-o" . ace-window)
+         ("M-O" . aw-flip-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h ?q ?w ?e ?r ?u ?i ?o ?p ?z ?x ?c ?v ?m ?t ?y ?b))
   (setq aw-scope 'frame)
