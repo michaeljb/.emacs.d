@@ -58,6 +58,8 @@
 (use-package hide-comnt
   :bind (("C-x /" . hide/show-comments-toggle)))
 
+(use-package git-timemachine)
+
 (use-package hydra
   :ensure expand-region
   :ensure multiple-cursors
