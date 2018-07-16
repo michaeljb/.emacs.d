@@ -66,7 +66,7 @@
   :ensure t
   :bind (("M-C" . hydra-mjb-mc/body))
   :config
-  (defhydra hydra-mjb-mc (:hint nil)
+  (defhydra hydra-mjb-mc (:hint "")
 
     ("C" mc/edit-lines :exit t)
     ("R" set-rectangular-region-anchor)
