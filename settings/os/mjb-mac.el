@@ -9,6 +9,7 @@
       ((equal nil window-system) (require 'mjb-mac-terminal)))
 
 (setq dired-use-ls-dired nil)
+(setq dired-listing-switches "-hal")
 
 (defun mjb-env/install-ag ()
   (when (not (eq 0 (shell-command "which ag")))
