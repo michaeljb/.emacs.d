@@ -182,6 +182,9 @@
 ;; markdown
 (use-package markdown-mode)
 
+;; php
+(use-package php-mode)
+
 ;; puppet
 (use-package puppet-mode)
 
