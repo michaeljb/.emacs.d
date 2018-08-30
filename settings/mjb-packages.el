@@ -179,6 +179,9 @@
 
 (use-package json-snatcher)
 
+;; less
+(use-package less-css-mode)
+
 ;; markdown
 (use-package markdown-mode)
 
