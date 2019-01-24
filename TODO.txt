@@ -1,0 +1,2 @@
+* .pyi (mypy stubs) files should use python-mode
+* get flake8 / mypy running in Python files; consider autopep8 (want it to honor .flake8 config)
