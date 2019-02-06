@@ -213,6 +213,7 @@
 
 (use-package nose
   :config
+  (add-to-list 'auto-mode-alist '("\\.pyi\\'" . python-mode))
   (add-hook 'python-mode-hook
             (lambda ()
               (local-set-key "\C-ca" 'nosetests-all)
