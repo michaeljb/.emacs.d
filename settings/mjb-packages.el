@@ -55,9 +55,6 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
-(use-package hide-comnt
-  :bind (("C-x /" . hide/show-comments-toggle)))
-
 (use-package git-timemachine)
 
 (use-package hydra
