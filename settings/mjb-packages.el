@@ -192,7 +192,9 @@
 (use-package puppet-mode)
 
 ;; python
-(use-package python)
+(use-package python
+  :config
+  (setq python-indent-guess-indent-offset nil))
 
 (use-package pyvenv
   :init
