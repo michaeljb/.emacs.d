@@ -197,38 +197,6 @@
   (add-to-list 'auto-mode-alist '("\\.pyi\\'" . python-mode))
   (setq python-indent-guess-indent-offset nil))
 
-(use-package pyvenv
-  :init
-  (setenv "WORKON_HOME" "/Users/mbrandt/anaconda3/envs")
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1)
-  :config
-  (setq pyvenv-tracking-mode t))
-
-(use-package elpy
-  :config
-  (elpy-enable))
-
-(use-package flycheck
-  :config
-  (remove-hook 'elpy-modules 'elpy-module-flymake)
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-(use-package nose
-  :config
-  (add-hook 'python-mode-hook
-            (lambda ()
-              (local-set-key "\C-ca" 'nosetests-all)
-              (local-set-key "\C-cm" 'nosetests-module)
-              (local-set-key "\C-c." 'nosetests-one)
-              (local-set-key "\C-cpa" 'nosetests-pdb-all)
-              (local-set-key "\C-cpm" 'nosetests-pdb-module)
-              (local-set-key "\C-cp." 'nosetests-pdb-one))))
-
-(use-package py-autopep8)
-
-(use-package auto-complete)
-
 ;; typescript
 (use-package tide)
 
