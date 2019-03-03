@@ -12,7 +12,6 @@
 (defvar dev-hook nil
   "Hook that gets run on activation of any programming mode.")
 (add-hook 'dev-hook 'local-comment-auto-fill)
-(add-hook 'dev-hook 'company-mode)
 (add-hook 'dev-hook 'show-rainbow-delimiters)
 
 (defun run-dev-hook ()
