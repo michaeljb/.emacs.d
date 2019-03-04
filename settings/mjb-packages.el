@@ -26,13 +26,9 @@
   (setq aw-scope 'frame)
   (global-unset-key (kbd "C-x o")))
 
-(use-package winnow
-  :config
-  (add-hook 'compilation-mode-hook 'winnow-mode))
-(use-package ag
-  :ensure winnow
-  :config
-  (add-hook 'ag-mode-hook 'winnow-mode))
+(use-package winnow)
+
+(use-package ag)
 
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
@@ -55,8 +51,7 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
-(use-package hide-comnt
-  :bind (("C-x /" . hide/show-comments-toggle)))
+(use-package flycheck)
 
 (use-package git-timemachine)
 
@@ -192,40 +187,56 @@
 (use-package puppet-mode)
 
 ;; python
-(use-package python)
-
-(use-package pyvenv
-  :init
-  (setenv "WORKON_HOME" "/Users/mbrandt/anaconda3/envs")
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1)
-  :config
-  (setq pyvenv-tracking-mode t))
-
-(use-package elpy
-  :config
-  (elpy-enable))
-
-(use-package flycheck
-  :config
-  (remove-hook 'elpy-modules 'elpy-module-flymake)
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-(use-package nose
+(use-package python
   :config
   (add-to-list 'auto-mode-alist '("\\.pyi\\'" . python-mode))
-  (add-hook 'python-mode-hook
-            (lambda ()
-              (local-set-key "\C-ca" 'nosetests-all)
-              (local-set-key "\C-cm" 'nosetests-module)
-              (local-set-key "\C-c." 'nosetests-one)
-              (local-set-key "\C-cpa" 'nosetests-pdb-all)
-              (local-set-key "\C-cpm" 'nosetests-pdb-module)
-              (local-set-key "\C-cp." 'nosetests-pdb-one))))
+  (setq python-indent-guess-indent-offset nil))
 
-(use-package py-autopep8)
+(defvar mjb-python-before-save-hooks nil
+  "List of stuff to run when saving python files.")
+(defun mjb-run-python-before-save-hooks ()
+  "Run stuff when saving python files."
+  (when (eq major-mode 'python-mode)
+    (run-hooks 'mjb-python-before-save-hooks)))
+(add-hook 'before-save-hook 'mjb-run-python-before-save-hooks t)
 
-(use-package auto-complete)
+;; requires `pip install isort`
+(use-package py-isort
+  :config
+  (add-hook 'mjb-python-before-save-hooks 'py-isort-before-save))
+
+;; elpy with pipenv; have WORKON_HOME set to pipenv venv dir
+;; (`export WORKON_HOME=$HOME/.local/share/virtualenvs`), then
+;; `M-x pyvenv-workon` will let you select the appropriate env
+;;
+;; TODO: global venv?  project-specific envs?
+
+;; requires `pip install black flake8 jedi`
+;; optional pip packages: autopep8 pep8 rope yapf
+(use-package elpy
+  :ensure flycheck
+  :bind (("C-c n" . flycheck-next-error)
+         ("C-c p" . flycheck-previous-error))
+  :config
+  (elpy-enable)
+  (remove-hook 'elpy-modules 'elpy-module-flymake)
+  (add-hook 'elpy-mode-hook 'flycheck-mode)
+  (add-hook 'mjb-python-before-save-hooks 'elpy-black-fix-code t)
+
+  (flycheck-add-next-checker 'python-flake8 'python-pylint t)
+
+  ;; check with mypy
+  ;; requires `pip install mypy`
+  ;; assumes mypy.ini exists with desired config
+  (flycheck-define-checker
+      python-mypy ""
+      :command ("mypy" "--show-column-numbers"
+                source-original)
+      :error-patterns
+      ((error line-start (file-name) ":" line ":" column ": error:" (message) line-end))
+      :modes python-mode)
+  (add-to-list 'flycheck-checkers 'python-mypy t)
+  (flycheck-add-next-checker 'python-pylint 'python-mypy t))
 
 ;; typescript
 (use-package tide)
