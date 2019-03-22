@@ -51,7 +51,9 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
-(use-package flycheck)
+(use-package flycheck
+  :config
+  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
 
 (use-package git-timemachine)
 
@@ -186,21 +188,44 @@
 ;; puppet
 (use-package puppet-mode)
 
-;; python
+;;;;;;;;;;;;
+;; PYTHON ;;
+;;;;;;;;;;;;
+
 (use-package python
   :config
   (add-to-list 'auto-mode-alist '("\\.pyi\\'" . python-mode))
   (setq python-indent-guess-indent-offset nil))
 
+;; ideal on-save behavior...
+;;
+;; 1) pyimport - remove unused imports
+;; 2) isort - sort+format imports
+;; 3) auto-format (black/autopep8/yapf) - automatically deal with some linting
+;; 4) write file
+;; 5) run flycheck (flake8/pylint/mypy)
+
 (defvar mjb-python-before-save-hooks nil
-  "List of stuff to run when saving python files.")
+  "List of stuff to run before saving python files.")
 (defun mjb-run-python-before-save-hooks ()
-  "Run stuff when saving python files."
   (when (eq major-mode 'python-mode)
     (run-hooks 'mjb-python-before-save-hooks)))
 (add-hook 'before-save-hook 'mjb-run-python-before-save-hooks t)
 
-;; requires `pip install isort`
+(defvar mjb-python-after-save-hooks nil
+  "List of stuff to run after saving python files.")
+(defun mjb-run-python-after-save-hooks ()
+  (when (eq major-mode 'python-mode)
+    (run-hooks 'mjb-python-after-save-hooks)))
+(add-hook 'after-save-hook 'mjb-run-python-after-save-hooks t)
+
+;; requires python packages: pyflakes
+(use-package pyimport
+  :config
+  (add-hook 'mjb-python-before-save-hooks 'pyimport-remove-unused)
+  (setq pyimport-pyflakes-path "~/.pyenv/shims/pyflakes"))
+
+;; requires python packages: isort
 (use-package py-isort
   :config
   (add-hook 'mjb-python-before-save-hooks 'py-isort-before-save))
@@ -211,8 +236,8 @@
 ;;
 ;; TODO: global venv?  project-specific envs?
 
-;; requires `pip install black flake8 jedi`
-;; optional pip packages: autopep8 pep8 rope yapf
+;; requires python packages: black flake8 jedi
+;; optional python packages: autopep8 pep8 rope yapf
 (use-package elpy
   :ensure flycheck
   :bind (("C-c n" . flycheck-next-error)
@@ -225,9 +250,9 @@
 
   (flycheck-add-next-checker 'python-flake8 'python-pylint t)
 
-  ;; check with mypy
-  ;; requires `pip install mypy`
-  ;; assumes mypy.ini exists with desired config
+  check with mypy
+  requires python packages: mypy
+  assumes mypy.ini exists with desired config
   (flycheck-define-checker
       python-mypy ""
       :command ("mypy" "--show-column-numbers"
