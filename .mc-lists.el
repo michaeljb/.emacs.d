@@ -53,6 +53,7 @@
         python-nav-forward-block
         python-nav-forward-block
         rjsx-delete-creates-full-tag
+        sh-assignment
         transpose-words
         transpose-words
         typescript-insert-and-autoconvert-to-template
