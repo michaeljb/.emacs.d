@@ -35,3 +35,4 @@
 (org-clock-persistence-insinuate)
 
 (setq dired-dwim-target t)
+(put 'narrow-to-region 'disabled nil)
