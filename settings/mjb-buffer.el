@@ -30,4 +30,6 @@
 
 (setq-default indent-tabs-mode nil)
 
+(global-so-long-mode 1)
+
 (provide 'mjb-buffer)
