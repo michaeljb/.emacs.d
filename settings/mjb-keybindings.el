@@ -39,6 +39,11 @@
 (global-set-key (kbd "M-B") 'backward-five-chars)
 
 
+(defun delete-other-windows-y-n ()
+  (interactive)
+  (if (y-or-n-p "Delete all other windows?") (delete-other-windows)))
+(global-set-key (kbd "C-x 1") 'delete-other-windows-y-n)
+
 ;; --------------------------------------------------
 ;; Key Bindings with my own prefix
 ;; --------------------------------------------------
