@@ -13,6 +13,7 @@
         bool-flip-do-flip
         comint-delchar-or-maybe-eof
         comment-region
+        counsel-M-x
         delete-horizontal-space
         dired-flag-file-deletion
         dired-mark
@@ -69,6 +70,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        counsel-git-grep
         dired-do-copy
         ein:worksheet-execute-cell-and-goto-next
         hydra-mjb-mc/body
@@ -106,5 +108,6 @@
         save-some-buffers
         set-rectangular-region-anchor
         undefined
+        wdired-finish-edit
         xref-find-definitions
         ))
