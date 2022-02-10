@@ -46,6 +46,10 @@
       (delete-other-windows)))
 (global-set-key (kbd "C-x 1") 'delete-other-windows-y-n)
 
+
+(global-set-key (kbd "M-RET") 'browse-url-at-point)
+
+
 ;; --------------------------------------------------
 ;; Key Bindings with my own prefix
 ;; --------------------------------------------------
