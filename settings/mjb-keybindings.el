@@ -39,6 +39,9 @@
 (global-set-key (kbd "M-B") 'backward-five-chars)
 
 
+(global-set-key (kbd "M-g f") 'avy-goto-line)
+(global-set-key (kbd "M-g M-f") 'avy-goto-line)
+
 (defun delete-other-windows-y-n ()
   (interactive)
   (if (or (< (count-windows) 4)

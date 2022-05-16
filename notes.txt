@@ -1,0 +1,1 @@
+iedit-mode (mentioned in treemacs video as alternative for mulitple cursors)

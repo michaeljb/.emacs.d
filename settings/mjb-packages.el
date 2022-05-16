@@ -192,51 +192,54 @@
   (add-to-list 'auto-mode-alist '("\\.pyi\\'" . python-mode))
   (setq python-indent-guess-indent-offset nil))
 
-(defvar mjb-python-before-save-hooks nil
-  "List of stuff to run when saving python files.")
-(defun mjb-run-python-before-save-hooks ()
-  "Run stuff when saving python files."
-  (when (eq major-mode 'python-mode)
-    (run-hooks 'mjb-python-before-save-hooks)))
-(add-hook 'before-save-hook 'mjb-run-python-before-save-hooks t)
 
-;; requires `pip install isort`
-(use-package py-isort
-  :config
-  (add-hook 'mjb-python-before-save-hooks 'py-isort-before-save))
 
-;; elpy with pipenv; have WORKON_HOME set to pipenv venv dir
-;; (`export WORKON_HOME=$HOME/.local/share/virtualenvs`), then
-;; `M-x pyvenv-workon` will let you select the appropriate env
-;;
-;; TODO: global venv?  project-specific envs?
 
-;; requires `pip install black flake8 jedi`
-;; optional pip packages: autopep8 pep8 rope yapf
-(use-package elpy
-  :ensure flycheck
-  :bind (("C-c n" . flycheck-next-error)
-         ("C-c p" . flycheck-previous-error))
-  :config
-  (elpy-enable)
-  (remove-hook 'elpy-modules 'elpy-module-flymake)
-  (add-hook 'elpy-mode-hook 'flycheck-mode)
-  (add-hook 'mjb-python-before-save-hooks 'elpy-black-fix-code t)
+;; (defvar mjb-python-before-save-hooks nil
+;;   "List of stuff to run when saving python files.")
+;; (defun mjb-run-python-before-save-hooks ()
+;;   "Run stuff when saving python files."
+;;   (when (eq major-mode 'python-mode)
+;;     (run-hooks 'mjb-python-before-save-hooks)))
+;; (add-hook 'before-save-hook 'mjb-run-python-before-save-hooks t)
 
-  (flycheck-add-next-checker 'python-flake8 'python-pylint t)
+;; ;; requires `pip install isort`
+;; (use-package py-isort
+;;   :config
+;;   (add-hook 'mjb-python-before-save-hooks 'py-isort-before-save))
 
-  ;; check with mypy
-  ;; requires `pip install mypy`
-  ;; assumes mypy.ini exists with desired config
-  (flycheck-define-checker
-      python-mypy ""
-      :command ("mypy" "--show-column-numbers"
-                source-original)
-      :error-patterns
-      ((error line-start (file-name) ":" line ":" column ": error:" (message) line-end))
-      :modes python-mode)
-  (add-to-list 'flycheck-checkers 'python-mypy t)
-  (flycheck-add-next-checker 'python-pylint 'python-mypy t))
+;; ;; elpy with pipenv; have WORKON_HOME set to pipenv venv dir
+;; ;; (`export WORKON_HOME=$HOME/.local/share/virtualenvs`), then
+;; ;; `M-x pyvenv-workon` will let you select the appropriate env
+;; ;;
+;; ;; TODO: global venv?  project-specific envs?
+
+;; ;; requires `pip install black flake8 jedi`
+;; ;; optional pip packages: autopep8 pep8 rope yapf
+;; (use-package elpy
+;;   :ensure flycheck
+;;   :bind (("C-c n" . flycheck-next-error)
+;;          ("C-c p" . flycheck-previous-error))
+;;   :config
+;;   (elpy-enable)
+;;   (remove-hook 'elpy-modules 'elpy-module-flymake)
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode)
+;;   (add-hook 'mjb-python-before-save-hooks 'elpy-black-fix-code t)
+
+;;   (flycheck-add-next-checker 'python-flake8 'python-pylint t)
+
+;;   ;; check with mypy
+;;   ;; requires `pip install mypy`
+;;   ;; assumes mypy.ini exists with desired config
+;;   (flycheck-define-checker
+;;       python-mypy ""
+;;       :command ("mypy" "--show-column-numbers"
+;;                 source-original)
+;;       :error-patterns
+;;       ((error line-start (file-name) ":" line ":" column ": error:" (message) line-end))
+;;       :modes python-mode)
+;;   (add-to-list 'flycheck-checkers 'python-mypy t)
+;;   (flycheck-add-next-checker 'python-pylint 'python-mypy t))
 
 ;; typescript
 (use-package tide)

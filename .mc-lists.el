@@ -11,10 +11,13 @@
         beginning-of-buffer
         beginning-of-defun
         bool-flip-do-flip
+        c-electric-delete-forward
+        c-electric-semi&comma
         comint-delchar-or-maybe-eof
         comment-region
         counsel-M-x
         delete-horizontal-space
+        dired-do-flagged-delete
         dired-flag-file-deletion
         dired-mark
         dired-next-line
@@ -32,6 +35,7 @@
         forward-five-lines
         forward-sentence
         forward-sexp
+        goto-line
         hydra--digit-argument
         hydra--universal-argument
         hydra-mjb-mc/er/expand-region
@@ -40,12 +44,16 @@
         indent-for-tab-command
         indent-new-comment-line
         insert-register
+        ivy-occur-delete-candidate
         js2-indent-bounce
         kill-region
         kill-sentence
         mark-paragraph
+        markdown-enter-key
         markdown-exdent-or-delete
+        nxml-electric-slash
         org-self-insert-command
+        phi-search
         prog-indent-sexp
         puppet-interpolate
         python-indent-shift-left
@@ -60,6 +68,8 @@
         typescript-insert-and-autoconvert-to-template
         typescript-insert-and-indent
         typescript-insert-and-indent
+        wdired-capitalize-word
+        wdired-next-line
         wgrep-finish-edit
         xterm-paste
         yaml-electric-backspace
@@ -70,7 +80,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+        ace-window
         counsel-git-grep
+        delete-other-windows-y-n
         dired-do-copy
         ein:worksheet-execute-cell-and-goto-next
         hydra-mjb-mc/body
@@ -102,6 +114,8 @@
         make-frame-command
         mark-whole-buffer
         markdown-outdent-or-delete
+        mouse-set-region
+        nxml-mark-paragraph
         org-delete-char
         repeat
         revert-buffer

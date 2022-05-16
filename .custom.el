@@ -9,11 +9,14 @@
  '(ido-case-fold t)
  '(js-indent-level 2)
  '(line-number-mode t)
+ '(magit-commit-arguments nil)
  '(magit-diff-refine-hunk 'all)
  '(magit-fetch-arguments '("--prune"))
  '(magit-status-sections-hook
    '(magit-insert-status-headers magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-untracked-files magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-stashes magit-insert-unpulled-from-upstream magit-insert-unpulled-from-pushremote magit-insert-unpushed-to-pushremote magit-insert-unpushed-to-upstream))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
+ '(package-selected-packages
+   '(git-link company-lsp dap-mode lsp-mode lsp-ui terraform-mode py-isort zenburn-theme yaml-mode winnow which-key wgrep web-mode wc-mode use-package treemacs tide smex rjsx-mode rainbow-delimiters py-autopep8 puppet-mode php-mode phi-search nose multiple-cursors markdown-mode magit less-css-mode json-mode jade-mode ivy-hydra hide-comnt git-timemachine feature-mode expand-region elpy elm-mode ein dockerfile-mode diminish csv-mode counsel bool-flip ag))
  '(safe-local-variable-values '((encoding . utf-8)))
  '(typescript-indent-level 2)
  '(uniquify-buffer-name-style 'forward nil (uniquify))
