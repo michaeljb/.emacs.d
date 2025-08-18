@@ -3,6 +3,8 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
+(setq create-lockfiles nil)
+
 ;; backup files even when they're in version control
 (setq vc-make-backup-files t)
 

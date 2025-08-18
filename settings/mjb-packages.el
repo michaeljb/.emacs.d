@@ -20,7 +20,7 @@
 (use-package ace-window
   :bind (("M-o" . ace-window)
          ("C-x o" . ace-window)
-         ("M-O" . aw-flip-window))
+         ("C-M-O" . aw-flip-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l ?g ?h ?q ?w ?e ?r ?u ?i ?o ?p ?z ?x ?c ?v ?m ?t ?y ?b ?n))
   (setq aw-scope 'frame)
@@ -113,6 +113,7 @@
   (setq magit-completing-read-function 'ivy-completing-read)
   (setq vc-handled-backends (delq 'Git vc-handled-backends)))
 
+
 (use-package multiple-cursors
   :config
   (require 'mc-cycle-cursors))
@@ -131,7 +132,9 @@
 
 (use-package swiper
   :bind (("C-M-r" . swiper)
-	 ("C-M-s" . swiper)))
+	 ("C-M-s" . swiper))
+  :config
+  (setq swiper-include-line-number-in-search nil))
 
 (use-package wgrep)
 

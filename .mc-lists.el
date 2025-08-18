@@ -32,6 +32,7 @@
         forward-five-lines
         forward-sentence
         forward-sexp
+        git-rebase-reword
         hydra--digit-argument
         hydra--universal-argument
         hydra-mjb-mc/er/expand-region
@@ -44,6 +45,7 @@
         kill-region
         kill-sentence
         mark-paragraph
+        markdown-enter-key
         markdown-exdent-or-delete
         org-self-insert-command
         prog-indent-sexp
@@ -54,12 +56,15 @@
         python-nav-forward-block
         python-nav-forward-block
         rjsx-delete-creates-full-tag
+        sgml-slash
         sh-assignment
         transpose-words
         transpose-words
         typescript-insert-and-autoconvert-to-template
         typescript-insert-and-indent
         typescript-insert-and-indent
+        wdired--self-insert
+        wdired-capitalize-word
         wgrep-finish-edit
         xterm-paste
         yaml-electric-backspace
@@ -95,13 +100,16 @@
         ibuffer-mark-for-delete-backwards
         ido-switch-buffer
         ivy-occur-revert-buffer
+        ivy-switch-buffer
         ivy-wgrep-change-to-wgrep-mode
+        kmacro-end-and-call-macro
         kmacro-end-macro
         linum-mode
         magit-status
         make-frame-command
         mark-whole-buffer
         markdown-outdent-or-delete
+        mouse-drag-vertical-line
         org-delete-char
         repeat
         revert-buffer

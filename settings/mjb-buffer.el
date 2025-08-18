@@ -32,4 +32,8 @@
 
 (global-so-long-mode 1)
 
+
+;; no blinking
+(setq visible-cursor nil)
+
 (provide 'mjb-buffer)

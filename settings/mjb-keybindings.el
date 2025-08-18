@@ -2,9 +2,10 @@
 
 (global-set-key (kbd "C-c l") 'linum-mode)
 
-;; less accidental quitting
+;; less accidental quitting / minimizing
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-unset-key (kbd "C-x C-c"))
+(global-unset-key (kbd "C-z"))
 
 ;; define keyboard macros faster
 (global-set-key (kbd "M-9") 'kmacro-start-macro)

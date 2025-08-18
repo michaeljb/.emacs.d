@@ -12,10 +12,14 @@
 (add-to-list 'load-path dev-dir)
 (add-to-list 'load-path os-dir)
 
+;; hide some visual stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-screen t)
+
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles "/home/linuxbrew/.linuxbrew/etc/ca-certificates/cert.pem")
 
 (require 'mjb-packages)
 
