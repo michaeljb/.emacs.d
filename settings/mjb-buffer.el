@@ -35,5 +35,6 @@
 
 ;; no blinking
 (setq visible-cursor nil)
+(setq blink-cursor-mode nil)
 
 (provide 'mjb-buffer)
