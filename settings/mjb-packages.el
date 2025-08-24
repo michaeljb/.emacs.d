@@ -138,6 +138,16 @@
   :config
   (setq swiper-include-line-number-in-search nil))
 
+(use-package vterm
+  :init
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (set (make-local-variable 'show-trailing-whitespace) nil)
+              (setq-local global-hl-line-mode nil)))
+  :config
+  (unbind-key "C-M-o" vterm-mode-map))
+(use-package multi-vterm)
+
 (use-package wgrep)
 
 (use-package which-key
