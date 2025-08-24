@@ -26,8 +26,6 @@
   (setq aw-scope 'frame)
   (global-unset-key (kbd "C-x o")))
 
-(use-package winnow)
-
 (use-package ag)
 
 (use-package bool-flip
@@ -253,6 +251,8 @@
                 (setup-tide-mode))))
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode))
+
+(use-package winnow)
 
 ;; yaml
 (use-package yaml-mode)
