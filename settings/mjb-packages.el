@@ -31,6 +31,10 @@
 (use-package bool-flip
   :bind (("C-c b" . bool-flip-do-flip)))
 
+(use-package browse-url
+  :bind (("A-<mouse-1>" . browse-url-at-mouse)
+         ("M-RET" . browse-url-at-point)))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
 	 ("C-x C-f" . counsel-find-file)
