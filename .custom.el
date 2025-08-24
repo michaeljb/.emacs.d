@@ -31,7 +31,13 @@
                                  magit-insert-unpushed-to-upstream))
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
  '(package-selected-packages
-   '(magit-gh-pulls yaml-mode web-mode tide py-isort puppet-mode php-mode markdown-mode json-reformat json-mode rjsx-mode js2-mode feature-mode dockerfile-mode zenburn-theme wc-mode which-key wgrep smex rainbow-delimiters phi-search magit ivy-hydra hydra multiple-cursors git-timemachine flycheck expand-region ein csv-mode counsel bool-flip ag winnow ace-window use-package))
+   '(ace-window ag bool-flip counsel csv-mode dockerfile-mode ein expand-region
+                feature-mode flycheck git-timemachine hydra ivy-hydra js2-mode
+                json-mode json-reformat magit magit-gh-pulls markdown-mode
+                multi-vterm multiple-cursors phi-search php-mode puppet-mode
+                py-isort rainbow-delimiters rjsx-mode smex tide use-package
+                vterm wc-mode web-mode wgrep which-key winnow yaml-mode
+                zenburn-theme))
  '(safe-local-variable-values '((whitespace-line-column 100) (encoding . utf-8)))
  '(typescript-indent-level 2)
  '(uniquify-buffer-name-style 'forward nil (uniquify))
