@@ -160,7 +160,9 @@
               (setq-local global-hl-line-mode nil)))
   :config
   (unbind-key "C-M-o" vterm-mode-map))
-(use-package multi-vterm)
+(use-package multi-vterm
+  :bind (("C-c C-t" . multi-vterm-prev)))
+;; RET to exit vterm-copy-mode
 
 (use-package wgrep)
 
