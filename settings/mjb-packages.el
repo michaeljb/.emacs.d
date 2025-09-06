@@ -63,8 +63,8 @@
 (use-package git-timemachine)
 
 (use-package hydra
-  :ensure expand-region
-  :ensure multiple-cursors
+  :after expand-region
+  :after multiple-cursors
   :ensure t
   :bind (("M-C" . hydra-mjb-mc/body))
   :config
@@ -112,7 +112,7 @@
 (use-package ivy-hydra)
 
 (use-package magit
-  :ensure ivy
+  :after ivy
   :ensure t
   :bind (("C-c g" . magit-status))
   :config
@@ -234,7 +234,7 @@
 ;; requires `pip install black flake8 jedi`
 ;; optional pip packages: autopep8 pep8 rope yapf
 (use-package elpy
-  :ensure flycheck
+  :after flycheck
   :bind (("C-c n" . flycheck-next-error)
          ("C-c p" . flycheck-previous-error))
   :config
