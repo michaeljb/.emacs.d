@@ -25,6 +25,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq-default show-trailing-whitespace t)
+(add-hook 'help-mode-hook
+            (lambda ()
+              (set (make-local-variable 'show-trailing-whitespace) nil)))
 
 (put 'narrow-to-region 'disabled nil)
 
