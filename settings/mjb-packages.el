@@ -55,6 +55,11 @@
 
 (use-package flycheck)
 
+(use-package forge
+  :after magit
+  :init
+  (setq auth-sources '("~/.authinfo")))
+
 (use-package git-timemachine)
 
 (use-package hydra
