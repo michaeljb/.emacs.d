@@ -1,8 +1,6 @@
 ;; (package-initialize) ;; added aggressively by package.el, commented here and
                         ;; handled in mjb-packages.el
 
-(setq initial-buffer-choice user-emacs-directory)
-
 (setq custom-file (locate-user-emacs-file ".custom.el"))
 (load custom-file t t)
 

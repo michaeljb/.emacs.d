@@ -114,7 +114,17 @@
 (use-package magit
   :after ivy
   :ensure t
-  :bind (("C-c g" . magit-status))
+  :init
+  (add-hook 'emacs-startup-hook
+            (lambda ()
+              (magit-status "~/code/18xx")
+              (magit-status user-emacs-directory)))
+  :bind (("C-c g" . magit-status)
+         :map magit-hunk-section-map
+         ("C-RET" . magit-diff-visit-file)
+         ("C-<return>" . magit-diff-visit-file)
+         ("<return>" . magit-diff-visit-worktree-file)
+         ("RET" . magit-diff-visit-worktree-file))
   :config
   (setq magit-refresh-status-buffer nil)
   (setq magit-completing-read-function 'ivy-completing-read)
