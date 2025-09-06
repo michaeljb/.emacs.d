@@ -32,12 +32,12 @@
  '(org-clock-persist-file "~/.emacs.d/.org-clock-save.el")
  '(package-selected-packages
    '(ace-window ag bool-flip counsel csv-mode dockerfile-mode ein expand-region
-                feature-mode flycheck git-timemachine hydra ivy-hydra js2-mode
-                json-mode json-reformat magit magit-gh-pulls markdown-mode
-                multi-vterm multiple-cursors phi-search php-mode puppet-mode
-                py-isort rainbow-delimiters rjsx-mode smex tide use-package
-                vterm wc-mode web-mode wgrep which-key winnow yaml-mode
-                zenburn-theme))
+                feature-mode flycheck forge git-timemachine hydra ivy-hydra
+                js2-mode json-mode json-reformat magit magit-gh-pulls
+                markdown-mode multi-vterm multiple-cursors phi-search php-mode
+                puppet-mode py-isort rainbow-delimiters rjsx-mode smex tide
+                use-package vterm wc-mode web-mode wgrep which-key winnow
+                yaml-mode zenburn-theme))
  '(safe-local-variable-values '((whitespace-line-column 100) (encoding . utf-8)))
  '(typescript-indent-level 2)
  '(uniquify-buffer-name-style 'forward nil (uniquify))
